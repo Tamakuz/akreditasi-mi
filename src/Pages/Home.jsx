@@ -34,8 +34,6 @@ const misi = [
   },
 ];
 
-//! Jika menggunakan function yang statementnya lebih dari satu sebaiknya menggunakan function declaration
-
 const Home = () => {
   const { dispatch } = useContext(GlobalState);
 
