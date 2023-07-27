@@ -6,7 +6,10 @@ const InfoemasiMahasiswa = () => {
   const {dispatch} = useContext(GlobalState)
   
   useEffect(() => {
-    dispatch({type: "UPDATE_PAGE", payload: "Informasi Mahasiswa"})
+    dispatch({
+      type: "UPDATE_PAGE",
+      payload: { page: "Informasi", subPage: "Informasi Mahasiswa" },
+    });
   }, [])
   return (
     <Layout>
