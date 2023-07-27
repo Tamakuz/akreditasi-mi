@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GlobalState } from "../Context/Context";
+import logoMI from "../Assets/icon/mi.png"
 
 const menus = [
   {
@@ -56,11 +57,14 @@ const Nav = () => {
   return (
     <nav>
       <div className="flex justify-between px-20 py-3 shadow-md">
-        <div className="flex flex-col text-start justify-start">
-          <h1 className="text-xl font-bold">Manajemen Informatika</h1>
-          <p className="text-[12px] text-gray-500">
-            Pusat Pengembangan Pembelajaran dan Penjaminan Mutu Pendidikan
-          </p>
+        <div className="flex gap-3 text-start justify-start">
+          <img className="aspect-square w-[50px] rounded-full" src={logoMI} alt="logomi" />
+          <div>
+            <h1 className="text-xl font-bold">Manajemen Informatika</h1>
+            <p className="text-[12px] text-gray-500">
+              Pusat Pengembangan Pembelajaran dan Penjaminan Mutu Pendidikan
+            </p>
+          </div>
         </div>
         <div className="flex justify-center items-center">
           <ul className="flex gap-3 ">
@@ -71,9 +75,7 @@ const Nav = () => {
                     <label
                       tabIndex={0}
                       className={`${
-                        page === menu.page
-                          ? "text-red-500"
-                          : "text-gray-700"
+                        page === menu.page ? "text-red-500" : "text-gray-700"
                       } m-1 cursor-pointer`}
                     >
                       {menu.page}
@@ -102,7 +104,7 @@ const Nav = () => {
                             to={sub.path}
                             className={`${
                               subPage === sub.subPage
-                                ? "text-red-500"       
+                                ? "text-red-500"
                                 : "text-gray-700"
                             } duration-150 cursor-pointer`}
                           >

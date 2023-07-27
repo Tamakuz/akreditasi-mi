@@ -4,8 +4,9 @@ import { GlobalState } from "../Context/Context";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { FiLink } from "react-icons/fi";
-import hero1 from "../Assets/hero1.jpg";
-import hero2 from "../Assets/hero2.png";
+import banner1 from "../Assets/banner/banner1.png";
+import banner2 from "../Assets/banner/banner2.png";
+import banner3 from "../Assets/banner/banner3.png";
 import logoPolitama from "../Assets/logoPolitama.png";
 import elitaLink from "../Assets/elita-link.png";
 import edlinkLink from "../Assets/edlink-link.png";
@@ -19,36 +20,38 @@ const visi = [
   },
 ];
 
+const tujuan = [
+  {
+    text: "Menghasilkan lulusan yang professional di bidang manajemen informatika",
+  },
+  {
+    text: "Menghasilkan karya ilmiah dan penelitian di bidang manajemen informatika yang dapat diabdikan kepada masyarakat",
+  },
+  {
+    text: "Menghasilkan kerjasama di bidang manajemen informatika dengan instansi dalam dan luar negeri",
+  },
+];
+
 const mission = [
   {
     parent:
-      "A.	Menyelenggarakan pendidikan dan pengajaran yang unggul dan berkualitas, yaitu :",
-    body: [
-      "Unggul pada penguasaan ilmu dan keterampilan Manajemen Informatika khususnya bidang pemrograman yang didukung penguasaan bidang multimedia",
-      "Pembekalan kemampuan dalam team work, pembinaan individu kreatif inovatif dan pengembangan potensi diri.",
-      "Suasana akademik yang kondusif untuk mendukung proses belajar-mengajar",
-    ],
+      "Menyelenggarakan pendidikan dan pengajaran yang unggul dan berkualitas.",
   },
   {
     parent:
-      "B.	Menyelenggarakan penelitian terapan software aplikasi dan multimedia dengan menghasilkan karya ilmiah yang mampu mendukung pelaksanaan pembangunan nasional.",
+      "Menyelenggarakan penelitian terapan software aplikasi dan multimedia dengan menghasilkan karya ilmiah yang mampu mendukung pelaksanaan pembangunan nasional.",
   },
   {
     parent:
-      "C.	Menyelenggarakan pengabdian kepada masyarakat dengan produk software aplikasi dan multimedia yang dihasilkan civitas akademika yang benar-benar dibutuhkan dan dimanfaatkan oleh masyarakat. ",
+      "Menyelenggarakan pengabdian kepada masyarakat dengan produk software aplikasi dan multimedia yang dihasilkan civitas akademika yang benar-benar dibutuhkan dan dimanfaatkan oleh masyarakat. ",
   },
   {
     parent:
-      "D.	Membangun dan menyelenggarakan manajemen dan pelayanan yang unggul dan berkualitas, yaitu :",
-    body: [
-      "Budaya kerja dan budaya akademik yang profesional dan elegan.",
-      "Pelayanan administrasi yang profesional.",
-      "Menjamin kontrol kualipelaksanaan Tridharma Perguruan Tinggi.",
-    ],
+      "Membangun dan menyelenggarakan manajemen dan pelayanan yang unggul dan berkualitas.",
   },
   {
     parent:
-      "E. Membina jalinan kerja sama dengan pihak-pihak eksternal yang berkompeten.",
+      "Membina jalinan kerja sama dengan pihak-pihak eksternal yang berkompeten.",
   },
 ];
 
@@ -110,10 +113,25 @@ const Home = () => {
             className="mySwiper w-full h-full"
           >
             <SwiperSlide>
-              <img className="w-full h-full object-cover" src={hero1} alt="" />
+              <img
+                className="w-full h-full object-cover"
+                src={banner1}
+                alt=""
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <img className="w-full h-full object-cover" src={hero2} alt="" />
+              <img
+                className="w-full h-full object-cover"
+                src={banner2}
+                alt=""
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                className="w-full h-full object-cover"
+                src={banner3}
+                alt=""
+              />
             </SwiperSlide>
           </Swiper>
           <div className="absolute top-0 z-10 w-full h-full flex justify-center items-center backdrop-brightness-50">
@@ -129,7 +147,7 @@ const Home = () => {
         <section className="w-full h-fit px-20 py-10 flex gap-10 justify-between item-center">
           <div className="w-[300px] h-full border-r border-gray-500">
             <div className="w-fit">
-              <h1 className="text-3xl fonr-semibold text-gray-700 border-b-2 border-red-500">
+              <h1 className="text-3xl font-semibold text-gray-700 border-b-2 border-red-500">
                 TAUTAN
               </h1>
             </div>
@@ -138,7 +156,7 @@ const Home = () => {
                 return (
                   <div
                     key={i}
-                    className="relative h- group w-[150px] h-[150px] aspect-square overflow-hidden"
+                    className="relative h- group w-[120px] h-[120px] aspect-square overflow-hidden"
                   >
                     <img
                       src={ref.img}
@@ -162,27 +180,44 @@ const Home = () => {
           </div>
 
           <div className="w-full flex flex-col gap-5">
-            <div className="w-full text-3xl fonr-semibold text-gray-700 border-b-2 border-red-500">
+            <div className="w-full text-3xl font-semibold text-gray-700 border-b-2 border-red-500">
               <h1>VISI DAN MISI</h1>
             </div>
             <div className="flex gap-10">
               {/* Card Visi */}
-              <div className="card w-full h-fit bg-base-100 shadow">
-                <figure className="w-full h-[150px] border-b-2 border-red-500 ">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={logoPolitama}
-                    alt="Shoes"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">VISI</h2>
-                  {visi.map((item, i) => (
-                    <div key={i} className="flex gap-2 w-full h-fit">
-                      <span className="text-gray-800 font-bold">{i + 1}.</span>
-                      <p>{item.text}</p>
-                    </div>
-                  ))}
+              <div className="w-full flex flex-col gap-10">
+                <div className="card w-full h-fit bg-base-100 shadow">
+                  <figure className="w-full h-[150px] border-b-2 border-red-500 ">
+                    <img
+                      className="w-full h-full object-cover"
+                      src={logoPolitama}
+                      alt="Shoes"
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">VISI</h2>
+                    {visi.map((item, i) => (
+                      <div key={i} className="flex gap-2 w-full h-fit">
+                        <span className="text-gray-800 font-bold">
+                          {i + 1}.
+                        </span>
+                        <p>{item.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="card w-full h-fit bg-base-100 shadow">
+                  <div className="card-body">
+                    <h2 className="card-title">TUJUAN</h2>
+                    {tujuan.map((item, i) => (
+                      <div key={i} className="flex gap-2 w-full h-fit">
+                        <span className="text-gray-800 font-bold">
+                          {i + 1}.
+                        </span>
+                        <p>{item.text}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
               {/* Card Misi */}
@@ -197,16 +232,9 @@ const Home = () => {
                 <div className="card-body">
                   <h2 className="card-title">MISI</h2>
                   {mission.map((misi, i) => (
-                    <div key={i}>
+                    <div key={i} className="flex gap-3">
+                      <p className="text-gray-800 font-bold">{i + 1}.</p>
                       <h6>{misi.parent}</h6>
-                      {misi.body?.map((item, j) => (
-                        <div key={j} className="flex gap-2 w-full h-fit">
-                          <span className="text-sm text-gray-800 font-bold">
-                            {j + 1}.
-                          </span>
-                          <p className="text-sm">{item}</p>
-                        </div>
-                      ))}
                     </div>
                   ))}
                 </div>

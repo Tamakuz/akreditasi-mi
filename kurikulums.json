@@ -1,0 +1,445 @@
+{
+  "kurikulums": [
+    {
+      "id": 1814011001,
+      "matkul": "Agama Islam",
+      "sks": 2,
+      "tp": true,
+      "semester": 1
+    },
+    {
+      "id": 1814011002,
+      "matkul": "Agama Kristen",
+      "sks": 2,
+      "tp": false,
+      "semester": 1
+    },
+    {
+      "id": 1814011003,
+      "matkul": "Agama Katholik",
+      "sks": 2,
+      "tp": false,
+      "semester": 1
+    },
+    {
+      "id": 1814011004,
+      "matkul": "Agama Budha",
+      "sks": 2,
+      "tp": false,
+      "semester": 1
+    },
+    {
+      "id": 1814011005,
+      "matkul": "Agama Hindu",
+      "sks": 2,
+      "tp": false,
+      "semester": 1
+    },
+    {
+      "id": 1814011006,
+      "matkul": "Pendidikan Pancasila",
+      "sks": 2,
+      "tp": true,
+      "semester": 1
+    },
+    {
+      "id": 1814011007,
+      "matkul": "Teori Logika dan Algoritma Pemrograman",
+      "sks": 2,
+      "tp": true,
+      "semester": 1
+    },
+    {
+      "id": 1814011009,
+      "matkul": "Pengantar Teknologi Informasi",
+      "sks": 2,
+      "tp": true,
+      "semester": 1
+    },
+    {
+      "id": 1814011010,
+      "matkul": "Basis Data 1",
+      "sks": 2,
+      "tp": true,
+      "semester": 1
+    },
+    {
+      "id": 1814011012,
+      "matkul": "Bahasa Inggris 1",
+      "sks": 2,
+      "tp": true,
+      "semester": 1
+    },
+    {
+      "id": 1814011013,
+      "matkul": "Matematika Diskrit",
+      "sks": 2,
+      "tp": true,
+      "semester": 1
+    },
+    {
+      "id": 1814012032,
+      "matkul": "Komputer dan Internet",
+      "sks": 2,
+      "tp": false,
+      "semester": 1
+    },
+    {
+      "id": 1814012033,
+      "matkul": "Praktek Paket Program Niaga",
+      "sks": 2,
+      "tp": false,
+      "semester": 1
+    },
+    {
+      "id": 1814012034,
+      "matkul": "Praktek Logika dan Algoritma Pemrograman 1",
+      "sks": 2,
+      "tp": false,
+      "semester": 1
+    },
+    {
+      "id": 1814012035,
+      "matkul": "Akuntansi 1",
+      "sks": 2,
+      "tp": false,
+      "semester": 1
+    },
+    {
+      "id": 1814021003,
+      "matkul": "Bahasa Indonesia",
+      "sks": 2,
+      "tp": true,
+      "semester": 2
+    },
+    {
+      "id": 1814021004,
+      "matkul": "Kewarganegaraan",
+      "sks": 2,
+      "tp": true,
+      "semester": 2
+    },
+    {
+      "id": 1814021015,
+      "matkul": "Arsitektur dan Organisasi Komputer",
+      "sks": 2,
+      "tp": true,
+      "semester": 2
+    },
+    {
+      "id": 1814021016,
+      "matkul": "Bahasa Inggris 2",
+      "sks": 1,
+      "tp": false,
+      "semester": 2
+    },
+    {
+      "id": 1814021018,
+      "matkul": "Interaksi Manusia dan Komputer",
+      "sks": 2,
+      "tp": true,
+      "semester": 2
+    },
+    {
+      "id": 1814021020,
+      "matkul": "Matematika Terapan",
+      "sks": 2,
+      "tp": true,
+      "semester": 2
+    },
+    {
+      "id": 1814021022,
+      "matkul": "Sistem Berkas",
+      "sks": 1,
+      "tp": false,
+      "semester": 2
+    },
+    {
+      "id": 1814022036,
+      "matkul": "Akuntansi 2",
+      "sks": 2,
+      "tp": false,
+      "semester": 2
+    },
+    {
+      "id": 1814022037,
+      "matkul": "Basis Data 2",
+      "sks": 2,
+      "tp": false,
+      "semester": 2
+    },
+    {
+      "id": 1814022038,
+      "matkul": "Praktek Logika dan Algoritma Pemrograman 2",
+      "sks": 2,
+      "tp": false,
+      "semester": 2
+    },
+    {
+      "id": 1814022039,
+      "matkul": "Praktek Pemrograman terstruktur 1",
+      "sks": 2,
+      "tp": false,
+      "semester": 2
+    },
+    {
+      "id": 1814022040,
+      "matkul": "Sistem Operasi 1",
+      "sks": 1,
+      "tp": false,
+      "semester": 2
+    },
+    {
+      "id": 1814031024,
+      "matkul": "Sistem Informasi Enterprise",
+      "sks": 2,
+      "tp": true,
+      "semester": 3
+    },
+    {
+      "id": 1814031026,
+      "matkul": "Sistem Informasi Manajemen 1",
+      "sks": 2,
+      "tp": true,
+      "semester": 3
+    },
+    {
+      "id": 1814031030,
+      "matkul": "Analisa dan Perancangan Sistem",
+      "sks": 2,
+      "tp": true,
+      "semester": 3
+    },
+    {
+      "id": 1814031032,
+      "matkul": "Bahasa Inggris 3",
+      "sks": 1,
+      "tp": false,
+      "semester": 3
+    },
+    {
+      "id": 1814031033,
+      "matkul": "Komunikasi Data dan Jaringan Komputer",
+      "sks": 2,
+      "tp": true,
+      "semester": 3
+    },
+    {
+      "id": 1814031036,
+      "matkul": "Etika Profesi",
+      "sks": 2,
+      "tp": true,
+      "semester": 3
+    },
+    {
+      "id": 1814032041,
+      "matkul": "Sistem Operasi 2",
+      "sks": 2,
+      "tp": false,
+      "semester": 3
+    },
+    {
+      "id": 1814032042,
+      "matkul": "Praktek Pemrograman Terstruktur 2",
+      "sks": 2,
+      "tp": false,
+      "semester": 3
+    },
+    {
+      "id": 1814032043,
+      "matkul": "Pemrograman Visual 1",
+      "sks": 2,
+      "tp": false,
+      "semester": 3
+    },
+    {
+      "id": 1814032044,
+      "matkul": "Komputer Grafis",
+      "sks": 2,
+      "tp": false,
+      "semester": 3
+    },
+    {
+      "id": 1814032045,
+      "matkul": "Animasi dan Film",
+      "sks": 2,
+      "tp": false,
+      "semester": 3
+    },
+    {
+      "id": 1814032046,
+      "matkul": "Praktek Komputer Akutansi",
+      "sks": 1,
+      "tp": false,
+      "semester": 3
+    },
+    {
+      "id": 1814041035,
+      "matkul": "Bahasa Inggris 4",
+      "sks": 1,
+      "tp": false,
+      "semester": 4
+    },
+    {
+      "id": 1814041044,
+      "matkul": "Cloud Computing dan Security Data",
+      "sks": 2,
+      "tp": true,
+      "semester": 4
+    },
+    {
+      "id": 1814041045,
+      "matkul": "Sistem Informasi Manajemen 2",
+      "sks": 2,
+      "tp": true,
+      "semester": 4
+    },
+    {
+      "id": 1814042047,
+      "matkul": "Pemrograman Multi Platform",
+      "sks": 2,
+      "tp": false,
+      "semester": 4
+    },
+    {
+      "id": 1814042048,
+      "matkul": "Pemrograman Database 1",
+      "sks": 2,
+      "tp": false,
+      "semester": 4
+    },
+    {
+      "id": 1814042049,
+      "matkul": "Pemrograman Multimedia",
+      "sks": 2,
+      "tp": false,
+      "semester": 4
+    },
+    {
+      "id": 1814042050,
+      "matkul": "Pemrograman Visual 2",
+      "sks": 2,
+      "tp": false,
+      "semester": 4
+    },
+    {
+      "id": 1814042051,
+      "matkul": "Pemrograman Web",
+      "sks": 2,
+      "tp": false,
+      "semester": 4
+    },
+    {
+      "id": 1814042052,
+      "matkul": "Praktek Jaringan Komputer 1",
+      "sks": 2,
+      "tp": false,
+      "semester": 4
+    },
+    {
+      "id": 1814042053,
+      "matkul": "Struktur Data",
+      "sks": 1,
+      "tp": false,
+      "semester": 4
+    },
+    {
+      "id": 1814051048,
+      "matkul": "Metodologi Penelitian",
+      "sks": 2,
+      "tp": true,
+      "semester": 5
+    },
+    {
+      "id": 1814051050,
+      "matkul": "Rekayasa Perangkat Lunak",
+      "sks": 2,
+      "tp": true,
+      "semester": 5
+    },
+    {
+      "id": 1814051055,
+      "matkul": "Sistem Pengambilan Keputusan",
+      "sks": 2,
+      "tp": true,
+      "semester": 5
+    },
+    {
+      "id": 1814051057,
+      "matkul": "Kewirausahaan",
+      "sks": 2,
+      "tp": true,
+      "semester": 5
+    },
+    {
+      "id": 1814052054,
+      "matkul": "Praktek Jaringan Komputer 2",
+      "sks": 2,
+      "tp": false,
+      "semester": 5
+    },
+    {
+      "id": 1814052055,
+      "matkul": "Game Technology",
+      "sks": 2,
+      "tp": false,
+      "semester": 5
+    },
+    {
+      "id": 1814052056,
+      "matkul": "Bahasa Inggris 5",
+      "sks": 1,
+      "tp": false,
+      "semester": 5
+    },
+    {
+      "id": 1814052057,
+      "matkul": "Trouble Shooting",
+      "sks": 1,
+      "tp": false,
+      "semester": 5
+    },
+    {
+      "id": 1814052058,
+      "matkul": "E-Business",
+      "sks": 2,
+      "tp": false,
+      "semester": 5
+    },
+    {
+      "id": 1814052059,
+      "matkul": "Web Technology",
+      "sks": 2,
+      "tp": false,
+      "semester": 5
+    },
+    {
+      "id": 1814052060,
+      "matkul": "Pemrograman Database 2",
+      "sks": 2,
+      "tp": false,
+      "semester": 5
+    },
+    {
+      "id": 1814062061,
+      "matkul": "Kunjungan Industri",
+      "sks": 1,
+      "tp": false,
+      "semester": 6
+    },
+    {
+      "id": 1814062062,
+      "matkul": "Praktek Kerja Lapangan",
+      "sks": 2,
+      "tp": false,
+      "semester": 6
+    },
+    {
+      "id": 1814062063,
+      "matkul": "Tugas Akhir",
+      "sks": 4,
+      "tp": false,
+      "semester": 6
+    }
+  ]
+}

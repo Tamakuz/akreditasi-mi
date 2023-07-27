@@ -19,11 +19,15 @@ const App = () => {
 
   useEffect(() => {
     const metaData = () => {
-      document.title = globalState.page
-    }
+      document.title =
+        typeof globalState?.page === "string"
+          ? globalState.page
+          : globalState.page.page;
+    };
 
-    metaData()
-  },[globalState])
+    metaData();
+  }, [globalState]);
+
 
   return (
     <BrowserRouter>
