@@ -1,0 +1,62 @@
+{
+  "sikap": [
+    "Bertakwa kepada Tuhan Yang Maha Esa dan mampu menunjukkan sikap religius;",
+    "Menjunjung tinggi nilai kemanusiaan dalam menjalankan tugas berdasarkan agama, moral, dan etika;",
+    "Berkontribusi dalam peningkatan mutu kehidupan bermasyarakat, berbangsa, bernegara, dan kemajuan peradaban berdasarkan Pancasila;",
+    "Berperan sebagai warga negara yang bangga dan cinta tanah air, memiliki nasionalisme serta rasa tanggungjawab pada negara dan bangsa;",
+    "Menghargai keanekaragaman budaya, pandangan, agama, dan kepercayaan, serta pendapat atau temuan orisinal orang lain;",
+    "Bekerjasama dan memiliki kepekaan sosial serta kepedulian terhadap masyarakat dan lingkungan;",
+    "Taat hukum dan disiplin dalam kehidupan bermasyarakat dan bernegara;",
+    "Menginternalisasi nilai, norma, dan etika akademik;",
+    "Menunjukkan sikap bertanggungjawab atas pekerjaan di bidang keahliannya secara mandiri;",
+    "Menginternalisasi semangat kemandirian, kejuangan, dan kewirausahaan.",
+    "Mempromosikan kejujuran, kepercayaan, keadilan, penghormatan dan tanggungjawab"
+  ],
+  "ketrampilan_umum": [
+    "Mampu menyelesaikan pekerjaan berlingkup luas dan menganalisis data dengan beragam metode yang sesuai, baik yang sudah maupun yang belum baku",
+    "Mampu menunjukkan kinerja mandiri, bermutu dan terukur;",
+    "Mampu memecahkan masalah pekerjaan dengan sifat dan konteks yang sesuai untuk peningkatan proses organisasi menggunakan Inovasi dan Teknologi Informasi, dengan didasarkan pada pemikiran logis, inovatif, dan bertanggung jawab atas hasilnya secara mandiri.",
+    "Mampu menyusun laporan proses dan hasil kerja secara akurat dan sahih serta mengkomunikasikannya secara efektif kepada pihak lain yang membutuhkan.",
+    "Mampu bekerja sama, berkomunikasi dan berinovasi dalam pekerjannya.",
+    "Mampu bertanggungjawab atas pencapaian hasil kerja kelompok dan melakukan supervisi dan evaluasi terhadap penyelesaian pekerjaan yang ditugaskan kepada pekerja yang berada di bawah tanggungjawabnya;",
+    "Mampu melakukan proses evaluasi diri terhadap anggota kelompok kerja yang berada dibawah tanggung jawabnya, dan mengelola pengembangan kompetensi kerja secara mandiri.",
+    "Mampu mendokumentasikan, menyimpan, mengamankan, dan menemukan kembali data untuk menjamin kesahihan dan mencegah plagiasi"
+  ],
+  "ketrampilan_khusus": [
+    "Mampu merealisasikan desain aplikasi perangkat lunak (sistem informasi) berbasis desktop, web dan mobile dilengkapi dengan dokumentasinya",
+    "Mampu menyusun test case, melakukan pengujian perangkat lunak, serta mendokumentasikan hasil pengujian peranakat lunak",
+    "Mampu mengimplementasikan dasar-dasar komputasi dalam bidang Teknologi Informasi",
+    "Mampu mengindentifikasi proses-proses dan mendokumentasikan model proses dalam rangkan pembuatan dan pengembangan aplikasi",
+    "Mampu mengevaluasi sistem aplikasi dengan memperhatikan pengalaman pengguna, karakteristik pengguna, dan tugas-tugasnya, serta lingkungan fisik dimana perangkat lunak akan di operasikan",
+    "Mampu membuat kajian dan realisasi desain user experience dengan pendekatan user-centered design pada proses pengembangan sistem",
+    "Mampu mengkaji kebutuhan data, permodelan data, dan menerapkan teknik normalisasi berdasakan prosedur dan pemahaman yang rinci dalam menyusun struktur data dan komponen terkait (deskripsi entitas, relasi, dan atribut)",
+    "Mampu menyusun spesifikasi kebutuhan sistem informasi untuk memenuhi kebutuhan (tujuan) organisasi ke dalam dokumen software Requirement Specification dan Sofware design Description)",
+    "Mampu menyusun kajian dan merealisasikan sistem informasi menggunakan model Unified Modelling Language serta menerjemahkan rancangan logika ke rancangan fisik",
+    "Mampu menerjemahkan rancangan struktur data ke dalam skema basis data relasional serta mengolah data menjadi informasi yang relevan sesuai dengan kebutuhan organisasi",
+    "Mampu mengkaji dan mengimplementasikan desain grafis/multimedia (game, animasi dan video) sesuai dengan storyboard dan skenario yang sudah ditentukan.",
+    "Mampu bekerjasama dalam teamwork dalam mengimplementasikan dan mengembangkan aplikasi / sistem informasi sesuai dengan pembagian tugas kerja sebagai programer / implementator",
+    "Mampu berpikir dan bersikap kreatif dan inovatif dalam menangkap permasalahan, kebutuhan dan peluang dari masyarakat khususnya di bidang IT.",
+    "Mampu menggunakan tool-tool software aplikasi grafis, multimedia dan video"
+  ],
+  "pengetahuan": [
+    "Menguasai konsep teoritis komputasi dan domain sistem informasi spesifik guna meningkatkan proses dan kinerja organisasi menggunakan teknologi informasi dan komunikasi",
+    "Menguasai konsep teoritis profesi programmer IT yang meliputi: etika, profesionalisme, konsep kerja sama dan kepemimpinan, IS career path serta komunikasi interpersonal sehingga mempu bekerja secara profesional sesuai dengan bidangnya",
+    "Menguasai teori praktis kewirausahaan untuk memberikan wawasan kewirausahaan dan membangkitkan semangat wirausaha, khususnya bidang IT",
+    "Menguasai teori praktis penyimpanan dokumen pada teknologi cloud sehingga dapat bekerja secara kolaboratif mengamankan, dan memudahkan penemuan kembali dokumen dan data-data.",
+    "Menguasai teori praktis penyusunan karya ilmiah sesuai dengan format yang berlaku dan teknik penulisan sitasi untuk menghindari plagiasi",
+    "Menguasi teori praktis yang berkaitan dengan teori himpunan, logika, relasi, fungsi, graf, dan pohon sehingga dapat mengimplementasikan dasar-dasar matematika dalam bidang teknologi informasi",
+    "Memahami konsep proses evaluasi sistem terhadap interaksi pengguna dan evaluasi sistem terhadap kondisi existing dan feedback dari pengguna",
+    "Menguasai Konsep User Experience pada proses pengembangan sistem untuk merealisasikan rancangan user experience dengan pendekatan user-centered design serta menjelaskan perancangan interaksi manusia dan komputer sesuai kebutuhan sistem",
+    "Menguasai konsep analisis data, pemodelan data, dan teknik normalisasi untuk menyusun struktur data dan komponen yang terkait (deskripsi entitas, relasi, dan atribut)",
+    "Menguasai konsep rekayasa perangkat lunak serta penggalian spesifikasi kebutuhan sumber daya sistem informasi sesuai proses bisnis yang berjalan pada organisasi",
+    "Menguasai konsep kajian desain sistem informasi menggunakan model Unifield Modelling Language serta menerjemahkan desain logika dan algoritma yang digunakan",
+    "Menguasai konsep implementasi skema logika basis data ke lingkungan fisik (Database Management System) dan penggunaan Structured Query Language (SQL) untuk mengolah data menjadi informasi yang relevan bagi organisasi",
+    "Menguasai konsep penyusunan dokumen panduan penggunaan perangkat lunak aplikasi / sistem Informasi.",
+    "Menguasai konsep dasar algoritma dan implementasi algoritma ke dalam bahasa pemrograman, dan konsep pemrograman berorientasi objek",
+    "Menguasai konsep pemrograman website dan mobile technology mencakup client side scripting dan server side scripting",
+    "Menguasai konsep pengujian perangkat lunak, menyusun test case, pelaksanaan pengujian, serta penyusunan dokumen pengujian perangkat lunak untuk memenuhi software requirement (kebutuhan perangkat lunak) yang telah didefinisikan",
+    "Menguasai konsep realisasi dan pengembangan sistem informasi manajemen beserta kebutuhan sistem informasi",
+    "Menguasai konsep pembuatan objek dan karakter visualisasi secara grafis 2D dan 3D untuk mendukung pembuatan game dan animasi",
+    "Menguasai konsep pembuatan dan pengeditan video berdasarkan skenario dan storyboard"
+  ]
+}

@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import Layout from "../Components/Layout";
-import data from "../../dataAkreditasi.json";
+import datas from "../../../datas.json";
 
-const InputData = () => {
+const InputDataAkreditasi = () => {
   const [judul, setJudul] = useState("");
   const [deskripsi, setDeskripsi] = useState("");
   const [link, setLink] = useState("");
-  const { dataAkreditasi } = data;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -91,7 +89,7 @@ const InputData = () => {
 
   const handleDeleteData = async (dataId, rowIndex) => {
     try {
-      const existingData = dataAkreditasi.find((da) => da.id === dataId);
+      const existingData = datas.dataAkreditasi.find((da) => da.id === dataId);
 
       if (existingData) {
         const newDataBody = existingData.dataBody.filter(
@@ -113,8 +111,6 @@ const InputData = () => {
 
         if (patchResponse.ok) {
           alert("Data berhasil dihapus!");
-          // If needed, you should have a function here to update the state or re-fetch the data
-          // Example: fetchDataAkreditasi();
         } else {
           alert("Gagal menghapus data!");
         }
@@ -126,8 +122,8 @@ const InputData = () => {
 
   const handleDeleteDataByJudul = async (judul) => {
     try {
-      const existingData = dataAkreditasi.find((da) => da.judul === judul);
-  
+      const existingData = datas.dataAkreditasi.find((da) => da.judul === judul);
+
       if (existingData) {
         const deleteResponse = await fetch(
           `http://localhost:5000/dataAkreditasi/${existingData.id}`,
@@ -135,7 +131,7 @@ const InputData = () => {
             method: "DELETE",
           }
         );
-  
+
         if (deleteResponse.ok) {
           alert("Data berhasil dihapus!");
           // If needed, you should have a function here to update the state or re-fetch the data
@@ -150,101 +146,104 @@ const InputData = () => {
   };
 
   return (
-    <Layout>
-      <section className="py-20 px-10 flex flex-col gap-5">
-        <form
-          onSubmit={handleSubmit}
-          className=" p-4 bg-white shadow-md rounded-md"
+    <section className="px-10 flex flex-col gap-5">
+      <form
+        onSubmit={handleSubmit}
+        className=" p-4 bg-white shadow-md rounded-md"
+      >
+        <div className="mb-4">
+          <label htmlFor="judul" className="block font-medium mb-1">
+            Judul:
+          </label>
+          <input
+            type="text"
+            id="judul"
+            value={judul}
+            onChange={(e) => setJudul(e.target.value)}
+            className="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="deskripsi" className="block font-medium mb-1">
+            Deskripsi:
+          </label>
+          <input
+            type="text"
+            id="deskripsi"
+            value={deskripsi}
+            onChange={(e) => setDeskripsi(e.target.value)}
+            className="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="link" className="block font-medium mb-1">
+            Link:
+          </label>
+          <input
+            type="text"
+            id="link"
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+            className="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:border-blue-300"
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
         >
-          <div className="mb-4">
-            <label htmlFor="judul" className="block font-medium mb-1">
-              Judul:
-            </label>
-            <input
-              type="text"
-              id="judul"
-              value={judul}
-              onChange={(e) => setJudul(e.target.value)}
-              className="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:border-blue-300"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="deskripsi" className="block font-medium mb-1">
-              Deskripsi:
-            </label>
-            <input
-              type="text"
-              id="deskripsi"
-              value={deskripsi}
-              onChange={(e) => setDeskripsi(e.target.value)}
-              className="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:border-blue-300"
-            />
-          </div>
-          <div className="mb-4">
-            <label htmlFor="link" className="block font-medium mb-1">
-              Link:
-            </label>
-            <input
-              type="text"
-              id="link"
-              value={link}
-              onChange={(e) => setLink(e.target.value)}
-              className="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:border-blue-300"
-            />
-          </div>
-          <button
-            type="submit"
-            className="w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
-          >
-            Tambahkan Data
-          </button>
-        </form>
-        {dataAkreditasi?.map((da, i) => (
-          <div key={i} className="w-full bg-gray-50 p-5 rounded shadow-md">
-            <div className="flex justify-between items-center pr-10">
+          Tambahkan Data
+        </button>
+      </form>
+      {datas.dataAkreditasi.map((da, i) => (
+        <div key={i} className="w-full bg-gray-50 p-5 rounded shadow-md">
+          <div className="flex justify-between items-center pr-10">
             <h1 className="text-[20px] font-bold text-gray-700">{da.judul}</h1>
-            <p onClick={() => handleDeleteDataByJudul(da.judul)} className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer">Hapus</p>
-            </div>
-            <table className="w-full table table-fixed">
-              <thead className="border-b-4 border-gray-300">
-                <tr>
-                  <th className="w-12">No</th>
-                  <th className="">Deskripsi</th>
-                  <th className="w-[100px]">Dokumen</th>
-                  <th className="w-[100px]">Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                {da?.dataBody?.map((data, j) => (
-                  <tr key={j}>
-                    <th>{j + 1}</th>
-                    <td>{data.deskripsi}</td>
-                    <td>
-                      <a
-                        href={data.link}
-                        className="text-blue-400 hover:text-blue-500 font-semibold hover:underline"
-                      >
-                        Buka
-                      </a>
-                    </td>
-                    <td>
-                      {/* Tambahkan teks "Hapus" di samping teks "Buka" */}
-                      <p
-                        onClick={() => handleDeleteData(da.id, j)} // Panggil fungsi handleDeleteData dengan dataId dan rowIndex
-                        className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
-                      >
-                        Hapus
-                      </p>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <p
+              onClick={() => handleDeleteDataByJudul(da.judul)}
+              className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
+            >
+              Hapus
+            </p>
           </div>
-        ))}
-      </section>
-    </Layout>
+          <table className="w-full table table-fixed">
+            <thead className="border-b-4 border-gray-300">
+              <tr>
+                <th className="w-12">No</th>
+                <th className="">Deskripsi</th>
+                <th className="w-[100px]">Dokumen</th>
+                <th className="w-[100px]">Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              {da?.dataBody?.map((data, j) => (
+                <tr key={j}>
+                  <th>{j + 1}</th>
+                  <td>{data.deskripsi}</td>
+                  <td>
+                    <a
+                      href={data.link}
+                      className="text-blue-400 hover:text-blue-500 font-semibold hover:underline"
+                    >
+                      Buka
+                    </a>
+                  </td>
+                  <td>
+                    {/* Tambahkan teks "Hapus" di samping teks "Buka" */}
+                    <p
+                      onClick={() => handleDeleteData(da.id, j)} // Panggil fungsi handleDeleteData dengan dataId dan rowIndex
+                      className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
+                    >
+                      Hapus
+                    </p>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ))}
+    </section>
   );
 };
 
-export default InputData;
+export default InputDataAkreditasi;

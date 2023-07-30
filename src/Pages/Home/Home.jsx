@@ -1,18 +1,18 @@
 import { useContext, useEffect } from "react";
-import Layout from "../Components/Layout";
-import { GlobalState } from "../Context/Context";
+import Layout from "../../Components/Layout";
+import { GlobalState } from "../../Context/Context";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { FiLink } from "react-icons/fi";
-import banner1 from "../Assets/banner/banner1.png";
-import banner2 from "../Assets/banner/banner2.png";
-import banner3 from "../Assets/banner/banner3.png";
-import logoPolitama from "../Assets/logoPolitama.png";
-import elitaLink from "../Assets/elita-link.png";
-import edlinkLink from "../Assets/edlink-link.png";
-import siakadLink from "../Assets/siakad-link.png";
-import sisterLink from "../Assets/sister-link.png";
-import ojBrand from "../Assets/ojs_brand.png";
+import banner1 from "../../Assets/banner/banner1.png";
+import banner2 from "../../Assets/banner/banner2.png";
+import banner3 from "../../Assets/banner/banner3.png";
+import logoPolitama from "../../Assets/logoPolitama.png";
+import elitaLink from "../../Assets/elita-link.png";
+import edlinkLink from "../../Assets/edlink-link.png";
+import siakadLink from "../../Assets/siakad-link.png";
+import sisterLink from "../../Assets/sister-link.png";
+import ojBrand from "../../Assets/ojs_brand.png";
 
 const visi = [
   {
@@ -143,7 +143,6 @@ const Home = () => {
             </h1>
           </div>
         </section>
-
         <section className="w-full h-fit px-20 py-10 flex gap-10 justify-between item-center">
           <div className="w-[300px] h-full border-r border-gray-500">
             <div className="w-fit">

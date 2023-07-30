@@ -1,4 +1,46 @@
 {
+  "bpk": [
+    {
+      "id": 1,
+      "deskripsi": "Buku BPK",
+      "link": "https://youtube.com"
+    }
+  ],
+  "rps": [
+    {
+      "id": 1,
+      "deskripsi": "Buku RPS",
+      "link": "https://youtube.com"
+    }
+  ],
+  "kontrak_kuliah": [
+    {
+      "id": 1,
+      "deskripsi": "Buku Kontrak Kuliah",
+      "link": "https://youtube.com"
+    }
+  ],
+  "penelitian": [
+    {
+      "id": 1,
+      "deskripsi": "Buku Penelitian",
+      "link": "https://youtube.com"
+    }
+  ],
+  "pengabdian": [
+    {
+      "id": 1,
+      "deskripsi": "Buku Pengabdian",
+      "link": "https://youtube.com"
+    }
+  ],
+  "sertifikat": [
+    {
+      "id": 1,
+      "deskripsi": "Buku Sertifikat",
+      "link": "https://youtube.com"
+    }
+  ],
   "kurikulums": [
     {
       "id": 1814011001,
@@ -440,6 +482,42 @@
       "sks": 4,
       "tp": false,
       "semester": 6
+    }
+  ],
+  "karya_mahasiswa": [
+    {
+      "nama": "Jovan",
+      "judul": "Testing",
+      "tahun": "2022",
+      "doc": "https://asdasd",
+      "video": "https://saadasda",
+      "id": 1
+    }
+  ],
+  "dataAkreditasi": [
+    {
+      "judul": "Pedoman Kurikulum ",
+      "dataBody": [
+        {
+          "deskripsi": "mengatur review, pelaksanaan dsb",
+          "link": "bebasdulu"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "judul": "asdasdasdasd",
+      "dataBody": [
+        {
+          "deskripsi": "sadasdas",
+          "link": "asdasdad"
+        },
+        {
+          "deskripsi": "asdasda",
+          "link": "fsdfgrsef"
+        }
+      ],
+      "id": 4
     }
   ]
 }

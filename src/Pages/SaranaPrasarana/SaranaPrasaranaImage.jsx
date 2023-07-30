@@ -1,11 +1,11 @@
-import React, { useContext, useEffect } from 'react'
-import Layout from '../Components/Layout'
-import { GlobalState } from '../Context/Context'
+import React, { useContext, useEffect } from "react";
+import Layout from "../../Components/Layout";
+import { GlobalState } from "../../Context/Context";
 import Calendar from "react-calendar";
-import elitaLink from "../Assets/elita-link.png";
-import edlinkLink from "../Assets/edlink-link.png";
-import siakadLink from "../Assets/siakad-link.png";
-import sisterLink from "../Assets/sister-link.png";
+import elitaLink from "../../Assets/elita-link.png";
+import edlinkLink from "../../Assets/edlink-link.png";
+import siakadLink from "../../Assets/siakad-link.png";
+import sisterLink from "../../Assets/sister-link.png";
 import { FiLink } from "react-icons/fi";
 import { BiLogoReact } from "react-icons/bi";
 
@@ -35,11 +35,11 @@ const refrention = [
 ];
 
 const SaranaPrasaranaImage = () => {
-  const {dispatch} = useContext(GlobalState)
-  
+  const { dispatch } = useContext(GlobalState);
+
   useEffect(() => {
-    dispatch({type: "UPDATE_PAGE", payload: "Sarana prasarana"})
-  }, [])
+    dispatch({ type: "UPDATE_PAGE", payload: "Sarana prasarana" });
+  }, []);
   return (
     <Layout>
       <section className="px-20 py-10 flex flex-col gap-10 justify-center">
@@ -90,6 +90,6 @@ const SaranaPrasaranaImage = () => {
       </section>
     </Layout>
   );
-}
+};
 
-export default SaranaPrasaranaImage
+export default SaranaPrasaranaImage;

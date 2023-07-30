@@ -1,5 +1,6 @@
 import React from "react";
 import logoPolitama from "../Assets/logoPolitama.png"
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -14,11 +15,16 @@ const Footer = () => {
         </p>
       </div>
       <div>
-        <span className="footer-title">Services</span>
-        <a className="link link-hover">Branding</a>
-        <a className="link link-hover">Design</a>
-        <a className="link link-hover">Marketing</a>
-        <a className="link link-hover">Advertisement</a>
+        <span className="footer-title">Alternatif</span>
+        <Link
+          to={"/dokumentasi-jurusan/profil-jurusan"}
+          className="link link-hover"
+        >
+          Profil Jurusan
+        </Link>
+        <Link to={"/dokumentasi-jurusan/kurikulum"} className="link link-hover">Kurikulum</Link>
+        <Link to={"/dokumentasi-jurusan/jadwal"} className="link link-hover">Jadwal</Link>
+        <Link to={"/dokumentasi-jurusan/karya-mahasiswa"} className="link link-hover">Karya Mahasiswa</Link>
       </div>
       <div>
         <span className="footer-title">Company</span>

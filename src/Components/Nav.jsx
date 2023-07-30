@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { GlobalState } from "../Context/Context";
-import logoMI from "../Assets/icon/mi.png"
+import logoMI from "../Assets/icon/mi.png";
 
 const menus = [
   {
@@ -16,15 +16,7 @@ const menus = [
         path: "/dokumentasi-jurusan/profil-jurusan",
       },
       { subPage: "Kurikulum", path: "/dokumentasi-jurusan/kurikulum" },
-      {
-        subPage: "Rencana Pembangunan",
-        path: "/dokumentasi-jurusan/rencana-pembangunan",
-      },
       { subPage: "Jadwal", path: "/dokumentasi-jurusan/jadwal" },
-      {
-        subPage: "Sarana Prasarana",
-        path: "/dokumentasi-jurusan/sarana-prasarana",
-      },
       {
         subPage: "Karya Mahasiswa",
         path: "/dokumentasi-jurusan/karya-mahasiswa",
@@ -47,18 +39,33 @@ const menus = [
     ],
     path: "/informasi",
   },
+  {
+    page: "Download",
+    subMenus: [
+      {subPage: "BPK", path: "/download/bpk"},
+      {subPage: "RPS", path: "/download/rps"},
+      {subPage: "Kontrak Kuliah", path: "/download/kontrak-kuliah"},
+      {subPage: "Penelitian", path: "/download/penelitian"},
+      {subPage: "Pengabdian", path: "/download/pengabdian"},
+      {subPage: "Sertifikat", path: "/download/sertifikat"},
+    ]
+  }
 ];
 
 const Nav = () => {
   const { globalState } = useContext(GlobalState);
   const pageName = globalState.page;
-  const {page, subPage} = globalState.page
+  const { page, subPage } = globalState.page;
 
   return (
     <nav>
       <div className="flex justify-between px-20 py-3 shadow-md">
         <div className="flex gap-3 text-start justify-start">
-          <img className="aspect-square w-[50px] rounded-full" src={logoMI} alt="logomi" />
+          <img
+            className="aspect-square w-[50px] rounded-full"
+            src={logoMI}
+            alt="logomi"
+          />
           <div>
             <h1 className="text-xl font-bold">Manajemen Informatika</h1>
             <p className="text-[12px] text-gray-500">

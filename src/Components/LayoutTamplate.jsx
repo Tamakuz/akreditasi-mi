@@ -1,5 +1,4 @@
 import { useContext, useEffect } from "react";
-import Layout from "../Components/Layout";
 import { GlobalState } from "../Context/Context";
 import Calendar from "react-calendar";
 import elitaLink from "../Assets/elita-link.png";
@@ -34,24 +33,17 @@ const refrention = [
   },
 ];
 
-const ProfilJurusan = () => {
-  const { dispatch } = useContext(GlobalState);
-
-  useEffect(() => {
-    dispatch({ type: "UPDATE_PAGE", payload: {page: "Dokumentasi Jurusan", subPage: "Profil Jurusan"} });
-  }, []);
-
+const LayoutTamplate = ({ titleHeader ,children}) => {
   return (
-    <Layout>
       <section className="px-20 py-10 flex flex-col gap-10 justify-center">
         <div className="w-full flex flex-col justify-center items-center mb-10">
           <span>
             <BiLogoReact className="text-[100px] text-center text-blue-500 animate-pulse" />
           </span>
-          <p className="text-[30px]">Profil Jurusan</p>
+          <p className="text-[30px]">{titleHeader}</p>
         </div>
         <div className="flex justify-center gap-10">
-          <div className="flex flex-col gap-10">{/* Content */}</div>
+          <div className="flex flex-col gap-10">{children}</div>
           <div className="w-[300px] flex flex-col gap-3">
             <div className="w-full border-b border-blue-500">
               <p className="text-bold text-[20px] text-gray-700">Calender</p>
@@ -89,8 +81,7 @@ const ProfilJurusan = () => {
           </div>
         </div>
       </section>
-    </Layout>
   );
 };
 
-export default ProfilJurusan;
+export default LayoutTamplate;

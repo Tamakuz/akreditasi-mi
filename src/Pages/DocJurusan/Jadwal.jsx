@@ -1,13 +1,17 @@
 import { useContext, useEffect } from "react";
-import Layout from "../Components/Layout";
-import { GlobalState } from "../Context/Context";
+import Layout from "../../Components/Layout";
+import { GlobalState } from "../../Context/Context";
 import Calendar from "react-calendar";
-import elitaLink from "../Assets/elita-link.png";
-import edlinkLink from "../Assets/edlink-link.png";
-import siakadLink from "../Assets/siakad-link.png";
-import sisterLink from "../Assets/sister-link.png";
+import elitaLink from "../../Assets/elita-link.png";
+import edlinkLink from "../../Assets/edlink-link.png";
+import siakadLink from "../../Assets/siakad-link.png";
+import sisterLink from "../../Assets/sister-link.png";
 import { FiLink } from "react-icons/fi";
 import { BiLogoReact } from "react-icons/bi";
+import miPagi from "../../Assets/jadwal/mi-pagi.jpg";
+import miSore from "../../Assets/jadwal/mi-sore.jpg";
+
+import "react-calendar/dist/Calendar.css";
 
 const refrention = [
   {
@@ -32,13 +36,13 @@ const refrention = [
   },
 ];
 
-const KaryaMahasiswa = () => {
+const Jadwal = () => {
   const { dispatch } = useContext(GlobalState);
 
   useEffect(() => {
     dispatch({
       type: "UPDATE_PAGE",
-      payload: { page: "Dokumentasi Jurusan", subPage: "Karya Mahasiswa" },
+      payload: { page: "Dokumentasi Jurusan", subPage: "Jadwal" },
     });
   }, []);
 
@@ -49,37 +53,12 @@ const KaryaMahasiswa = () => {
           <span>
             <BiLogoReact className="text-[100px] text-center text-blue-500 animate-pulse" />
           </span>
-          <p className="text-[30px]">Karya Mahasiswa Manajemen Informatika</p>
+          <p className="text-[30px]">Jadwal D3 Manajemen Informatika</p>
         </div>
         <div className="flex justify-center gap-10">
           <div className="flex flex-col gap-10">
-            <iframe
-              className="aspect-video"
-              width="700"
-              src="https://www.youtube.com/embed/JTm6rybBReM"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-            <iframe
-              className="aspect-video"
-              width="700"
-              src="https://www.youtube.com/embed/HLBC-GJblUM"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
-            <iframe
-              className="aspect-video"
-              width="700"
-              src="https://www.youtube.com/embed/_nUeF_BGQLU"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen
-            ></iframe>
+            <img src={miPagi} alt="miPagi" />
+            <img src={miSore} alt="miSore" />
           </div>
           <div className="w-[300px] flex flex-col gap-3">
             <div className="w-full border-b border-blue-500">
@@ -122,4 +101,4 @@ const KaryaMahasiswa = () => {
   );
 };
 
-export default KaryaMahasiswa;
+export default Jadwal;
