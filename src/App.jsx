@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import DocAkreditasi from "./Pages/DocAkreditasi/DocAkreditasi";
 import InformasiDosen from "./Pages/InformasiDosen";
-import InfoemasiMahasiswa from "./Pages/InformasiMahasiswa";
+import InformasiMahasiswa from "./Pages/InformasiMahasiswa";
 import { useContext, useEffect } from "react";
 import { GlobalState } from "./Context/Context";
 import ProfilJurusan from "./Pages/DocJurusan/ProfilJurusan";
@@ -17,6 +17,11 @@ import Penelitian from "./Pages/Download/Penelitian";
 import Pengabdian from "./Pages/Download/Pengabdian";
 import Sertifikat from "./Pages/Download/Sertifikat";
 import InputDataAll from "./Pages/InputDataAll";
+import Formulir from "./Pages/PenjaminanMutu/Formulir";
+import Sop from "./Pages/PenjaminanMutu/Sop";
+import Pedoman from "./Pages/PenjaminanMutu/Pedoman";
+import Renstra from "./Pages/PenjaminanMutu/Renstra";
+import Rip from "./Pages/PenjaminanMutu/Rip";
 
 const App = () => {
   const { globalState } = useContext(GlobalState);
@@ -49,7 +54,7 @@ const App = () => {
         <Route path="/pendukung-akreditasi" element={<DocAkreditasi />} />
         <Route path="/sarana-prasarana" element={<SaranaPrasaranaImage />} />
         <Route path="/informasi-dosen" element={<InformasiDosen />} />
-        <Route path="/informasi-mahasiswa" element={<InfoemasiMahasiswa />} />
+        <Route path="/informasi-mahasiswa" element={<InformasiMahasiswa />} />
         <Route path="/download/bpk" element={<Bpk />} />
         <Route path="/download/rps" element={<Rps />} />
         <Route path="/download/kontrak-kuliah" element={<KontrakKuliah />} />
@@ -57,6 +62,11 @@ const App = () => {
         <Route path="/download/pengabdian" element={<Pengabdian />} />
         <Route path="/download/sertifikat" element={<Sertifikat />} />
         <Route path="/input-data" element={<InputDataAll />} />
+        <Route path="/penjaminan-mutu/formulir" element={<Formulir />} />
+        <Route path="/penjaminan-mutu/sop" element={<Sop />} />
+        <Route path="/penjaminan-mutu/pedoman" element={<Pedoman />} />
+        <Route path="/penjaminan-mutu/renstra" element={<Renstra />} />
+        <Route path="/penjaminan-mutu/rip" element={<Rip />} />
       </Routes>
     </BrowserRouter>
   );
