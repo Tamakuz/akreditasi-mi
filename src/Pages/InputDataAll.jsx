@@ -9,7 +9,7 @@ const InputDataAll = () => {
   console.log(selectedOption);
 
   const handleDropdownChange = (event) => {
-    setSelectedOption(event.target.value); // Update state ketika nilai dropdown berubah
+    setSelectedOption(event.target.value);
   };
 
   let content;
