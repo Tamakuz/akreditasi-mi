@@ -68,7 +68,7 @@ const menus = [
       { subPage: "Jurnal", path: "/lppm/jurnal" },
       { subPage: "HAKI", path: "/lppm/haki" },
       { subPage: "Road Map", path: "/lppm/road-map" },
-      { subPage: "Pedoman", path: "/lppm/pedmoan" },
+      { subPage: "Pedoman", path: "/lppm/pedoman" },
       { subPage: "Renstra", path: "/lppm/renstra" },
     ],
   },
