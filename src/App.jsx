@@ -22,6 +22,13 @@ import Sop from "./Pages/PenjaminanMutu/Sop";
 import Pedoman from "./Pages/PenjaminanMutu/Pedoman";
 import Renstra from "./Pages/PenjaminanMutu/Renstra";
 import Rip from "./Pages/PenjaminanMutu/Rip";
+import PenelitianLppm from "./Pages/lppm/PenelitianLppm";
+import PengabdianLppm from "./Pages/lppm/PengabdianLppm";
+import Jurnal from "./Pages/lppm/Jurnal";
+import Haki from "./Pages/lppm/Haki";
+import RoadMap from "./Pages/lppm/RoadMap";
+import PedomanLppm from "./Pages/lppm/PedomanLppm";
+import RenstraLppm from "./Pages/lppm/RenstraLppm";
 
 const App = () => {
   const { globalState } = useContext(GlobalState);
@@ -67,6 +74,13 @@ const App = () => {
         <Route path="/penjaminan-mutu/pedoman" element={<Pedoman />} />
         <Route path="/penjaminan-mutu/renstra" element={<Renstra />} />
         <Route path="/penjaminan-mutu/rip" element={<Rip />} />
+        <Route path="/lppm/penelitian" element={<PenelitianLppm />} />
+        <Route path="/lppm/pengabdian" element={<PengabdianLppm />} />
+        <Route path="/lppm/jurnal" element={<Jurnal />} />
+        <Route path="/lppm/haki" element={<Haki />} />
+        <Route path="/lppm/road-map" element={<RoadMap />} />
+        <Route path="/lppm/pedoman" element={<PedomanLppm />} />
+        <Route path="/lppm/renstra" element={<RenstraLppm />} />
       </Routes>
     </BrowserRouter>
   );
