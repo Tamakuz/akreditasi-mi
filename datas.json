@@ -521,34 +521,34 @@
     }
   ],
   "formulir": [
-     {
+    {
       "id": 1,
       "deskripsi": "Formulir",
       "link": "https://youtube.com"
     }
   ],
   "sop": [
-     {
+    {
       "id": 1,
       "deskripsi": "SOP",
       "link": "https://youtube.com"
     }
   ],"pedoman": [
-    {
+     {
       "id": 1,
       "deskripsi": "Pedoman",
       "link": "https://youtube.com"
     }
   ],
   "renstra": [
-     {
+    {
       "id": 1,
       "deskripsi": "Renstra",
       "link": "https://youtube.com"
     }
   ],
   "rip": [
-     {
+    {
       "id": 1,
       "deskripsi": "RIP",
       "link": "https://youtube.com"
