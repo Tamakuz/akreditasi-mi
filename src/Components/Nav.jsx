@@ -42,14 +42,36 @@ const menus = [
   {
     page: "Download",
     subMenus: [
-      {subPage: "BPK", path: "/download/bpk"},
-      {subPage: "RPS", path: "/download/rps"},
-      {subPage: "Kontrak Kuliah", path: "/download/kontrak-kuliah"},
-      {subPage: "Penelitian", path: "/download/penelitian"},
-      {subPage: "Pengabdian", path: "/download/pengabdian"},
-      {subPage: "Sertifikat", path: "/download/sertifikat"},
-    ]
-  }
+      { subPage: "BPK", path: "/download/bpk" },
+      { subPage: "RPS", path: "/download/rps" },
+      { subPage: "Kontrak Kuliah", path: "/download/kontrak-kuliah" },
+      { subPage: "Penelitian", path: "/download/penelitian" },
+      { subPage: "Pengabdian", path: "/download/pengabdian" },
+      { subPage: "Sertifikat", path: "/download/sertifikat" },
+    ],
+  },
+  {
+    page: "Penjaminan Mutu",
+    subMenus: [
+      { subPage: "Formulir", path: "/penjaminan-mutu/formulir" },
+      { subPage: "SOP", path: "/penjaminan-mutu/sop" },
+      { subPage: "Pedoman", path: "/penjaminan-mutu/pedoman" },
+      { subPage: "Renstra", path: "/penjaminan-mutu/renstra" },
+      { subPage: "RIP", path: "/penjaminan-mutu/rip" },
+    ],
+  },
+  {
+    page: "LPPM",
+    subMenus: [
+      { subPage: "Penelitian", path: "/lppm/penelitian" },
+      { subPage: "Pengabdian", path: "/lppm/pengabdian" },
+      { subPage: "Jurnal", path: "/lppm/jurnal" },
+      { subPage: "HAKI", path: "/lppm/haki" },
+      { subPage: "Road Map", path: "/lppm/road-map" },
+      { subPage: "Pedoman", path: "/lppm/pedmoan" },
+      { subPage: "Renstra", path: "/lppm/renstra" },
+    ],
+  },
 ];
 
 const Nav = () => {
