@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { GlobalState } from "../../Context/Context";
 import Layout from "../../Components/Layout";
 import LayoutTamplate from "../../Components/LayoutTamplate";
@@ -35,7 +35,12 @@ const Penelitian = () => {
                     <th className="border px-4 py-2">{i + 1}</th>
                     <td className="border px-4 py-2">{b.deskripsi}</td>
                     <td className="border px-4 py-2">
-                      <a href={b.link} target="_blank" className="text-red-500">
+                      <a
+                        rel="noopener noreferrer"
+                        href={b.link}
+                        target="_blank"
+                        className="text-red-500"
+                      >
                         Download
                       </a>
                     </td>
