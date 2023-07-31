@@ -26,7 +26,7 @@ const PengabdianLppm = () => {
               </tr>
             </thead>
             <tbody>
-              {datas.pengabdianLppm.map((b, i) => {
+              {datas.pengabdian_lppm.map((b, i) => {
                 return (
                   <tr
                     key={i}

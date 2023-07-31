@@ -533,8 +533,9 @@
       "deskripsi": "SOP",
       "link": "https://youtube.com"
     }
-  ],"pedoman": [
-     {
+  ],
+  "pedoman": [
+    {
       "id": 1,
       "deskripsi": "Pedoman",
       "link": "https://youtube.com"
@@ -554,49 +555,54 @@
       "link": "https://youtube.com"
     }
   ],
-  "penelitianLppm": [
+  "penelitian_lppm": [
     {
       "id": 1,
       "deskripsi": "Penelitian",
       "link": "https://youtube.com"
     }
   ],
-  "pengabdianLppm": [
+  "pengabdian_lppm": [
     {
       "id": 1,
       "deskripsi": "Pengabdian",
       "link": "https://youtube.com"
+    },
+    {
+      "deskripsi": "sjnfsdfsdf",
+      "link": "https://jkdnksndfs",
+      "id": 2
     }
   ],
-  "jurnal": [
+  "jurnal_lppm": [
     {
       "id": 1,
       "deskripsi": "Jurnal",
       "link": "https://youtube.com"
     }
   ],
-  "haki": [
+  "haki_lppm": [
     {
       "id": 1,
       "deskripsi": "HAKI",
       "link": "https://youtube.com"
     }
   ],
-  "roadMap": [
+  "roadmap_lppm": [
     {
       "id": 1,
       "deskripsi": "Road Map",
       "link": "https://youtube.com"
     }
   ],
-  "pedomanLppm": [
+  "pedoman_lppm": [
     {
       "id": 1,
       "deskripsi": "Pedoman",
       "link": "https://youtube.com"
     }
   ],
-  "renstraLppm": [
+  "renstra_lppm": [
     {
       "id": 1,
       "deskripsi": "Renstra",

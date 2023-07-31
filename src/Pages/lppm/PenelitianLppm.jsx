@@ -26,7 +26,7 @@ const PenelitianLppm = () => {
               </tr>
             </thead>
             <tbody>
-              {datas.penelitianLppm.map((b, i) => {
+              {datas.penelitian_lppm.map((b, i) => {
                 return (
                   <tr
                     key={i}

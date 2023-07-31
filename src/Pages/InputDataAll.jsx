@@ -13,6 +13,7 @@ import InputSop from "../Components/InputDatas/InputSop";
 import InputPedoman from "../Components/InputDatas/InputPedoman";
 import InputRenstra from "../Components/InputDatas/InputRenstra";
 import InputRip from "../Components/InputDatas/InputRip";
+import InputLppm from "../Components/InputDatas/InputLppm";
 
 const InputDataAll = () => {
   const [selectedOption, setSelectedOption] = useState("kurikulums"); // State untuk menangkap nilai dropdown
@@ -61,6 +62,27 @@ const InputDataAll = () => {
       break;
     case "rip":
       content = <InputRip />;
+      break;
+    case "penelitian_lppm":
+      content = <InputLppm collection={selectedOption} />;
+      break;
+    case "pengabdian_lppm":
+      content = <InputLppm collection={selectedOption} />;
+      break;
+    case "jurnal_lppm":
+      content = <InputLppm collection={selectedOption} />;
+      break;
+    case "haki_lppm":
+      content = <InputLppm collection={selectedOption} />;
+      break;
+    case "roadmap_lppm":
+      content = <InputLppm collection={selectedOption} />;
+      break;
+    case "pedoman_lppm":
+      content = <InputLppm collection={selectedOption} />;
+      break;
+    case "renstra_lppm":
+      content = <InputLppm collection={selectedOption} />;
       break;
 
     default:
