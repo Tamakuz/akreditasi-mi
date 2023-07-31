@@ -40,17 +40,6 @@ const menus = [
     path: "/informasi",
   },
   {
-    page: "Download",
-    subMenus: [
-      { subPage: "BPK", path: "/download/bpk" },
-      { subPage: "RPS", path: "/download/rps" },
-      { subPage: "Kontrak Kuliah", path: "/download/kontrak-kuliah" },
-      { subPage: "Penelitian", path: "/download/penelitian" },
-      { subPage: "Pengabdian", path: "/download/pengabdian" },
-      { subPage: "Sertifikat", path: "/download/sertifikat" },
-    ],
-  },
-  {
     page: "Penjaminan Mutu",
     subMenus: [
       { subPage: "Formulir", path: "/penjaminan-mutu/formulir" },
@@ -70,6 +59,17 @@ const menus = [
       { subPage: "Road Map", path: "/lppm/road-map" },
       { subPage: "Pedoman", path: "/lppm/pedmoan" },
       { subPage: "Renstra", path: "/lppm/renstra" },
+    ],
+  },
+  {
+    page: "Download",
+    subMenus: [
+      { subPage: "BPK", path: "/download/bpk" },
+      { subPage: "RPS", path: "/download/rps" },
+      { subPage: "Kontrak Kuliah", path: "/download/kontrak-kuliah" },
+      { subPage: "Penelitian", path: "/download/penelitian" },
+      { subPage: "Pengabdian", path: "/download/pengabdian" },
+      { subPage: "Sertifikat", path: "/download/sertifikat" },
     ],
   },
 ];

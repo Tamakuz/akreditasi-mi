@@ -3,10 +3,19 @@ import Layout from "../Components/Layout";
 import InputKurikulum from "../Components/InputDatas/InputKurikulum";
 import InputDataKarya from "../Components/InputDatas/InputDataKarya";
 import InputDataAkreditasi from "../Components/InputDatas/InputDataAkreditasi";
+import InputBpk from "../Components/InputDatas/InputBpk";
+import InputRps from "../Components/InputDatas/InputRps";
+import InputKontrakKuliah from "../Components/InputDatas/inputKontrakKuliah";
+import InputPenelitian from "../Components/InputDatas/InputPenelitian";
+import InputPengabdian from "../Components/InputDatas/InputPengabdian";
+import InputFormulir from "../Components/InputDatas/InputFormulir";
+import InputSop from "../Components/InputDatas/InputSop";
+import InputPedoman from "../Components/InputDatas/InputPedoman";
+import InputRenstra from "../Components/InputDatas/InputRenstra";
+import InputRip from "../Components/InputDatas/InputRip";
 
 const InputDataAll = () => {
   const [selectedOption, setSelectedOption] = useState("kurikulums"); // State untuk menangkap nilai dropdown
-  console.log(selectedOption);
 
   const handleDropdownChange = (event) => {
     setSelectedOption(event.target.value);
@@ -17,13 +26,41 @@ const InputDataAll = () => {
     case "kurikulums":
       content = <InputKurikulum />;
       break;
-
     case "karya_mahasiswa":
       content = <InputDataKarya />;
       break;
-
     case "dataAkreditasi":
       content = <InputDataAkreditasi />;
+      break;
+    case "bpk":
+      content = <InputBpk />;
+      break;
+    case "rps":
+      content = <InputRps />;
+      break;
+    case "kontrak_kuliah":
+      content = <InputKontrakKuliah />;
+      break;
+    case "penelitian":
+      content = <InputPenelitian />;
+      break;
+    case "pengabdian":
+      content = <InputPengabdian />;
+      break;
+    case "formulir":
+      content = <InputFormulir />;
+      break;
+    case "sop":
+      content = <InputSop />;
+      break;
+    case "pedoman":
+      content = <InputPedoman />;
+      break;
+    case "renstra":
+      content = <InputRenstra />;
+      break;
+    case "rip":
+      content = <InputRip />;
       break;
 
     default:
@@ -53,6 +90,24 @@ const InputDataAll = () => {
                 <option value="dataAkreditasi">
                   Data Pendukung Akreditasi
                 </option>
+                <option value="bpk">BPK</option>
+                <option value="rps">RPS</option>
+                <option value="kontrak_kuliah">Kontrak Kuliah</option>
+                <option value="penelitian">Penelitian</option>
+                <option value="pengabdian">Pengabdian</option>
+                <option value="sertifikat">Sertifikat</option>
+                <option value="formulir">Formulir</option>
+                <option value="sop">SOP</option>
+                <option value="pedoman">Pedoman</option>
+                <option value="renstra">Renstra</option>
+                <option value="rip">RIP</option>
+                <option value="penelitian_lppm">Penelitian LPPM</option>
+                <option value="pengabdian_lppm">Pengabdian LPPM</option>
+                <option value="jurnal_lppm">Jurnal LPPM</option>
+                <option value="haki_lppm">HAKI LPPM</option>
+                <option value="roadmap_lppm">Road Map LPPM</option>
+                <option value="pedoman_lppm">Pedoman LPPM</option>
+                <option value="renstra_lppm">Renstra LPPM</option>
               </select>
             </div>
           </div>
