@@ -82,6 +82,7 @@ const Jadwal = () => {
                     />
                     <div className="absolute opacity-0 group-hover:top-0 hover:opacity-100 duration-300 w-full h-full backdrop-brightness-75 flex justify-center items-center cursor-pointer">
                       <a
+                        rel="noopener noreferrer"
                         href={ref.link}
                         target="_blank"
                         className="bg-green-300 px-2 py-2 rounded w-[80px] h-[80px] flex flex-col justify-center items-center"
