@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer p-20 bg-gray-300 text-base-content">
+    <footer className="footer md:p-20 p-10 bg-gray-300 text-base-content">
       <div>
         <img src={logoPolitama} className="w-[70px] h-[70px]" alt="" />
-        <p>
+        <p className="md:text-[14px] text-[12px]">
           Politeknik Pratama Mulia
           <br />
           Jl. Haryo Panular No.18A, Panularan, Kec. Laweyan, <br /> Kota
@@ -36,9 +36,7 @@ const Footer = () => {
       <div>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.0152979646873!2d110.81180577470991!3d-7.573310292440911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a167c11e566c5%3A0x84dda233930e297b!2sPOLITAMA%20Politeknik%20Pratama%20Mulia!5e0!3m2!1sid!2sid!4v1690185796852!5m2!1sid!2sid"
-          width="350"
-          height="200"
-          className="shadow-xl"
+          className="shadow-xl aspect-video w-full"
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"

@@ -7,8 +7,9 @@ import {
   AiFillInstagram,
   AiFillTwitterCircle,
 } from "react-icons/ai";
-import {BsList} from"react-icons/bs"
-import {GrClose} from"react-icons/gr"
+import { BsList } from "react-icons/bs";
+import { GrClose } from "react-icons/gr";
+import { Collapse } from "antd";
 
 const menus = [
   {
@@ -103,7 +104,7 @@ const Nav = () => {
   const { globalState } = useContext(GlobalState);
   const pageName = globalState.page;
   const { page, subPage } = globalState.page;
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav>
@@ -141,7 +142,7 @@ const Nav = () => {
               );
             })}
           </div>
-          <button onClick={() => setIsOpen(!isOpen)}>
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
             {isOpen ? (
               <GrClose className="w-[20px] h-[20px] cursor-pointer" />
             ) : (
@@ -207,56 +208,54 @@ const Nav = () => {
           </div>
         </div>
 
+        {/* Mobile view */}
         <div
           className={`${
             isOpen ? "top-0" : "-top-[1000px]"
-          } absolute flex flex-col gap-2 bg-[#1d5d9b] w-full h-fit z-[999] duration-100 shadow-md pt-[74px] pb-[10px] px-5`}
+          } absolute flex flex-col bg-[#1d5d9b] w-full h-fit z-[999] duration-100 shadow-md pt-[64px]`}
         >
           {menus.map((menu, i) => {
             return (
-              <div key={i} className="relative group">
+              <div key={i}>
                 {menu?.subMenus ? (
-                  <div key={i} className="collapse collapse-arrow px-0 py-0">
-                    <input type="radio" name="my-accordion-2" />
-                    <div className="collapse-title text-md">
-                      {menu.page}
-                    </div>
-                    <div className="collapse-content">
-                      <p>hello</p>
-                    </div>
+                  <div className="border-b border-gray-500 ">
+                    <Collapse
+                      className={`text-white border-b text-[16px]`}
+                      bordered={true}
+                      ghost={true}
+                      items={[
+                        {
+                          key: i,
+                          label: menu.page,
+                          children: (
+                            <div className="flex flex-col gap-3 px-10">
+                              {menu.subMenus.map((sub, j) => (
+                                <Link
+                                  key={j}
+                                  to={sub.path}
+                                  className={`${subPage === sub.subPage && "text-white"} duration-150 cursor-pointer`}
+                                >
+                                  {sub.subPage}
+                                </Link>
+                              ))}
+                            </div>
+                          ),
+                        },
+                      ]}
+                    />
                   </div>
                 ) : (
-                  <Link
-                    to={menu.path}
-                    className={`${
-                      pageName === menu.page ? "text-red-500" : "text-gray-100"
-                    } m-1 cursor-pointer xl:text-[16px] md:text-[12px]`}
-                  >
-                    {menu.page}
-                  </Link>
+                  <div className="px-5 py-[12px] border-b border-gray-500">
+                    <Link
+                      to={menu.path}
+                      className={`${
+                        pageName === menu.page ? "text-gray-100" : "text-black"
+                      } cursor-pointer text-[16px] hover:text-blue-300`}
+                    >
+                      {menu.page}
+                    </Link>
+                  </div>
                 )}
-                {/* {menu.subMenus && menu.subMenus.length > 0 && (
-                  <ul
-                    className={`${
-                      pageName === menu.page ? "block" : "hidden"
-                    } z-50 menu bg-[#1D5D9B] p-2 rounded-box w-fit right-[5px] absolute group-hover:block`}
-                  >
-                    {menu.subMenus.map((sub, j) => (
-                      <li key={j}>
-                        <Link
-                          to={sub.path}
-                          className={`${
-                            subPage === sub.subPage
-                              ? "text-red-500"
-                              : "text-gray-100"
-                          } duration-150 cursor-pointer`}
-                        >
-                          {sub.subPage}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )} */}
               </div>
             );
           })}

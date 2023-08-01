@@ -98,7 +98,7 @@ const Home = () => {
   return (
     <Layout>
       <>
-        <section className="relative w-full h-[400px]">
+        <section className="relative w-full h-[400px] md:pt-0">
           <Swiper
             centeredSlides={true}
             autoplay={{
@@ -136,60 +136,67 @@ const Home = () => {
           </Swiper>
           <div className="absolute top-0 z-10 w-full h-full flex justify-center items-center backdrop-brightness-50">
             <h1
-              className="text-blue-500 text-4xl font-bold"
+              className="text-blue-500 md:text-4xl text-xl font-bold"
               style={{ textShadow: "5px 5px 10px rgba(0, 0, 0, 1)" }}
             >
               Manajemen Informatika
             </h1>
           </div>
         </section>
-        <section className="w-full h-fit px-20 py-10 flex gap-10 justify-between item-center">
-          <div className="w-[300px] h-full border-r border-gray-500">
-            <div className="w-fit">
+        <section className="w-full h-fit md:px-20 px-10 py-10 flex md:flex-row flex-col-reverse gap-10 justify-between item-center">
+          <div className="md:px-10 md:border-r md:border-gray-500">
+            <div className="md:w-fit w-full mb-3">
               <h1 className="text-3xl font-semibold text-gray-700 border-b-2 border-red-500">
                 TAUTAN
               </h1>
             </div>
-            <div className="w-full h-full flex flex-col gap-2">
+            <div className="w-full h-fit flex md:flex-col flex-wrap justify-center gap-2">
               {refrention.map((ref, i) => {
                 return (
-                  <div
-                    key={i}
-                    className="relative h- group w-[120px] h-[120px] aspect-square overflow-hidden"
-                  >
-                    <img
-                      src={ref.img}
-                      className="w-full h-full"
-                      alt="elita-link"
-                    />
-                    <div className="absolute opacity-0 group-hover:top-0 hover:opacity-100 duration-300 w-full h-full backdrop-brightness-75 flex justify-center items-center cursor-pointer">
-                      <a
-                        rel="noopener noreferrer"
-                        href={ref.link}
-                        target="_blank"
-                        className="bg-green-300 px-2 py-2 rounded w-[80px] h-[80px] flex flex-col justify-center items-center"
+                  <>
+                    <div className="felx flex-col gap-3">
+                      <div
+                        key={i}
+                        className="relative mb-3 group md:w-[120px] w-[80px] h-fit aspect-square overflow-hidden"
                       >
-                        <FiLink className="text-3xl text-gray-700" />
-                        <p>{ref.desc}</p>
-                      </a>
+                        <img
+                          src={ref.img}
+                          className="w-full h-full"
+                          alt="elita-link"
+                        />
+                        <div className="absolute opacity-0 group-hover:top-0 hover:opacity-100 duration-300 w-full h-full backdrop-brightness-75 flex justify-center items-center cursor-pointer">
+                          <a
+                            rel="noopener noreferrer"
+                            href={ref.link}
+                            target="_blank"
+                            className="bg-green-300 px-2 py-2 rounded w-[80px] h-[80px] flex flex-col justify-center items-center"
+                          >
+                            <FiLink className="text-3xl text-gray-700" />
+                            <p>{ref.desc}</p>
+                          </a>
+                        </div>
+                      </div>
+                      <div className="w-full text-center">
+                        <p>adsasda</p>
+                      </div>
                     </div>
-                  </div>
+                  </>
                 );
               })}
             </div>
           </div>
 
           <div className="w-full flex flex-col gap-5">
-            <div className="w-full text-3xl font-semibold text-gray-700 border-b-2 border-red-500">
-              <h1>VISI DAN MISI</h1>
+            <div className="w-full md:text-3xl text-xl font-semibold text-gray-700 border-b-2 border-red-500">
+              <h1>VISI MISI DAN TUJUAN</h1>
             </div>
-            <div className="flex gap-10">
+            <div className="flex md:flex-row flex-col md:gap-10 gap-5">
               {/* Card Visi */}
-              <div className="w-full flex flex-col gap-10">
+              <div className="w-full flex flex-col md:gap-10 gap-5">
                 <div className="card w-full h-fit bg-base-100 shadow">
                   <figure className="w-full h-[150px] border-b-2 border-red-500 ">
                     <img
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                       src={logoPolitama}
                       alt="Shoes"
                     />
@@ -206,7 +213,7 @@ const Home = () => {
                     ))}
                   </div>
                 </div>
-                <div className="card w-full h-fit bg-base-100 shadow">
+                <div className="md:block  hidden card w-full h-fit bg-base-100 shadow">
                   <div className="card-body">
                     <h2 className="card-title">TUJUAN</h2>
                     {tujuan.map((item, i) => (
@@ -221,22 +228,37 @@ const Home = () => {
                 </div>
               </div>
               {/* Card Misi */}
-              <div className="card w-full h-fit bg-base-100 shadow">
-                <figure className="w-full h-[150px] border-b-2 border-red-500 ">
-                  <img
-                    className="w-full h-full object-cover"
-                    src={logoPolitama}
-                    alt="Shoes"
-                  />
-                </figure>
-                <div className="card-body">
-                  <h2 className="card-title">MISI</h2>
-                  {mission.map((misi, i) => (
-                    <div key={i} className="flex gap-3">
-                      <p className="text-gray-800 font-bold">{i + 1}.</p>
-                      <h6>{misi.parent}</h6>
-                    </div>
-                  ))}
+              <div className="w-full flex flex-col md:gap-10 gap-5">
+                <div className="card w-full h-fit bg-base-100 shadow">
+                  <figure className="w-full h-[150px] border-b-2 border-red-500 ">
+                    <img
+                      className="w-full h-full object-contain"
+                      src={logoPolitama}
+                      alt="Shoes"
+                    />
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">MISI</h2>
+                    {mission.map((misi, i) => (
+                      <div key={i} className="flex gap-3">
+                        <p className="text-gray-800 font-bold">{i + 1}.</p>
+                        <h6>{misi.parent}</h6>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="md:hidden card w-full h-fit bg-base-100 shadow">
+                  <div className="card-body">
+                    <h2 className="card-title">TUJUAN</h2>
+                    {tujuan.map((item, i) => (
+                      <div key={i} className="flex gap-2 w-full h-fit">
+                        <span className="text-gray-800 font-bold">
+                          {i + 1}.
+                        </span>
+                        <p>{item.text}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

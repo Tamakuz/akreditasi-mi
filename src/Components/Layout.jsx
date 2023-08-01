@@ -8,7 +8,7 @@ function Layout({children}) {
         <Nav />
       </header>
 
-      <main className="bg-gray-100">
+      <main className="bg-gray-100 md:pt-0 pt-[64px]">
         {children}
       </main>
 

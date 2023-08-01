@@ -12,6 +12,7 @@ import miPagi from "../../Assets/jadwal/mi-pagi.jpg";
 import miSore from "../../Assets/jadwal/mi-sore.jpg";
 
 import "react-calendar/dist/Calendar.css";
+import LayoutTamplate from "../../Components/LayoutTamplate";
 
 const refrention = [
   {
@@ -48,56 +49,12 @@ const Jadwal = () => {
 
   return (
     <Layout>
-      <section className="px-20 py-10 flex flex-col gap-10 justify-center">
-        <div className="w-full flex flex-col justify-center items-center mb-10">
-          <span>
-            <BiLogoReact className="text-[100px] text-center text-blue-500 animate-pulse" />
-          </span>
-          <p className="text-[30px]">Jadwal D3 Manajemen Informatika</p>
+      <LayoutTamplate titleHeader={"Jadwa D3 Manajemen Informatika"}>
+        <div className="flex flex-col gap-10">
+          <img src={miPagi} alt="miPagi" />
+          <img src={miSore} alt="miSore" />
         </div>
-        <div className="flex justify-center gap-10">
-          <div className="flex flex-col gap-10">
-            <img src={miPagi} alt="miPagi" />
-            <img src={miSore} alt="miSore" />
-          </div>
-          <div className="w-[300px] flex flex-col gap-3">
-            <div className="w-full border-b border-blue-500">
-              <p className="text-bold text-[20px] text-gray-700">Calender</p>
-            </div>
-            <Calendar value={new Date()} />
-            <div className="w-full border-b border-blue-500">
-              <p className="text-bold text-[20px] text-gray-700">Tautan</p>
-            </div>
-            <div className="flex flex-wrap gap-5">
-              {refrention.map((ref, i) => {
-                return (
-                  <div
-                    key={i}
-                    className="relative h- group w-[130px] aspect-square overflow-hidden"
-                  >
-                    <img
-                      src={ref.img}
-                      className="w-full h-full"
-                      alt="elita-link"
-                    />
-                    <div className="absolute opacity-0 group-hover:top-0 hover:opacity-100 duration-300 w-full h-full backdrop-brightness-75 flex justify-center items-center cursor-pointer">
-                      <a
-                        rel="noopener noreferrer"
-                        href={ref.link}
-                        target="_blank"
-                        className="bg-green-300 px-2 py-2 rounded w-[80px] h-[80px] flex flex-col justify-center items-center"
-                      >
-                        <FiLink className="text-3xl text-gray-700" />
-                        <p>{ref.desc}</p>
-                      </a>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
+      </LayoutTamplate>
     </Layout>
   );
 };

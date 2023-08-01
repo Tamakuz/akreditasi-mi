@@ -11,6 +11,7 @@ import sisterLink from "../../Assets/sister-link.png";
 import { FiLink } from "react-icons/fi";
 
 import "react-calendar/dist/Calendar.css";
+import LayoutTamplate from "../../Components/LayoutTamplate";
 
 const refrention = [
   {
@@ -47,96 +48,52 @@ const Kurikulum = () => {
 
   return (
     <Layout>
-      <section className="px-10 py-10 flex flex-col gap-10 justify-center">
-        <div className="w-full flex flex-col justify-center items-center mb-10">
-          <span>
-            <BiLogoReact className="text-[100px] text-center text-blue-500 animate-pulse" />
-          </span>
-          <p className="text-4xl font-bold">
-            Kurikulum D3 Manajemen Informatika
-          </p>
-        </div>
-        <div className="flex flex-col md:flex-row gap-10">
-          <div className="overflow-x-auto w-full md:w-[calc(100% - 300px)]">
-            <table className="w-full table-auto">
-              <thead>
-                <tr className="bg-gray-200">
-                  <th className="w-[40px] px-4 py-2">No</th>
-                  <th className="text-center px-4 py-2">ID</th>
-                  <th className="py-3">Mata Kuliah</th>
-                  <th className="text-center px-4 py-2">SKS</th>
-                  <th className="text-center px-4 py-2">T/P</th>
-                  <th className="text-center px-4 py-2">Semester</th>
-                </tr>
-              </thead>
-              <tbody>
-                {datas.kurikulums.map((kurikulum, i) => {
-                  return (
-                    <tr
-                      key={i}
-                      className={i % 2 === 0 ? "bg-white" : "bg-gray-100"}
-                    >
-                      <td className="text-center border px-4 py-2">{i + 1}</td>
-                      <td className="text-center border px-4 py-2">
-                        {kurikulum.id}
-                      </td>
-                      <td className="border px-4 py-2">{kurikulum.matkul}</td>
-                      <td className="text-center border px-4 py-2">
-                        {kurikulum.sks}
-                      </td>
-                      <td className="text-center border px-4 py-2">
-                        {kurikulum.tp ? "T" : "P"}
-                      </td>
-                      <td className="text-center border px-4 py-2">
-                        {kurikulum.semester}
-                      </td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-            <div className="w-full text-center py-5 text-sm text-gray-400">
-              <p>*T/P : Teori/Praktek</p>
-            </div>
-          </div>
-
-          <div className="w-full md:w-[300px] flex flex-col gap-3">
-            <div className="w-full border-b border-blue-500">
-              <p className="text-2xl font-bold text-gray-700">Calendar</p>
-            </div>
-            <Calendar value={new Date()} />
-            <div className="w-full border-b border-blue-500">
-              <p className="text-2xl font-bold text-gray-700">Tautan</p>
-            </div>
-            <div className="flex flex-wrap gap-5">
-              {refrention.map((ref, i) => {
+      <LayoutTamplate titleHeader={"Kurikulum D3 Manajemen Informatika"}>
+        <div className="overflow-x-auto w-full md:w-[calc(100% - 300px)]">
+          <table className="w-full table-auto">
+            <thead>
+              <tr className="bg-gray-200 text-[12px]">
+                <th className="w-[40px] px-4 py-2">No</th>
+                <th className="text-center px-4 py-2">ID</th>
+                <th className="py-3">Mata Kuliah</th>
+                <th className="text-center px-4 py-2">SKS</th>
+                <th className="text-center px-4 py-2">T/P</th>
+                <th className="text-center px-4 py-2">Semester</th>
+              </tr>
+            </thead>
+            <tbody>
+              {datas.kurikulums.map((kurikulum, i) => {
                 return (
-                  <div
+                  <tr
                     key={i}
-                    className="relative h-32 group w-[130px] aspect-square overflow-hidden"
+                    className={`${
+                      i % 2 === 0 ? "bg-white" : "bg-gray-100"
+                    } text-[]`}
                   >
-                    <img
-                      src={ref.img}
-                      className="w-full h-full"
-                      alt="elita-link"
-                    />
-                    <div className="absolute opacity-0 group-hover:top-0 hover:opacity-100 duration-300 w-full h-full backdrop-brightness-75 flex justify-center items-center cursor-pointer">
-                      <a
-                        href={ref.link}
-                        target="_blank"
-                        className="bg-green-300 px-2 py-2 rounded w-[80px] h-[80px] flex flex-col justify-center items-center"
-                      >
-                        <FiLink className="text-3xl text-gray-700" />
-                        <p className="text-xs">{ref.desc}</p>
-                      </a>
-                    </div>
-                  </div>
+                    <td className="text-center border px-4 py-2">{i + 1}</td>
+                    <td className="text-center border px-4 py-2">
+                      {kurikulum.id}
+                    </td>
+                    <td className="border px-4 py-2">{kurikulum.matkul}</td>
+                    <td className="text-center border px-4 py-2">
+                      {kurikulum.sks}
+                    </td>
+                    <td className="text-center border px-4 py-2">
+                      {kurikulum.tp ? "T" : "P"}
+                    </td>
+                    <td className="text-center border px-4 py-2">
+                      {kurikulum.semester}
+                    </td>
+                  </tr>
                 );
               })}
-            </div>
+            </tbody>
+          </table>
+          <div className="w-full text-center py-5 text-sm text-gray-400">
+            <p>*T/P : Teori/Praktek</p>
           </div>
         </div>
-      </section>
+      </LayoutTamplate>
     </Layout>
   );
 };

@@ -8,7 +8,7 @@ import siakadLink from "../../Assets/siakad-link.png";
 import sisterLink from "../../Assets/sister-link.png";
 import { FiLink } from "react-icons/fi";
 import { BiLogoReact } from "react-icons/bi";
-import datas from "../../../datas.json"
+import datas from "../../../datas.json";
 
 const refrention = [
   {
@@ -45,7 +45,7 @@ const KaryaMahasiswa = () => {
 
   return (
     <Layout>
-      <section className="px-10 py-10 flex flex-col gap-10 justify-center">
+      <section className="md:px-10 px-5 py-10 flex flex-col gap-10 justify-center">
         <div className="w-full flex flex-col justify-center items-center mb-10">
           <span>
             <BiLogoReact className="text-6xl text-blue-500 animate-pulse" />
@@ -54,12 +54,12 @@ const KaryaMahasiswa = () => {
             Karya Mahasiswa Manajemen Informatika
           </p>
         </div>
-        <div className="flex justify-center gap-10">
+        <div className="flex md:flex-row flex-col justify-center gap-10">
           <div className="flex flex-col gap-10">
-            <div>
-              <h1 className="text-2xl font-bold text-gray-700">
-                Daftar Karya Mahasiswa
-              </h1>
+            <h1 className="text-2xl font-bold text-gray-700">
+              Daftar Karya Mahasiswa
+            </h1>
+            <div className="overflow-x-auto">
               <table className="w-full table-auto">
                 <thead>
                   <tr className="bg-gray-200">
@@ -108,40 +108,31 @@ const KaryaMahasiswa = () => {
               </table>
             </div>
           </div>
-          <div className="w-[300px] flex flex-col gap-3">
-            <div className="aspect-w-16 aspect-h-9">
-              <iframe
-                className="aspect-video"
-                width="300"
-                src="https://www.youtube.com/embed/JTm6rybBReM"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div className="aspect-w-16 aspect-h-9">
-              <iframe
-                className="aspect-video"
-                width="300"
-                src="https://www.youtube.com/embed/HLBC-GJblUM"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div className="aspect-w-16 aspect-h-9">
-              <iframe
-                className="aspect-video"
-                width="300"
-                src="https://www.youtube.com/embed/_nUeF_BGQLU"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
-            </div>
+          <div className="md:w-[300px] w-full flex flex-col items-center gap-3">
+            <iframe
+              className="aspect-video w-full"
+              src="https://www.youtube.com/embed/JTm6rybBReM"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <iframe
+              className="aspect-video w-full"
+              src="https://www.youtube.com/embed/HLBC-GJblUM"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+            <iframe
+              className="aspect-video w-full"
+              src="https://www.youtube.com/embed/_nUeF_BGQLU"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
             <div className="w-full border-b border-blue-500">
               <p className="text-xl font-bold text-gray-700">Calendar</p>
             </div>
@@ -149,7 +140,7 @@ const KaryaMahasiswa = () => {
             <div className="w-full border-b border-blue-500">
               <p className="text-xl font-bold text-gray-700">Tautan</p>
             </div>
-            <div className="flex flex-wrap gap-5">
+            <div className="flex flex-wrap justify-center gap-5">
               {refrention.map((ref, i) => {
                 return (
                   <div
