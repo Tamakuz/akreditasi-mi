@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Layout from "../Components/Layout";
 import { GlobalState } from "../Context/Context";
 import { Link } from "react-router-dom";
@@ -62,6 +62,7 @@ const imageAlumni2021 = [
 
 const InformasiMahasiswa = () => {
   const { dispatch } = useContext(GlobalState);
+  const [imgSpesifik, setImgSpesifik] = useState();
 
   useEffect(() => {
     dispatch({
@@ -94,12 +95,17 @@ const InformasiMahasiswa = () => {
             <div className="flex gap-5 flex-wrap w-full justify-evenly">
               {imageAlumni2017.map((image, index) => {
                 return (
-                  <CardProfileAlumni key={index} dataImage={{ ...image }} />
+                  <CardProfileAlumni
+                    key={index}
+                    dataImage={{ ...image }}
+                    setImgSpesifik={setImgSpesifik}
+                  />
                 );
               })}
             </div>
             <p className="pl-24 pt-10">
-              Jumlah Alumni : <span className="font-bold">{imageAlumni2017.length}</span>
+              Jumlah Alumni :{" "}
+              <span className="font-bold">{imageAlumni2017.length}</span>
             </p>
           </div>
           <div>
@@ -107,24 +113,29 @@ const InformasiMahasiswa = () => {
             <div className="flex gap-5 flex-wrap w-full justify-evenly">
               {imageAlumni2021.map((image, index) => {
                 return (
-                  <CardProfileAlumni key={index} dataImage={{ ...image }} />
+                  <CardProfileAlumni
+                    key={index}
+                    dataImage={{ ...image }}
+                    setImgSpesifik={setImgSpesifik}
+                  />
                 );
               })}
             </div>
             <p className="pl-24 pt-10">
-              Jumlah Alumni : <span className="font-bold">{imageAlumni2021.length}</span>
+              Jumlah Alumni :{" "}
+              <span className="font-bold">{imageAlumni2021.length}</span>
             </p>
           </div>
         </div>
       </section>
 
       <dialog id="my_modal_3" className="modal">
-        <form method="dialog" className="modal-box">
+        <form method="dialog" className="modal-box w-fit">
           <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
             ✕
           </button>
           <figure>
-            <img src="sd" alt="Gambar Profile Harjono" />
+            <img src={imgSpesifik} alt="Gambar Profile Harjono" />
           </figure>
         </form>
       </dialog>

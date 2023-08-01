@@ -26,7 +26,7 @@ const Haki = () => {
               </tr>
             </thead>
             <tbody>
-              {datas.haki.map((b, i) => {
+              {datas.haki_lppm.map((b, i) => {
                 return (
                   <tr
                     key={i}

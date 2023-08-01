@@ -26,7 +26,7 @@ const Jurnal = () => {
               </tr>
             </thead>
             <tbody>
-              {datas.jurnal.map((b, i) => {
+              {datas.jurnal_lppm.map((b, i) => {
                 return (
                   <tr
                     key={i}

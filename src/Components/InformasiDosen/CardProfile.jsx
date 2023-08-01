@@ -1,5 +1,12 @@
-const CardProfile = ({ dataImage }) => {
-  const { universal, spesifik } = dataImage
+import { useState } from "react";
+
+const CardProfile = ({ dataImage, setImgSpesifik }) => {
+  const { universal, spesifik } = dataImage;
+
+  const handleCardProfile = () => {
+    window.my_modal_3.showModal();
+    setImgSpesifik(spesifik)
+  };
 
   return (
     <>
@@ -12,7 +19,7 @@ const CardProfile = ({ dataImage }) => {
           <div className="card-actions flex justify-end">
             <button
               className="btn btn-primary"
-              onClick={() => window.my_modal_3.showModal()}
+              onClick={handleCardProfile}
             >
               Detail
             </button>

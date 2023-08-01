@@ -26,7 +26,7 @@ const RoadMap = () => {
               </tr>
             </thead>
             <tbody>
-              {datas.roadMap.map((b, i) => {
+              {datas.roadmap_lppm.map((b, i) => {
                 return (
                   <tr
                     key={i}

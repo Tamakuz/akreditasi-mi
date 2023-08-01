@@ -26,7 +26,7 @@ const PedomanLppm = () => {
               </tr>
             </thead>
             <tbody>
-              {datas.pedomanLppm.map((b, i) => {
+              {datas.pedoman_lppm.map((b, i) => {
                 return (
                   <tr
                     key={i}

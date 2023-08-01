@@ -1,5 +1,10 @@
-const CardProfileAlumni = ({ dataImage }) => {
+const CardProfileAlumni = ({ dataImage, setImgSpesifik }) => {
   const { universal, spesifik } = dataImage;
+
+  const handleCardProfile = () => {
+    window.my_modal_3.showModal();
+    setImgSpesifik(spesifik);
+  };
 
   return (
     <>
@@ -12,7 +17,7 @@ const CardProfileAlumni = ({ dataImage }) => {
           <div className="card-actions justify-end">
             <button
               className="btn btn-primary"
-              onClick={() => window.my_modal_3.showModal()}
+              onClick={handleCardProfile}
             >
               Detail
             </button>

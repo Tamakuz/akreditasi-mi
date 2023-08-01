@@ -26,7 +26,7 @@ const RenstraLppm = () => {
               </tr>
             </thead>
             <tbody>
-              {datas.renstraLppm.map((b, i) => {
+              {datas.renstra_lppm.map((b, i) => {
                 return (
                   <tr
                     key={i}
