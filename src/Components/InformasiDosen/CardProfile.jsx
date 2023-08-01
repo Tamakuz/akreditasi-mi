@@ -9,12 +9,12 @@ const CardProfile = ({ dataImage }) => {
         </figure>
 
         <div className="card-body">
-          <div className="card-actions justify-end">
+          <div className="card-actions flex justify-end">
             <button
               className="btn btn-primary"
               onClick={() => window.my_modal_3.showModal()}
             >
-              open modal
+              Detail
             </button>
           </div>
         </div>
