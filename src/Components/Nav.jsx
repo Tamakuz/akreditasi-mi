@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { GlobalState } from "../Context/Context";
 import logoMI from "../Assets/icon/mi.png";
 import {
+  AiFillEye,
   AiFillFacebook,
   AiFillInstagram,
   AiFillTwitterCircle,
@@ -102,6 +103,7 @@ const Medsos = [
 ];
 
 const Nav = () => {
+  const existingVisitorId = localStorage.getItem("totalVisitors");
   const { globalState } = useContext(GlobalState);
   const pageName = globalState.page;
   const { page, subPage } = globalState.page;
@@ -124,27 +126,35 @@ const Nav = () => {
               </p>
             </div>
           </div>
-          <div className="md:flex items-center hidden">
-            <div className="pr-3 pb-3">
+          <div className="md:flex items-center hidden gap-5">
+            <div className="flex items-center flex-col pb-3">
               <Timer />
+              <p className="text-[12px] flex items-center gap-2">
+                <span className="text-[16px]">
+                  <AiFillEye />
+                </span>
+                Visitor : {existingVisitorId}
+              </p>
             </div>
-            {Medsos.map((media, i) => {
-              return (
-                <div
-                  key={i}
-                  className="tooltip tooltip-bottom"
-                  data-tip={media.name}
-                >
-                  <a
-                    href={media.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+            <div className="flex items-center">
+              {Medsos.map((media, i) => {
+                return (
+                  <div
+                    key={i}
+                    className="tooltip tooltip-bottom"
+                    data-tip={media.name}
                   >
-                    {media.icon}
-                  </a>
-                </div>
-              );
-            })}
+                    <a
+                      href={media.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {media.icon}
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
           </div>
           <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
             {isOpen ? (
@@ -237,7 +247,9 @@ const Nav = () => {
                                 <Link
                                   key={j}
                                   to={sub.path}
-                                  className={`${subPage === sub.subPage && "text-white"} duration-150 cursor-pointer`}
+                                  className={`${
+                                    subPage === sub.subPage && "text-white"
+                                  } duration-150 cursor-pointer`}
                                 >
                                   {sub.subPage}
                                 </Link>

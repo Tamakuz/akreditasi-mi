@@ -3,7 +3,7 @@ import Home from "./Pages/Home/Home";
 import DocAkreditasi from "./Pages/DocAkreditasi/DocAkreditasi";
 import InformasiDosen from "./Pages/InformasiDosen";
 import InformasiMahasiswa from "./Pages/InformasiMahasiswa";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GlobalState } from "./Context/Context";
 import ProfilJurusan from "./Pages/DocJurusan/ProfilJurusan";
 import Kurikulum from "./Pages/DocJurusan/Kurikulum";
@@ -32,6 +32,62 @@ import RenstraLppm from "./Pages/lppm/RenstraLppm";
 
 const App = () => {
   const { globalState } = useContext(GlobalState);
+  const [visitorId, setVisitorId] = useState(null);
+  const [totalVisitors, setTotalVisitors] = useState(0);
+  const [uniqueVisitors, setUniqueVisitors] = useState(0);
+  
+  useEffect(() => {
+    const getVisitorId = () => {
+      const existingVisitorId = localStorage.getItem("visitorId");
+      if (existingVisitorId) {
+        return existingVisitorId;
+      } else {
+        const newVisitorId = Math.random().toString(36).substr(2, 9);
+        localStorage.setItem("visitorId", newVisitorId);
+        return newVisitorId;
+      }
+    };
+
+    const resetVisitorId = () => {
+      const newVisitorId = Math.random().toString(36).substr(2, 9);
+      const previousVisitorIds = localStorage.getItem("previousVisitorIds");
+      if (previousVisitorIds) {
+        const parsedPreviousVisitorIds = JSON.parse(previousVisitorIds);
+        parsedPreviousVisitorIds.push(localStorage.getItem("visitorId"));
+        localStorage.setItem(
+          "previousVisitorIds",
+          JSON.stringify(parsedPreviousVisitorIds)
+        );
+      } else {
+        localStorage.setItem(
+          "previousVisitorIds",
+          JSON.stringify([localStorage.getItem("visitorId")])
+        );
+      }
+      localStorage.setItem("visitorId", newVisitorId);
+      return newVisitorId;
+    };
+
+    const handleBeforeUnload = () => {
+      const updatedTotalVisitors = totalVisitors + 1;
+      setTotalVisitors(updatedTotalVisitors);
+      localStorage.setItem("totalVisitors", updatedTotalVisitors);
+      resetVisitorId();
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+
+    const allVisitorIds = Object.keys(localStorage);
+    setTotalVisitors(
+      parseInt(localStorage.getItem("totalVisitors")) || allVisitorIds.length
+    );
+    setUniqueVisitors(new Set(allVisitorIds).size);
+    setVisitorId(getVisitorId());
+
+    return () => {
+      window.removeEventListener("beforeunload", handleBeforeUnload);
+    };
+  }, [totalVisitors]);
 
   useEffect(() => {
     const metaData = () => {
@@ -45,7 +101,7 @@ const App = () => {
   }, [globalState]);
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
@@ -82,7 +138,7 @@ const App = () => {
         <Route path="/lppm/pedoman" element={<PedomanLppm />} />
         <Route path="/lppm/renstra" element={<RenstraLppm />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 };
 

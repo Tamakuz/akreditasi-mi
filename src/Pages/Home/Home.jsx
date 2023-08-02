@@ -153,34 +153,29 @@ const Home = () => {
             <div className="w-full h-fit flex md:flex-col flex-wrap justify-center gap-2">
               {refrention.map((ref, i) => {
                 return (
-                  <>
-                    <div className="felx flex-col gap-3">
-                      <div
-                        key={i}
-                        className="relative mb-3 group md:w-[120px] w-[80px] h-fit aspect-square overflow-hidden"
-                      >
-                        <img
-                          src={ref.img}
-                          className="w-full h-full"
-                          alt="elita-link"
-                        />
-                        <div className="absolute opacity-0 group-hover:top-0 hover:opacity-100 duration-300 w-full h-full backdrop-brightness-75 flex justify-center items-center cursor-pointer">
-                          <a
-                            rel="noopener noreferrer"
-                            href={ref.link}
-                            target="_blank"
-                            className="bg-green-300 px-2 py-2 rounded w-[80px] h-[80px] flex flex-col justify-center items-center"
-                          >
-                            <FiLink className="text-3xl text-gray-700" />
-                            <p>{ref.desc}</p>
-                          </a>
-                        </div>
-                      </div>
-                      <div className="w-full text-center">
-                        <p>adsasda</p>
+                  <div key={i} className="felx flex-col gap-3">
+                    <div className="relative mb-3 group md:w-[120px] w-[80px] h-fit aspect-square overflow-hidden">
+                      <img
+                        src={ref.img}
+                        className="w-full h-full"
+                        alt="elita-link"
+                      />
+                      <div className="absolute opacity-0 group-hover:top-0 hover:opacity-100 duration-300 w-full h-full backdrop-brightness-75 flex justify-center items-center cursor-pointer">
+                        <a
+                          rel="noopener noreferrer"
+                          href={ref.link}
+                          target="_blank"
+                          className="bg-green-300 px-2 py-2 rounded w-[80px] h-[80px] flex flex-col justify-center items-center"
+                        >
+                          <FiLink className="text-3xl text-gray-700" />
+                          <p>{ref.desc}</p>
+                        </a>
                       </div>
                     </div>
-                  </>
+                    <div className="w-full text-center">
+                      <p>adsasda</p>
+                    </div>
+                  </div>
                 );
               })}
             </div>
