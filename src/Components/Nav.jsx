@@ -10,6 +10,7 @@ import {
 import { BsList } from "react-icons/bs";
 import { GrClose } from "react-icons/gr";
 import { Collapse } from "antd";
+import Timer from "./timer/Timer";
 
 const menus = [
   {
@@ -116,14 +117,17 @@ const Nav = () => {
               src={logoMI}
               alt="logomi"
             />
-            <div className="md:block hidden">
+            <div className="w-full md:block hidden">
               <h1 className="text-xl font-bold">Manajemen Informatika</h1>
               <p className="text-[12px] text-gray-500">
                 Pusat Pengembangan Pembelajaran dan Penjaminan Mutu Pendidikan
               </p>
             </div>
           </div>
-          <div className="md:block hidden">
+          <div className="md:flex items-center hidden">
+            <div className="pr-3 pb-3">
+              <Timer />
+            </div>
             {Medsos.map((media, i) => {
               return (
                 <div
@@ -233,7 +237,7 @@ const Nav = () => {
                                 <Link
                                   key={j}
                                   to={sub.path}
-                                  className={`${subPage === sub.subPage && "text-white"} text-[12px] duration-150 cursor-pointer`}
+                                  className={`${subPage === sub.subPage && "text-white"} duration-150 cursor-pointer`}
                                 >
                                   {sub.subPage}
                                 </Link>
