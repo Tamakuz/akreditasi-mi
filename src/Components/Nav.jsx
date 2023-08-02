@@ -212,7 +212,7 @@ const Nav = () => {
         <div
           className={`${
             isOpen ? "top-0" : "-top-[1000px]"
-          } absolute flex flex-col bg-[#1d5d9b] w-full h-fit z-[999] duration-100 shadow-md pt-[64px]`}
+          } absolute flex flex-col bg-[#1d5d9b] w-full h-fit z-[999] duration-100 shadow-md pt-[64px] overflow-y-auto`}
         >
           {menus.map((menu, i) => {
             return (
@@ -220,7 +220,7 @@ const Nav = () => {
                 {menu?.subMenus ? (
                   <div className="border-b border-gray-500 ">
                     <Collapse
-                      className={`text-white border-b text-[16px]`}
+                      className={`text-white border-b text-[14px]`}
                       bordered={true}
                       ghost={true}
                       items={[
@@ -233,7 +233,7 @@ const Nav = () => {
                                 <Link
                                   key={j}
                                   to={sub.path}
-                                  className={`${subPage === sub.subPage && "text-white"} duration-150 cursor-pointer`}
+                                  className={`${subPage === sub.subPage && "text-white"} text-[12px] duration-150 cursor-pointer`}
                                 >
                                   {sub.subPage}
                                 </Link>
@@ -250,7 +250,7 @@ const Nav = () => {
                       to={menu.path}
                       className={`${
                         pageName === menu.page ? "text-gray-100" : "text-black"
-                      } cursor-pointer text-[16px] hover:text-blue-300`}
+                      } cursor-pointer text-[14px] hover:text-blue-300`}
                     >
                       {menu.page}
                     </Link>

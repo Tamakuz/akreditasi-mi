@@ -52,7 +52,7 @@ const InformasiDosen = () => {
             return <CardProfile key={index} dataImage={{ ...image }} setImgSpesifik={setImgSpesifik} />;
           })}
         </div>
-        <p className="pl-24 pt-10">
+        <p className="pt-10 text-center">
           Jumlah Dosen : <span className="font-bold">{images.length}</span>
         </p>
       </section>

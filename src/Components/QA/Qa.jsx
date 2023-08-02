@@ -22,10 +22,10 @@ const Qa = () => {
       onMouseLeave={handleMouseLeave}
     >
       {isHovering ? (
-        <span className="text-2xl">Q/A</span>
+        <span className="md:text-2xl text-md">Q/A</span>
       ) : (
         <span>
-          <BsWhatsapp className="text-4xl" />
+          <BsWhatsapp className="md:text-4xl text-md" />
         </span>
       )}
     </a>

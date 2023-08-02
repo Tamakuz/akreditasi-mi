@@ -12,30 +12,34 @@ const DocAkreditasi = () => {
 
   return (
     <Layout>
-      <section className="px-20 pb-10 flex flex-col gap-5">
+      <section className="md:px-20 px-5 pb-10 flex flex-col gap-5">
         <h1 className="text-[30px] px-10 py-10 pb-5 font-bold ">
           Data Dukung LED Prodi Manajemen Informasi
         </h1>
         {datas.dataAkreditasi.map((da, i) => (
           <div key={i} className="w-full bg-gray-50 p-5 rounded shadow-md">
-            <h1 className="text-[20px] font-bold text-gray-700">{da.judul}</h1>
+            <h1 className="md:text-[20px] text-[16px] font-bold text-gray-700">
+              {da.judul}
+            </h1>
             <table className="w-full table table-fixed">
               <thead className="border-b-2 border-gray-300">
                 <tr>
-                  <th className="w-12">No</th>
+                  <th className="md:w-12 w-8 p-0">No</th>
                   <th className="">Deskripsi</th>
-                  <th className="w-[150px]">Dokumen</th>
+                  <th className="w-[100px]">Dokumen</th>
                 </tr>
               </thead>
               <tbody>
                 {da.dataBody.map((data, j) => (
                   <tr key={j}>
-                    <th>{j + 1}</th>
-                    <td>{data.deskripsi}</td>
+                    <th className="p-0">{j + 1}</th>
+                    <td className="md:text-[14px] text-[12px]">
+                      {data.deskripsi}
+                    </td>
                     <td>
                       <a
                         href={data.link}
-                        className="text-blue-400 hover:text-blue-500 font-semibold tex-xl hover:underline"
+                        className="text-blue-400 hover:text-blue-500 md:text-[14px] text-[12px] font-semibold tex-xl hover:underline"
                       >
                         Buka
                       </a>

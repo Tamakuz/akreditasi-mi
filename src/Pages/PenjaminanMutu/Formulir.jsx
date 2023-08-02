@@ -16,13 +16,13 @@ const Formulir = () => {
   return (
     <Layout>
       <LayoutTamplate titleHeader={"Penjaminan Mutu Formulir"}>
-        <div className="overflow-x-auto w-full md:w-[calc(100% - 300px)]">
+        <div className="overflow-x-auto w-full">
           <table className="w-full table-auto">
             <thead>
               <tr className="bg-gray-200">
-                <th className="px-4 py-2">No</th>
+                <th className="px-4 py-2 w-[50px]">No</th>
                 <th className="px-4 py-2 w-[400px]">Deskripsi</th>
-                <th className="px-4 py-2">Link</th>
+                <th className="px-4 py-2 w-[100px]">Link</th>
               </tr>
             </thead>
             <tbody>
@@ -34,7 +34,7 @@ const Formulir = () => {
                   >
                     <th className="border px-4 py-2">{i + 1}</th>
                     <td className="border px-4 py-2">{b.deskripsi}</td>
-                    <td className="border px-4 py-2">
+                    <td className="border px-4 py-2 text-center">
                       <a
                         rel="noopener noreferrer"
                         href={b.link}

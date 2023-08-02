@@ -121,7 +121,7 @@ const InformasiMahasiswa = () => {
                 );
               })}
             </div>
-            <p className="pl-24 pt-10">
+            <p className="pt-10 text-center">
               Jumlah Alumni :{" "}
               <span className="font-bold">{imageAlumni2021.length}</span>
             </p>
