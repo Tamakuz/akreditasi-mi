@@ -1,11 +1,39 @@
-import React, { useState } from "react";
-import datas from "../../../datas.json";
+import React, { useEffect, useState } from "react";
 
 const InputLppm = ({ collection }) => {
-  const dataMapping = datas[collection] || []; // Get the relevant array from the datas object
-
   const [deskripsi, setDeskrpsi] = useState("");
   const [link, setLink] = useState("");
+  const [data, setData] = useState()
+  const [succes, setSucces] = useState(false)
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await fetch(
+          `http://localhost:5000/${collection}`,
+          {
+            method: "GET",
+            cache: "no-store",
+          }
+        );
+
+        if (!res.ok) {
+          throw new Error("Network response was not ok.");
+        }
+
+        // Assuming the response is JSON data, use json() to extract the data
+        const jsonData = await res.json();
+
+        setData(jsonData); // Update the state with the fetched data
+      } catch (error) {
+        // Handle errors here, e.g. setData('Error fetching data')
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    getData();
+  }, [collection, succes]);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,18 +43,22 @@ const InputLppm = ({ collection }) => {
         link: link.startsWith("https://") ? link : `https://${link}`,
       };
 
-      const postResponse = await fetch(`http://localhost:5000/${collection}`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(postData),
-      });
+      const postResponse = await fetch(
+        `http://localhost:5000/${collection}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(postData),
+        }
+      );
 
       if (postResponse.ok) {
         alert("Data berhasil ditambahkan!");
         setDeskrpsi("");
         setLink("");
+        setSucces((prev) => !prev);
       } else {
         return alert("Maaf Data Sudah Ada Silahkan Periksa");
       }
@@ -38,7 +70,7 @@ const InputLppm = ({ collection }) => {
   const handleDeleteData = async (id) => {
     try {
       const deleteResponse = await fetch(
-        `http://localhost:5000/pedoman/${id}`,
+        `http://localhost:5000/${collection}/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -49,6 +81,7 @@ const InputLppm = ({ collection }) => {
 
       if (deleteResponse.ok) {
         alert("Data berhasil dihapus!");
+        setSucces((prev) => !prev)
       } else {
         alert("Gagal menghapus data!");
       }
@@ -102,28 +135,28 @@ const InputLppm = ({ collection }) => {
           </tr>
         </thead>
         <tbody>
-          {dataMapping.map((b, i) => {
-            // Use dataMapping.map instead of collection.map
-            return (
-              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-100"}>
-                <th className="border px-4 py-2">{i + 1}</th>
-                <td className="border px-4 py-2">{b.deskripsi}</td>
-                <td className="border px-4 py-2 text-center">
-                  <a href={b.link} target="_blank" className="text-red-500">
-                    Download
-                  </a>
-                </td>
-                <td className="text-center">
-                  <p
-                    onClick={() => handleDeleteData(b.id)}
-                    className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
-                  >
-                    Hapus
-                  </p>
-                </td>
-              </tr>
-            );
-          })}
+          {data?.map((item, index) => (
+            <tr
+              key={item.id}
+              className={index % 2 === 0 ? "bg-white" : "bg-gray-100"}
+            >
+              <th className="border px-4 py-2">{index + 1}</th>
+              <td className="border px-4 py-2">{item.deskripsi}</td>
+              <td className="border px-4 py-2 text-center">
+                <a href={item.link} target="_blank" className="text-red-500">
+                  Download
+                </a>
+              </td>
+              <td className="text-center">
+                <p
+                  onClick={() => handleDeleteData(item.id)}
+                  className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
+                >
+                  Hapus
+                </p>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
