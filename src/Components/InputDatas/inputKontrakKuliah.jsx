@@ -1,9 +1,30 @@
-import React, { useState } from "react";
-import datas from "../../../datas.json";
+import { useState, useEffect } from "react";
 
 const InputKontrakKuliah = () => {
   const [deskripsi, setDeskrpsi] = useState("");
   const [link, setLink] = useState("");
+  const [data, setData] = useState(null);
+  const [succes, setSucces] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://knowledgeable-painted-guarantee.glitch.me/kontrak_kuliah"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setData(data);
+        setSucces(!succes);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
+
+    fetchData();
+  }, [succes]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,18 +34,22 @@ const InputKontrakKuliah = () => {
         link: link.startsWith("https://") ? link : `https://${link}`,
       };
 
-      const postResponse = await fetch("http://localhost:5000/kontrak_kuliah", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(postData),
-      });
+      const postResponse = await fetch(
+        "https://knowledgeable-painted-guarantee.glitch.me/kontrak_kuliah",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(postData),
+        }
+      );
 
       if (postResponse.ok) {
         alert("Data berhasil ditambahkan!");
         setDeskrpsi("");
         setLink("");
+        setSucces(!succes);
       } else {
         return alert("Maaf Data Sudah Ada Silahkan Periksa");
       }
@@ -35,15 +60,19 @@ const InputKontrakKuliah = () => {
 
   const handleDeleteData = async (id) => {
     try {
-      const deleteResponse = await fetch(`http://localhost:5000/kontrak_kuliah/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const deleteResponse = await fetch(
+        `https://knowledgeable-painted-guarantee.glitch.me/kontrak_kuliah/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (deleteResponse.ok) {
         alert("Data berhasil dihapus!");
+        setSucces(!succes);
       } else {
         alert("Gagal menghapus data!");
       }
@@ -97,27 +126,38 @@ const InputKontrakKuliah = () => {
           </tr>
         </thead>
         <tbody>
-          {datas.kontrak_kuliah.map((b, i) => {
-            return (
-              <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-100"}>
-                <th className="border px-4 py-2">{i + 1}</th>
-                <td className="border px-4 py-2">{b.deskripsi}</td>
-                <td className="border px-4 py-2 text-center">
-                  <a href={b.link} target="_blank" className="text-red-500">
-                    Download
-                  </a>
-                </td>
-                <td className="text-center">
-                  <p
-                    onClick={() => handleDeleteData(b.id)} // Panggil fungsi handleDeleteData dengan dataId dan rowIndex
-                    className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
-                  >
-                    Hapus
-                  </p>
-                </td>
-              </tr>
-            );
-          })}
+          {data ? (
+            data.map((b, i) => {
+              return (
+                <tr
+                  key={i}
+                  className={i % 2 === 0 ? "bg-white" : "bg-gray-100"}
+                >
+                  <th className="border px-4 py-2">{i + 1}</th>
+                  <td className="border px-4 py-2">{b.deskripsi}</td>
+                  <td className="border px-4 py-2 text-center">
+                    <a href={b.link} target="_blank" className="text-red-500">
+                      Download
+                    </a>
+                  </td>
+                  <td className="text-center">
+                    <p
+                      onClick={() => handleDeleteData(b.id)} // Panggil fungsi handleDeleteData dengan dataId dan rowIndex
+                      className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
+                    >
+                      Hapus
+                    </p>
+                  </td>
+                </tr>
+              );
+            })
+          ) : (
+            <tr>
+              <td>
+                <p>Loading....</p>
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

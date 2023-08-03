@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import datas from "../../../datas.json";
+import { useState, useEffect } from "react";
 
 const InputDataKarya = () => {
   const [nama, setNama] = useState("");
@@ -7,6 +6,28 @@ const InputDataKarya = () => {
   const [tahun, setTahun] = useState(Number);
   const [doc, setDoc] = useState("");
   const [video, setVideo] = useState("");
+  const [succes, setSucces] = useState(false);
+
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://knowledgeable-painted-guarantee.glitch.me/karya_mahasiswa"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
+
+    fetchData();
+  }, [succes]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,13 +43,16 @@ const InputDataKarya = () => {
       };
 
       // Make the POST request to the server
-      const response = await fetch("http://localhost:5000/karya_mahasiswa", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newMahasiswa),
-      });
+      const response = await fetch(
+        "https://knowledgeable-painted-guarantee.glitch.me/karya_mahasiswa",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newMahasiswa),
+        }
+      );
 
       if (!response.ok) {
         return alert("Gagal Menambahkan Data");
@@ -41,6 +65,7 @@ const InputDataKarya = () => {
       setTahun(0);
       setDoc("");
       setVideo("");
+      setSucces(!succes)
     } catch (error) {
       console.error("Error adding data:", error);
     }
@@ -49,7 +74,7 @@ const InputDataKarya = () => {
   const handleDeleteData = async (id) => {
     try {
       const deleteResponse = await fetch(
-        `http://localhost:5000/karya_mahasiswa/${id}`,
+        `https://knowledgeable-painted-guarantee.glitch.me/karya_mahasiswa/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -60,6 +85,7 @@ const InputDataKarya = () => {
 
       if (deleteResponse.ok) {
         alert("Data berhasil dihapus!");
+        setSucces(!succes);
       } else {
         alert("Gagal menghapus data!");
       }
@@ -157,47 +183,59 @@ const InputDataKarya = () => {
             </tr>
           </thead>
           <tbody>
-            {datas.karya_mahasiswa.map((mhs, i) => {
-              return (
-                <tr
-                  key={i}
-                  className={i % 2 === 0 ? "bg-white" : "bg-gray-100"}
-                >
-                  <td className="text-center border px-4 py-2">{i + 1}</td>
-                  <td className="text-center border px-4 py-2">{mhs.nama}</td>
-                  <td className="text-center border px-4 py-2">{mhs.judul}</td>
-                  <td className="text-center border px-4 py-2">{mhs.tahun}</td>
-                  <td className="flex gap-3 h-[44px] w-full justify-center items-center text-center border px-4 py-2">
-                    {mhs.doc !== "https://" && (
-                      <a
-                        href={mhs.doc}
-                        target="_blank"
-                        className="text-blue-500"
+            {data ? (
+              data.map((mhs, i) => {
+                return (
+                  <tr
+                    key={i}
+                    className={i % 2 === 0 ? "bg-white" : "bg-gray-100"}
+                  >
+                    <td className="text-center border px-4 py-2">{i + 1}</td>
+                    <td className="text-center border px-4 py-2">{mhs.nama}</td>
+                    <td className="text-center border px-4 py-2">
+                      {mhs.judul}
+                    </td>
+                    <td className="text-center border px-4 py-2">
+                      {mhs.tahun}
+                    </td>
+                    <td className="flex gap-3 h-[44px] w-full justify-center items-center text-center border px-4 py-2">
+                      {mhs.doc !== "https://" && (
+                        <a
+                          href={mhs.doc}
+                          target="_blank"
+                          className="text-blue-500"
+                        >
+                          Doc
+                        </a>
+                      )}
+                      {mhs.video !== "https://" && (
+                        <a
+                          href={mhs.video}
+                          target="_blank"
+                          className="text-red-500"
+                        >
+                          Video
+                        </a>
+                      )}
+                    </td>
+                    <td className="text-center border px-4 py-2">
+                      <p
+                        onClick={() => handleDeleteData(mhs.id)} // Panggil fungsi handleDeleteData dengan dataId dan rowIndex
+                        className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
                       >
-                        Doc
-                      </a>
-                    )}
-                    {mhs.video !== "https://" && (
-                      <a
-                        href={mhs.video}
-                        target="_blank"
-                        className="text-red-500"
-                      >
-                        Video
-                      </a>
-                    )}
-                  </td>
-                  <td className="text-center border px-4 py-2">
-                    <p
-                      onClick={() => handleDeleteData(mhs.id)} // Panggil fungsi handleDeleteData dengan dataId dan rowIndex
-                      className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
-                    >
-                      Hapus
-                    </p>
-                  </td>
-                </tr>
-              );
-            })}
+                        Hapus
+                      </p>
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <tr>
+                <td>
+                  <p>Loading....</p>
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>

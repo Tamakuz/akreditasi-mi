@@ -1,10 +1,31 @@
-import React, { useState } from "react";
-import datas from "../../../datas.json";
+import React, { useEffect, useState } from "react";
 
 const InputDataAkreditasi = () => {
   const [judul, setJudul] = useState("");
   const [deskripsi, setDeskripsi] = useState("");
   const [link, setLink] = useState("");
+  const [data, setData] = useState(null);
+  const [succes, setSucces] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://knowledgeable-painted-guarantee.glitch.me/dataAkreditasi"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setData(data);
+        setSucces(!succes);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
+
+    fetchData();
+  }, [succes]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -12,7 +33,7 @@ const InputDataAkreditasi = () => {
     try {
       // Lakukan permintaan GET ke JSON Server untuk memeriksa apakah judul sudah ada atau belum
       const checkResponse = await fetch(
-        `http://localhost:5000/dataAkreditasi?judul=${judul}`
+        `https://knowledgeable-painted-guarantee.glitch.me/dataAkreditasi?judul=${judul}`
       );
       const existingData = await checkResponse.json();
 
@@ -31,7 +52,7 @@ const InputDataAkreditasi = () => {
             alert("Masukkan deskripsi dan link, dan tidak boleh kosong!");
           } else {
             const patchResponse = await fetch(
-              `http://localhost:5000/dataAkreditasi/${existingId}`,
+              `https://knowledgeable-painted-guarantee.glitch.me/dataAkreditasi/${existingId}`,
               {
                 method: "PATCH",
                 headers: {
@@ -59,7 +80,7 @@ const InputDataAkreditasi = () => {
           alert("Masukkan deskripsi dan link, dan tidak boleh kosong!");
         } else {
           const postResponse = await fetch(
-            "http://localhost:5000/dataAkreditasi",
+            "https://knowledgeable-painted-guarantee.glitch.me/dataAkreditasi",
             {
               method: "POST",
               headers: {
@@ -89,7 +110,7 @@ const InputDataAkreditasi = () => {
 
   const handleDeleteData = async (dataId, rowIndex) => {
     try {
-      const existingData = datas.dataAkreditasi.find((da) => da.id === dataId);
+      const existingData = data.find((da) => da.id === dataId);
 
       if (existingData) {
         const newDataBody = existingData.dataBody.filter(
@@ -97,7 +118,7 @@ const InputDataAkreditasi = () => {
         );
 
         const patchResponse = await fetch(
-          `http://localhost:5000/dataAkreditasi/${dataId}`,
+          `https://knowledgeable-painted-guarantee.glitch.me/dataAkreditasi/${dataId}`,
           {
             method: "PATCH",
             headers: {
@@ -111,6 +132,7 @@ const InputDataAkreditasi = () => {
 
         if (patchResponse.ok) {
           alert("Data berhasil dihapus!");
+          setSucces(!succes)
         } else {
           alert("Gagal menghapus data!");
         }
@@ -122,11 +144,11 @@ const InputDataAkreditasi = () => {
 
   const handleDeleteDataByJudul = async (judul) => {
     try {
-      const existingData = datas.dataAkreditasi.find((da) => da.judul === judul);
+      const existingData = data.find((da) => da.judul === judul);
 
       if (existingData) {
         const deleteResponse = await fetch(
-          `http://localhost:5000/dataAkreditasi/${existingData.id}`,
+          `https://knowledgeable-painted-guarantee.glitch.me/dataAkreditasi/${existingData.id}`,
           {
             method: "DELETE",
           }
@@ -134,8 +156,7 @@ const InputDataAkreditasi = () => {
 
         if (deleteResponse.ok) {
           alert("Data berhasil dihapus!");
-          // If needed, you should have a function here to update the state or re-fetch the data
-          // Example: fetchDataAkreditasi();
+          setSucces(!succes)
         } else {
           alert("Gagal menghapus data!");
         }
@@ -194,54 +215,64 @@ const InputDataAkreditasi = () => {
           Tambahkan Data
         </button>
       </form>
-      {datas.dataAkreditasi.map((da, i) => (
-        <div key={i} className="w-full bg-gray-50 p-5 rounded shadow-md">
-          <div className="flex justify-between items-center pr-10">
-            <h1 className="text-[20px] font-bold text-gray-700">{da.judul}</h1>
-            <p
-              onClick={() => handleDeleteDataByJudul(da.judul)}
-              className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
-            >
-              Hapus
-            </p>
-          </div>
-          <table className="w-full table table-fixed">
-            <thead className="border-b-4 border-gray-300">
-              <tr>
-                <th className="w-12">No</th>
-                <th className="">Deskripsi</th>
-                <th className="w-[100px]">Dokumen</th>
-                <th className="w-[100px]">Aksi</th>
-              </tr>
-            </thead>
-            <tbody>
-              {da?.dataBody?.map((data, j) => (
-                <tr key={j}>
-                  <th>{j + 1}</th>
-                  <td>{data.deskripsi}</td>
-                  <td>
-                    <a
-                      href={data.link}
-                      className="text-blue-400 hover:text-blue-500 font-semibold hover:underline"
-                    >
-                      Buka
-                    </a>
-                  </td>
-                  <td>
-                    {/* Tambahkan teks "Hapus" di samping teks "Buka" */}
-                    <p
-                      onClick={() => handleDeleteData(da.id, j)} // Panggil fungsi handleDeleteData dengan dataId dan rowIndex
-                      className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
-                    >
-                      Hapus
-                    </p>
-                  </td>
+      {data ? (
+        data.map((da, i) => (
+          <div key={i} className="w-full bg-gray-50 p-5 rounded shadow-md">
+            <div className="flex justify-between items-center pr-10">
+              <h1 className="text-[20px] font-bold text-gray-700">
+                {da.judul}
+              </h1>
+              <p
+                onClick={() => handleDeleteDataByJudul(da.judul)}
+                className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
+              >
+                Hapus
+              </p>
+            </div>
+            <table className="w-full table table-fixed">
+              <thead className="border-b-4 border-gray-300">
+                <tr>
+                  <th className="w-12">No</th>
+                  <th className="">Deskripsi</th>
+                  <th className="w-[100px]">Dokumen</th>
+                  <th className="w-[100px]">Aksi</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      ))}
+              </thead>
+              <tbody>
+                {da?.dataBody?.map((data, j) => (
+                  <tr key={j}>
+                    <th>{j + 1}</th>
+                    <td>{data.deskripsi}</td>
+                    <td>
+                      <a
+                        href={data.link}
+                        className="text-blue-400 hover:text-blue-500 font-semibold hover:underline"
+                      >
+                        Buka
+                      </a>
+                    </td>
+                    <td>
+                      {/* Tambahkan teks "Hapus" di samping teks "Buka" */}
+                      <p
+                        onClick={() => handleDeleteData(da.id, j)} // Panggil fungsi handleDeleteData dengan dataId dan rowIndex
+                        className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
+                      >
+                        Hapus
+                      </p>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))
+      ) : (
+        <tr>
+          <td>
+            <p>Loading....</p>
+          </td>
+        </tr>
+      )}
     </section>
   );
 };

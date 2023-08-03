@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import datas from "../../../datas.json";
+import { useState, useEffect } from "react";
 
 const InputKurikulum = () => {
   const [id, setId] = useState(0);
@@ -7,6 +6,27 @@ const InputKurikulum = () => {
   const [sks, setSks] = useState(0);
   const [tp, setTp] = useState(true);
   const [semester, setSemester] = useState(0);
+  const [data, setData] = useState([]);
+  const [succes, setSucces] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://knowledgeable-painted-guarantee.glitch.me/kurikulums"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
+
+    fetchData();
+  }, [succes]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,13 +39,16 @@ const InputKurikulum = () => {
         semester,
       };
 
-      const postResponse = await fetch("http://localhost:5000/kurikulums", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(postData),
-      });
+      const postResponse = await fetch(
+        "https://knowledgeable-painted-guarantee.glitch.me/kurikulums",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(postData),
+        }
+      );
 
       if (postResponse.ok) {
         alert("Data berhasil ditambahkan!");
@@ -34,6 +57,7 @@ const InputKurikulum = () => {
         setSks(0);
         setTp(true);
         setSemester(0);
+        setSucces(!succes);
       } else {
         return alert("Maaf Data Sudah Ada Silahkan Periksa");
       }
@@ -44,8 +68,8 @@ const InputKurikulum = () => {
 
   const handleDeleteData = async (kurikulumId) => {
     try {
-      // Periksa apakah data dengan id yang diberikan ada dalam array datas.kurikulums
-      const existingData = datas.kurikulums.find(
+      // Periksa apakah data dengan id yang diberikan ada dalam array
+      const existingData = data.find(
         (kurikulum) => kurikulum.id === kurikulumId
       );
       if (!existingData) {
@@ -53,7 +77,7 @@ const InputKurikulum = () => {
       }
 
       const deleteResponse = await fetch(
-        `http://localhost:5000/kurikulums/${kurikulumId}`,
+        `https://knowledgeable-painted-guarantee.glitch.me/kurikulums/${kurikulumId}`,
         {
           method: "DELETE",
           headers: {
@@ -64,6 +88,7 @@ const InputKurikulum = () => {
 
       if (deleteResponse.ok) {
         alert("Data berhasil dihapus!");
+        setSucces(!succes);
       } else {
         alert("Gagal menghapus data!");
       }
@@ -71,7 +96,6 @@ const InputKurikulum = () => {
       console.error("Terjadi kesalahan:", error);
     }
   };
-
 
   return (
     <div className="flex flex-col gap-5">
@@ -97,9 +121,7 @@ const InputKurikulum = () => {
           <input
             type="text"
             value={matkul}
-            onChange={(e) =>
-              setMatkul(e.target.value)
-            }
+            onChange={(e) => setMatkul(e.target.value)}
             className="w-full px-3 py-2 rounded border focus:outline-none focus:ring focus:border-blue-300"
           />
         </div>
@@ -158,7 +180,7 @@ const InputKurikulum = () => {
           </tr>
         </thead>
         <tbody>
-          {datas.kurikulums.map((kurikulum, i) => {
+          {data.map((kurikulum, i) => {
             return (
               <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-100"}>
                 <td className="text-center border px-4 py-2">{i + 1}</td>

@@ -14,6 +14,7 @@ import InputPedoman from "../Components/InputDatas/InputPedoman";
 import InputRenstra from "../Components/InputDatas/InputRenstra";
 import InputRip from "../Components/InputDatas/InputRip";
 import InputLppm from "../Components/InputDatas/InputLppm";
+import InputSertifikat from "../Components/InputDatas/InputSertifikat";
 
 const InputDataAll = () => {
   const [selectedOption, setSelectedOption] = useState("kurikulums"); // State untuk menangkap nilai dropdown
@@ -47,6 +48,9 @@ const InputDataAll = () => {
       break;
     case "pengabdian":
       content = <InputPengabdian />;
+      break;
+    case "sertifikat":
+      content = <InputSertifikat />;
       break;
     case "formulir":
       content = <InputFormulir />;
