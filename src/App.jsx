@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import DocAkreditasi from "./Pages/DocAkreditasi/DocAkreditasi";
 import InformasiDosen from "./Pages/InformasiDosen";
