@@ -12,7 +12,7 @@ const InputDataAkreditasi = () => {
     try {
       // Lakukan permintaan GET ke JSON Server untuk memeriksa apakah judul sudah ada atau belum
       const checkResponse = await fetch(
-        `http://localhost:5000/dataAkreditasi?judul=${judul}`
+        `https://knowledgeable-painted-guarantee.glitch.me/dataAkreditasi?judul=${judul}`
       );
       const existingData = await checkResponse.json();
 
@@ -31,7 +31,7 @@ const InputDataAkreditasi = () => {
             alert("Masukkan deskripsi dan link, dan tidak boleh kosong!");
           } else {
             const patchResponse = await fetch(
-              `http://localhost:5000/dataAkreditasi/${existingId}`,
+              `https://knowledgeable-painted-guarantee.glitch.me/dataAkreditasi/${existingId}`,
               {
                 method: "PATCH",
                 headers: {
@@ -59,7 +59,7 @@ const InputDataAkreditasi = () => {
           alert("Masukkan deskripsi dan link, dan tidak boleh kosong!");
         } else {
           const postResponse = await fetch(
-            "http://localhost:5000/dataAkreditasi",
+            "https://knowledgeable-painted-guarantee.glitch.me/dataAkreditasi",
             {
               method: "POST",
               headers: {
@@ -97,7 +97,7 @@ const InputDataAkreditasi = () => {
         );
 
         const patchResponse = await fetch(
-          `http://localhost:5000/dataAkreditasi/${dataId}`,
+          `https://knowledgeable-painted-guarantee.glitch.me/dataAkreditasi/${dataId}`,
           {
             method: "PATCH",
             headers: {
@@ -126,7 +126,7 @@ const InputDataAkreditasi = () => {
 
       if (existingData) {
         const deleteResponse = await fetch(
-          `http://localhost:5000/dataAkreditasi/${existingData.id}`,
+          `https://knowledgeable-painted-guarantee.glitch.me/dataAkreditasi/${existingData.id}`,
           {
             method: "DELETE",
           }

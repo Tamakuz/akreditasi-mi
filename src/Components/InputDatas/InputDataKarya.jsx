@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import datas from "../../../datas.json";
+import { useState, useEffect } from "react";
 
 const InputDataKarya = () => {
   const [nama, setNama] = useState("");
@@ -7,6 +6,27 @@ const InputDataKarya = () => {
   const [tahun, setTahun] = useState(Number);
   const [doc, setDoc] = useState("");
   const [video, setVideo] = useState("");
+
+const [data, setData] = useState([]);
+
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://knowledgeable-painted-guarantee.glitch.me/karya_mahasiswa"
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
+  };
+
+  fetchData();
+}, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,13 +42,16 @@ const InputDataKarya = () => {
       };
 
       // Make the POST request to the server
-      const response = await fetch("http://localhost:5000/karya_mahasiswa", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newMahasiswa),
-      });
+      const response = await fetch(
+        "https://knowledgeable-painted-guarantee.glitch.me/karya_mahasiswa",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newMahasiswa),
+        }
+      );
 
       if (!response.ok) {
         return alert("Gagal Menambahkan Data");
@@ -49,7 +72,7 @@ const InputDataKarya = () => {
   const handleDeleteData = async (id) => {
     try {
       const deleteResponse = await fetch(
-        `http://localhost:5000/karya_mahasiswa/${id}`,
+        `https://knowledgeable-painted-guarantee.glitch.me/karya_mahasiswa/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -157,7 +180,7 @@ const InputDataKarya = () => {
             </tr>
           </thead>
           <tbody>
-            {datas.karya_mahasiswa.map((mhs, i) => {
+            {data.map((mhs, i) => {
               return (
                 <tr
                   key={i}
