@@ -1,9 +1,29 @@
-import React, { useState } from "react";
-import datas from "../../../datas.json";
+import { useState, useEffect } from "react";
 
 const InputRenstra = () => {
   const [deskripsi, setDeskrpsi] = useState("");
   const [link, setLink] = useState("");
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://knowledgeable-painted-guarantee.glitch.me/renstra"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setData(data);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,13 +33,16 @@ const InputRenstra = () => {
         link: link.startsWith("https://") ? link : `https://${link}`,
       };
 
-      const postResponse = await fetch("http://localhost:5000/renstra", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(postData),
-      });
+      const postResponse = await fetch(
+        "https://knowledgeable-painted-guarantee.glitch.me/renstra",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(postData),
+        }
+      );
 
       if (postResponse.ok) {
         alert("Data berhasil ditambahkan!");
@@ -35,12 +58,15 @@ const InputRenstra = () => {
 
   const handleDeleteData = async (id) => {
     try {
-      const deleteResponse = await fetch(`http://localhost:5000/renstra/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const deleteResponse = await fetch(
+        `https://knowledgeable-painted-guarantee.glitch.me/renstra/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (deleteResponse.ok) {
         alert("Data berhasil dihapus!");
@@ -97,7 +123,7 @@ const InputRenstra = () => {
           </tr>
         </thead>
         <tbody>
-          {datas.renstra.map((b, i) => {
+          {data.map((b, i) => {
             return (
               <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-100"}>
                 <th className="border px-4 py-2">{i + 1}</th>
