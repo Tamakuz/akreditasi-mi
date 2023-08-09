@@ -5,6 +5,13 @@ import InformasiDosen from "./Pages/InformasiDosen";
 import InformasiMahasiswa from "./Pages/InformasiMahasiswa";
 import { useContext, useEffect, useState } from "react";
 import { GlobalState } from "./Context/Context";
+import Kai from "./Pages/DockMahasiswa/Kai";
+import KompetisiGame from "./Pages/DockMahasiswa/KompetisiGame";
+import Magang from "./Pages/DockMahasiswa/Magang";
+import Makrab from "./Pages/DockMahasiswa/Makrab";
+import Seminar from "./Pages/DockMahasiswa/Seminar";
+import Sosialisasi from "./Pages/DockMahasiswa/Sosialisasi";
+import Webinar from "./Pages/DockMahasiswa/Webinar";
 import ProfilJurusan from "./Pages/DocJurusan/ProfilJurusan";
 import Kurikulum from "./Pages/DocJurusan/Kurikulum";
 import Jadwal from "./Pages/DocJurusan/Jadwal";
@@ -35,7 +42,7 @@ const App = () => {
   const [visitorId, setVisitorId] = useState(null);
   const [totalVisitors, setTotalVisitors] = useState(0);
   const [uniqueVisitors, setUniqueVisitors] = useState(0);
-  
+
   useEffect(() => {
     const getVisitorId = () => {
       const existingVisitorId = localStorage.getItem("visitorId");
@@ -104,6 +111,20 @@ const App = () => {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/dokumentasi-mahasiswa/kai" element={<Kai />} />
+        <Route
+          path="/dokumentasi-mahasiswa/kompetisi-game"
+          element={<KompetisiGame />}
+        />
+        <Route path="/dokumentasi-mahasiswa/magang" element={<Magang />} />
+        <Route path="/dokumentasi-mahasiswa/makrab" element={<Makrab />} />
+        <Route path="/dokumentasi-mahasiswa/seminar" element={<Seminar />} />
+        <Route path="/dokumentasi-mahasiswa/webinar" element={<Webinar />} />
+        <Route
+          path="/dokumentasi-mahasiswa/sosialisasi"
+          element={<Sosialisasi />}
+        />
+        <Route path="/dokumentasi-mahasiiswa/makrab" element={<Makrab />} />
         <Route
           path="/dokumentasi-jurusan/profil-jurusan"
           element={<ProfilJurusan />}
