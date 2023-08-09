@@ -40,6 +40,39 @@ import imageLabKomp2 from "./../../Assets/sarana-prasarana/lab-komp-2.jpeg";
 //* Koperasi
 import imageKoperasi from "./../../Assets/sarana-prasarana/koperasi.jpeg";
 
+//* Bem
+import imageBem from "./../../Assets/sarana-prasarana/bem.jpeg";
+
+//* Blm
+import imageBlm from "./../../Assets/sarana-prasarana/blm.jpeg";
+
+//* Fkui
+import imageFkui from "./../../Assets/sarana-prasarana/fkui.jpeg";
+
+//* Kantin
+import imageKantin from "./../../Assets/sarana-prasarana/kantin.jpeg";
+
+//* Ksr
+import imageKsr from "./../../Assets/sarana-prasarana/ksr.jpeg";
+
+//* Maliapala
+import imageMaliapala from "./../../Assets/sarana-prasarana/maliapala.jpeg";
+
+//* Masjid
+import imageMasjid from "./../../Assets/sarana-prasarana/masjid.jpeg";
+
+//* Ordani
+import imageOrdani from "./../../Assets/sarana-prasarana/ordani.jpeg";
+
+//* Pmk
+import imagePmk from "./../../Assets/sarana-prasarana/pmk.jpeg";
+
+//* Radio
+import imageRadio from "./../../Assets/sarana-prasarana/radio.jpeg";
+
+//* Teater
+import imageTeater from "./../../Assets/sarana-prasarana/teater.jpeg";
+
 import "react-calendar/dist/Calendar.css";
 import LayoutTamplate from "../../Components/LayoutTamplate";
 
@@ -102,6 +135,50 @@ const saranaPrasarana = [
   {
     nama: "Koperasi",
     path: [imageKoperasi],
+  },
+  {
+    nama: "BEM",
+    path: [imageBem],
+  },
+  {
+    nama: "BLM",
+    path: [imageBlm],
+  },
+  {
+    nama: "FKUI",
+    path: [imageFkui],
+  },
+  {
+    nama: "Kantin",
+    path: [imageKantin],
+  },
+  {
+    nama: "KSR",
+    path: [imageKsr],
+  },
+  {
+    nama: "Maliapala",
+    path: [imageMaliapala],
+  },
+  {
+    nama: "Masjid",
+    path: [imageMasjid],
+  },
+  {
+    nama: "Ordani",
+    path: [imageOrdani],
+  },
+  {
+    nama: "PMK",
+    path: [imagePmk],
+  },
+  {
+    nama: "Radio",
+    path: [imageRadio],
+  },
+  {
+    nama: "Teater",
+    path: [imageTeater],
   },
 ];
 

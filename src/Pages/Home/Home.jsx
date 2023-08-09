@@ -57,31 +57,37 @@ const mission = [
 
 const refrention = [
   {
+    name: 'Elita',
     img: elitaLink,
     desc: "Elita",
     link: "http://kuliah.politama.ac.id/",
   },
   {
+    name: 'EdLink',
     img: edlinkLink,
     desc: "EdLink",
     link: "https://edlink.id/",
   },
   {
+    name: 'Siakad',
     img: siakadLink,
     desc: "Siakad",
     link: "https://siakad.politama.ac.id/index.php/login",
   },
   {
+    name: 'Sister',
     img: sisterLink,
     desc: "Sister",
     link: "http://sister.politama.ac.id/dashboard/",
   },
   {
+    name: 'Jurnal',
     img: ojBrand,
     desc: "Jurnal",
     link: "http://jurnal.politama.ac.id/index.php/politeknosains",
   },
   {
+    name: 'PMB',
     img: logoPolitama,
     desc: "PMB",
     link: "https://pmb.politama.ac.id/index.php/pendaftaran_pmb",
@@ -173,7 +179,7 @@ const Home = () => {
                       </div>
                     </div>
                     <div className="w-full text-center">
-                      <p>adsasda</p>
+                      <p>{ref.name}</p>
                     </div>
                   </div>
                 );

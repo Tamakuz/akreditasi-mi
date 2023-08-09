@@ -19,6 +19,33 @@ const menus = [
     path: "/",
   },
   {
+    page: "Dokumentasi Mahasiswa",
+    subMenus: [
+      {
+        subPage: "Makrab",
+        path: "/dokumentasi-mahasiswa/makrab",
+      },
+      { subPage: "Magang", path: "/dokumentasi-mahasiswa/magang" },
+      { subPage: "Sosialisasi", path: "/dokumentasi-mahasiswa/sosialisasi" },
+      {
+        subPage: "Seminar",
+        path: "/dokumentasi-mahasiswa/seminar",
+      },
+      {
+        subPage: "Webinar",
+        path: "/dokumentasi-mahasiswa/webinar",
+      },
+      {
+        subPage: "Kompetisi Game",
+        path: "/dokumentasi-mahasiswa/kompetisi-game",
+      },
+      {
+        subPage: "KAI",
+        path: "/dokumentasi-mahasiswa/kai",
+      },
+    ],
+  },
+  {
     page: "Dokumentasi Jurusan",
     subMenus: [
       {
