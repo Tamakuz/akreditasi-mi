@@ -4,18 +4,18 @@ import Layout from "../../Components/Layout";
 import LayoutTamplate from "../../Components/LayoutTamplate";
 import datas from "../../../datas.json";
 
-const Renstra = () => {
+const Standart = () => {
   const { dispatch } = useContext(GlobalState);
 
   useEffect(() => {
     dispatch({
       type: "UPDATE_PAGE",
-      payload: { page: "Penjaminan Mutu", subPage: "Renstra" },
+      payload: { page: "Dokument Inti Penjaminan Mutu", subPage: "Standart" },
     });
   }, []);
   return (
     <Layout>
-      <LayoutTamplate titleHeader={"Penjaminan Mutu Renstra"}>
+      <LayoutTamplate titleHeader={"Dokument Inti Penjaminan Mutu Standart"}>
         <div className="overflow-x-auto w-full md:w-[calc(100% - 300px)]">
           <table className="w-full table-auto">
             <thead>
@@ -26,7 +26,7 @@ const Renstra = () => {
               </tr>
             </thead>
             <tbody>
-              {datas.renstra.map((b, i) => {
+              {datas.pedoman.map((b, i) => {
                 return (
                   <tr
                     key={i}
@@ -55,4 +55,4 @@ const Renstra = () => {
   );
 };
 
-export default Renstra;
+export default Standart;

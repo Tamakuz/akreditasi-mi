@@ -13,9 +13,10 @@ export const KompetisiGame = () => {
             <Link
               to="https://drive.google.com/drive/folders/1B8T4Gkz0cFeK-ZA9zzqjl-rlJzYz_PdD"
               target="_blank"
-              className="underline underline-offset-1 text-green-600 px-10"
             >
-              Informasi kompetisi game
+              <span className="underline underline-offset-1 bg-green-600 text-white px-10 inline-block px-3 py-1 rounded-full ml-10">
+                Kompetisi Game
+              </span>
             </Link>
           </div>
         </div>

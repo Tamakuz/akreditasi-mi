@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const InputRenstra = () => {
+const InputKebijakan = () => {
   const [deskripsi, setDeskrpsi] = useState("");
   const [link, setLink] = useState("");
   const [data, setData] = useState([]);
@@ -10,7 +10,7 @@ const InputRenstra = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://knowledgeable-painted-guarantee.glitch.me/renstra"
+          "https://knowledgeable-painted-guarantee.glitch.me/kebijakan"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -35,7 +35,7 @@ const InputRenstra = () => {
       };
 
       const postResponse = await fetch(
-        "https://knowledgeable-painted-guarantee.glitch.me/renstra",
+        "https://knowledgeable-painted-guarantee.glitch.me/kebijakan",
         {
           method: "POST",
           headers: {
@@ -61,7 +61,7 @@ const InputRenstra = () => {
   const handleDeleteData = async (id) => {
     try {
       const deleteResponse = await fetch(
-        `https://knowledgeable-painted-guarantee.glitch.me/renstra/${id}`,
+        `https://knowledgeable-painted-guarantee.glitch.me/kebijakan/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -164,4 +164,4 @@ const InputRenstra = () => {
   );
 };
 
-export default InputRenstra;
+export default InputKebijakan;

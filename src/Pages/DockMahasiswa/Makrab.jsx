@@ -1,4 +1,3 @@
-import React from 'react'
 import Layout from "../../Components/Layout";
 import LayoutTamplate from "../../Components/LayoutTamplate";
 import { Link } from "react-router-dom";
@@ -9,20 +8,14 @@ const Makrab = () => {
       <LayoutTamplate titleHeader={"Dokumentasi Mahasiswa Makrab"}>
         <div className="w-full flex flex-col gap-10">
           <h3 className="text-[23px] px-10 font-bold">Makrab</h3>
-          <div className='flex flex-wrap'>
+          <div className="flex flex-wrap">
             <Link
-              to="https://drive.google.com/drive/folders/10sakWy9FO5snBkCY721vvB4V4p8OjAzH"
+              to="https://drive.google.com/drive/u/0/mobile/folders/1t3WqYhb38I-3bpH16n47QeHOvzifM1Qh"
               target="_blank"
-              className="underline underline-offset-1 text-green-600 px-10"
             >
-              Informasi makrab 1
-            </Link>
-            <Link
-              to="https://drive.google.com/drive/folders/1UlUyGm4bMLzD6GuPVjel3874wh3wUJ-n"
-              target="_blank"
-              className="underline underline-offset-1 text-green-600 px-10"
-            >
-              Informasi makrab 2
+              <span className="underline underline-offset-1 bg-green-600 text-white px-10 inline-block px-3 py-1 rounded-full ml-10">
+                Informasi makrab 1
+              </span>
             </Link>
           </div>
         </div>

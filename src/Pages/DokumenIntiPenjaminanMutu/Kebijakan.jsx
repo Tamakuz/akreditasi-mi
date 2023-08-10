@@ -4,18 +4,18 @@ import Layout from "../../Components/Layout";
 import LayoutTamplate from "../../Components/LayoutTamplate";
 import datas from "../../../datas.json";
 
-const Rip = () => {
+const Kebijakan = () => {
   const { dispatch } = useContext(GlobalState);
 
   useEffect(() => {
     dispatch({
       type: "UPDATE_PAGE",
-      payload: { page: "Penjaminan Mutu", subPage: "Rip" },
+      payload: { page: "Dokument Inti Penjaminan Mutu", subPage: "Kebijakan" },
     });
   }, []);
   return (
     <Layout>
-      <LayoutTamplate titleHeader={"Penjaminan Mutu Rip"}>
+      <LayoutTamplate titleHeader={"Dokumen Inti Penjaminan Mutu Kebijakan"}>
         <div className="overflow-x-auto w-full md:w-[calc(100% - 300px)]">
           <table className="w-full table-auto">
             <thead>
@@ -26,7 +26,7 @@ const Rip = () => {
               </tr>
             </thead>
             <tbody>
-              {datas.rip.map((b, i) => {
+              {datas.renstra.map((b, i) => {
                 return (
                   <tr
                     key={i}
@@ -55,4 +55,4 @@ const Rip = () => {
   );
 };
 
-export default Rip;
+export default Kebijakan;

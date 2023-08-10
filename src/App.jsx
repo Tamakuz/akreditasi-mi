@@ -24,11 +24,10 @@ import Penelitian from "./Pages/Download/Penelitian";
 import Pengabdian from "./Pages/Download/Pengabdian";
 import Sertifikat from "./Pages/Download/Sertifikat";
 import InputDataAll from "./Pages/InputDataAll";
-import Formulir from "./Pages/PenjaminanMutu/Formulir";
-import Sop from "./Pages/PenjaminanMutu/Sop";
-import Pedoman from "./Pages/PenjaminanMutu/Pedoman";
-import Renstra from "./Pages/PenjaminanMutu/Renstra";
-import Rip from "./Pages/PenjaminanMutu/Rip";
+import Formulir from "./Pages/DokumenIntiPenjaminanMutu/Formulir";
+import Manual from "./Pages/DokumenIntiPenjaminanMutu/Manual";
+import Standart from "./Pages/DokumenIntiPenjaminanMutu/Standart";
+import Kebijakan from "./Pages/DokumenIntiPenjaminanMutu/Kebijakan";
 import PenelitianLppm from "./Pages/lppm/PenelitianLppm";
 import PengabdianLppm from "./Pages/lppm/PengabdianLppm";
 import Jurnal from "./Pages/lppm/Jurnal";
@@ -146,11 +145,19 @@ const App = () => {
         <Route path="/download/pengabdian" element={<Pengabdian />} />
         <Route path="/download/sertifikat" element={<Sertifikat />} />
         <Route path="/input-data" element={<InputDataAll />} />
-        <Route path="/penjaminan-mutu/formulir" element={<Formulir />} />
-        <Route path="/penjaminan-mutu/sop" element={<Sop />} />
-        <Route path="/penjaminan-mutu/pedoman" element={<Pedoman />} />
-        <Route path="/penjaminan-mutu/renstra" element={<Renstra />} />
-        <Route path="/penjaminan-mutu/rip" element={<Rip />} />
+        <Route
+          path="/dokumen-inti-penjaminan-mutu/formulir"
+          element={<Formulir />}
+        />
+        <Route path="/dokumen-inti-penjaminan-mutu/manual" element={<Manual />} />
+        <Route
+          path="/dokumen-inti-penjaminan-mutu/kebijakan"
+          element={<Kebijakan />}
+        />
+        <Route
+          path="/dokumen-inti-penjaminan-mutu/standart"
+          element={<Standart />}
+        />
         <Route path="/lppm/penelitian" element={<PenelitianLppm />} />
         <Route path="/lppm/pengabdian" element={<PengabdianLppm />} />
         <Route path="/lppm/jurnal" element={<Jurnal />} />

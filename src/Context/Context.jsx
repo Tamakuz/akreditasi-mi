@@ -1,5 +1,5 @@
 // src/context.js
-import React, { createContext, useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 
 // Definisikan initial state
 const initialState = {
