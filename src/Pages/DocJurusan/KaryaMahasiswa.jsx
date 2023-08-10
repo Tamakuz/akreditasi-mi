@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Layout from "../../Components/Layout";
 import { GlobalState } from "../../Context/Context";
 import Calendar from "react-calendar";
@@ -8,7 +8,6 @@ import siakadLink from "../../Assets/siakad-link.png";
 import sisterLink from "../../Assets/sister-link.png";
 import { FiLink } from "react-icons/fi";
 import { BiLogoReact } from "react-icons/bi";
-import datas from "../../../datas.json";
 
 const refrention = [
   {
@@ -35,6 +34,29 @@ const refrention = [
 
 const KaryaMahasiswa = () => {
   const { dispatch } = useContext(GlobalState);
+
+  const [data, setData] = useState(null);
+  const [succes, setSucces] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://knowledgeable-painted-guarantee.glitch.me/karya_mahasiswa"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setData(data);
+        setSucces(!succes);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
+
+    fetchData();
+  }, [succes]);
 
   useEffect(() => {
     dispatch({
@@ -71,39 +93,41 @@ const KaryaMahasiswa = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {datas.karya_mahasiswa.map((mhs, i) => {
-                    return (
-                      <tr
-                        key={i}
-                        className={i % 2 === 0 ? "bg-white" : "bg-gray-100"}
-                      >
-                        <td className="border px-4 py-2">{i + 1}</td>
-                        <td className="border px-4 py-2">{mhs.nama}</td>
-                        <td className="border px-4 py-2">{mhs.judul}</td>
-                        <td className="border px-4 py-2">{mhs.tahun}</td>
-                        <td className="border px-4 py-2 space-x-3">
-                          {mhs.doc !== "https://" && (
-                            <a
-                              href={mhs.doc}
-                              target="_blank"
-                              className="text-blue-500"
-                            >
-                              Doc
-                            </a>
-                          )}
-                          {mhs.video !== "https://" && (
-                            <a
-                              href={mhs.video}
-                              target="_blank"
-                              className="text-red-500"
-                            >
-                              Video
-                            </a>
-                          )}
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {!data
+                    ? "Data Kosong"
+                    : data.map((mhs, i) => {
+                        return (
+                          <tr
+                            key={i}
+                            className={i % 2 === 0 ? "bg-white" : "bg-gray-100"}
+                          >
+                            <td className="border px-4 py-2">{i + 1}</td>
+                            <td className="border px-4 py-2">{mhs.nama}</td>
+                            <td className="border px-4 py-2">{mhs.judul}</td>
+                            <td className="border px-4 py-2">{mhs.tahun}</td>
+                            <td className="border px-4 py-2 space-x-3">
+                              {mhs.doc !== "https://" && (
+                                <a
+                                  href={mhs.doc}
+                                  target="_blank"
+                                  className="text-blue-500"
+                                >
+                                  Doc
+                                </a>
+                              )}
+                              {mhs.video !== "https://" && (
+                                <a
+                                  href={mhs.video}
+                                  target="_blank"
+                                  className="text-red-500"
+                                >
+                                  Video
+                                </a>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })}
                 </tbody>
               </table>
             </div>

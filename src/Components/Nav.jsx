@@ -258,9 +258,9 @@ const Nav = () => {
             return (
               <div key={i}>
                 {menu?.subMenus ? (
-                  <div className="border-b border-gray-500 ">
+                  <div className="border-b border-gray-500">
                     <Collapse
-                      className={`text-white border-b text-[14px]`}
+                      className={`text-white !important border-b text-[14px]`}
                       bordered={true}
                       ghost={true}
                       items={[
@@ -273,7 +273,7 @@ const Nav = () => {
                                 <Link
                                   key={j}
                                   to={sub.path}
-                                  className={`${
+                                  className={`text-white ${
                                     subPage === sub.subPage && "text-white"
                                   } duration-150 cursor-pointer`}
                                 >
@@ -290,7 +290,7 @@ const Nav = () => {
                   <div className="px-5 py-[12px] border-b border-gray-500">
                     <Link
                       to={menu.path}
-                      className={`${
+                      className={`text-white ${
                         pageName === menu.page ? "text-gray-100" : "text-black"
                       } cursor-pointer text-[14px] hover:text-blue-300`}
                     >
