@@ -81,9 +81,9 @@ const InformasiMahasiswa = () => {
             Mahasiswa Aktif
           </h3>
           <Link
-            to=""
+            to="https://siakad.politama.ac.id/index.php/"
             target="_blank"
-            className="underline underline-offset-1 text-green-600 px-10"
+            className="underline underline-offset-1 bg-green-600 text-white px-10 inline-block ml-10 px-3 py-1 rounded-full"
           >
             Mahasiswa Aktif
           </Link>
@@ -137,6 +137,15 @@ const InformasiMahasiswa = () => {
           <figure>
             <img src={imgSpesifik} alt="Gambar Profile Harjono" />
           </figure>
+          <div className="pt-4">
+            <Link
+              to=""
+              target="_blank"
+              className="underline underline-offset-1 bg-green-600 text-white px-10 inline-block px-3 py-1 rounded-full"
+            >
+              Prestasi MISB
+            </Link>
+          </div>
         </form>
       </dialog>
     </Layout>

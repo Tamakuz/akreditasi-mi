@@ -19,33 +19,6 @@ const menus = [
     path: "/",
   },
   {
-    page: "Dokumentasi Mahasiswa",
-    subMenus: [
-      {
-        subPage: "Makrab",
-        path: "/dokumentasi-mahasiswa/makrab",
-      },
-      { subPage: "Magang", path: "/dokumentasi-mahasiswa/magang" },
-      { subPage: "Sosialisasi", path: "/dokumentasi-mahasiswa/sosialisasi" },
-      {
-        subPage: "Seminar",
-        path: "/dokumentasi-mahasiswa/seminar",
-      },
-      {
-        subPage: "Webinar",
-        path: "/dokumentasi-mahasiswa/webinar",
-      },
-      {
-        subPage: "Kompetisi Game",
-        path: "/dokumentasi-mahasiswa/kompetisi-game",
-      },
-      {
-        subPage: "KAI",
-        path: "/dokumentasi-mahasiswa/kai",
-      },
-    ],
-  },
-  {
     page: "Dokumentasi Jurusan",
     subMenus: [
       {
@@ -77,13 +50,12 @@ const menus = [
     path: "/informasi",
   },
   {
-    page: "Penjaminan Mutu",
+    page: "Dokumen inti Penjaminan Mutu",
     subMenus: [
-      { subPage: "Formulir", path: "/penjaminan-mutu/formulir" },
-      { subPage: "SOP", path: "/penjaminan-mutu/sop" },
-      { subPage: "Pedoman", path: "/penjaminan-mutu/pedoman" },
-      { subPage: "Renstra", path: "/penjaminan-mutu/renstra" },
-      { subPage: "RIP", path: "/penjaminan-mutu/rip" },
+      { subPage: "Formulir", path: "/dokumen-inti-penjaminan-mutu/formulir" },
+      { subPage: "Standart", path: "/dokumen-inti-penjaminan-mutu/standart" },
+      { subPage: "Kebijakan", path: "/dokumen-inti-penjaminan-mutu/kebijakan" },
+      { subPage: "Manual", path: "/dokumen-inti-penjaminan-mutu/manual" },
     ],
   },
   {
@@ -96,6 +68,33 @@ const menus = [
       { subPage: "Road Map", path: "/lppm/road-map" },
       { subPage: "Pedoman", path: "/lppm/pedoman" },
       { subPage: "Renstra", path: "/lppm/renstra" },
+    ],
+  },
+  {
+    page: "Dokumentasi Mahasiswa",
+    subMenus: [
+      {
+        subPage: "Makrab",
+        path: "/dokumentasi-mahasiswa/makrab",
+      },
+      { subPage: "Magang", path: "/dokumentasi-mahasiswa/magang" },
+      { subPage: "Sosialisasi", path: "/dokumentasi-mahasiswa/sosialisasi" },
+      {
+        subPage: "Seminar",
+        path: "/dokumentasi-mahasiswa/seminar",
+      },
+      {
+        subPage: "Webinar",
+        path: "/dokumentasi-mahasiswa/webinar",
+      },
+      {
+        subPage: "Kompetisi Game",
+        path: "/dokumentasi-mahasiswa/kompetisi-game",
+      },
+      {
+        subPage: "KAI",
+        path: "/dokumentasi-mahasiswa/kai",
+      },
     ],
   },
   {
@@ -139,7 +138,7 @@ const Nav = () => {
   return (
     <nav>
       <div className="shadow-md md:static fixed z-[99] w-full">
-        <div className="md:px-20 md:static absolute z-[9999] w-full px-5 py-3 bg-[#EEEDED] flex justify-between items-center shadown">
+        <div className="md:px-8 md:static absolute z-[9999] w-full px-5 py-3 bg-[#EEEDED] flex justify-between items-center shadown">
           <div className="flex gap-3 text-start justify-start">
             <img
               className="aspect-square md:w-[50px] w-[40px] rounded-full"

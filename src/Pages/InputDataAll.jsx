@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Layout from "../Components/Layout";
 import InputKurikulum from "../Components/InputDatas/InputKurikulum";
 import InputDataKarya from "../Components/InputDatas/InputDataKarya";
@@ -9,10 +9,9 @@ import InputKontrakKuliah from "../Components/InputDatas/inputKontrakKuliah";
 import InputPenelitian from "../Components/InputDatas/InputPenelitian";
 import InputPengabdian from "../Components/InputDatas/InputPengabdian";
 import InputFormulir from "../Components/InputDatas/InputFormulir";
-import InputSop from "../Components/InputDatas/InputSop";
-import InputPedoman from "../Components/InputDatas/InputPedoman";
-import InputRenstra from "../Components/InputDatas/InputRenstra";
-import InputRip from "../Components/InputDatas/InputRip";
+import InputManual from "../Components/InputDatas/InputManual";
+import InputStandart from "../Components/InputDatas/InputStandart";
+import InputKebijakan from "../Components/InputDatas/InputKebijakan";
 import InputLppm from "../Components/InputDatas/InputLppm";
 import InputSertifikat from "../Components/InputDatas/InputSertifikat";
 
@@ -55,17 +54,14 @@ const InputDataAll = () => {
     case "formulir":
       content = <InputFormulir />;
       break;
-    case "sop":
-      content = <InputSop />;
+    case "manual":
+      content = <InputManual />;
       break;
-    case "pedoman":
-      content = <InputPedoman />;
+    case "standart":
+      content = <InputStandart />;
       break;
-    case "renstra":
-      content = <InputRenstra />;
-      break;
-    case "rip":
-      content = <InputRip />;
+    case "kebijakan":
+      content = <InputKebijakan />;
       break;
     case "penelitian_lppm":
       content = <InputLppm collection={selectedOption} />;
@@ -123,10 +119,9 @@ const InputDataAll = () => {
                 <option value="pengabdian">Pengabdian</option>
                 <option value="sertifikat">Sertifikat</option>
                 <option value="formulir">Formulir</option>
-                <option value="sop">SOP</option>
-                <option value="pedoman">Pedoman</option>
-                <option value="renstra">Renstra</option>
-                <option value="rip">RIP</option>
+                <option value="manual">Manual</option>
+                <option value="standart">Standart</option>
+                <option value="kebijakan">Kebijakan</option>
                 <option value="penelitian_lppm">Penelitian LPPM</option>
                 <option value="pengabdian_lppm">Pengabdian LPPM</option>
                 <option value="jurnal_lppm">Jurnal LPPM</option>

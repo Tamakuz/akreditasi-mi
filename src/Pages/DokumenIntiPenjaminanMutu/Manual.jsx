@@ -4,18 +4,18 @@ import Layout from "../../Components/Layout";
 import LayoutTamplate from "../../Components/LayoutTamplate";
 import datas from "../../../datas.json";
 
-const Pedoman = () => {
+const Manual = () => {
   const { dispatch } = useContext(GlobalState);
 
   useEffect(() => {
     dispatch({
       type: "UPDATE_PAGE",
-      payload: { page: "Penjaminan Mutu", subPage: "Pedoman" },
+      payload: { page: "Dokumen Inti Penjaminan Mutu", subPage: "Manual" },
     });
   }, []);
   return (
     <Layout>
-      <LayoutTamplate titleHeader={"Penjaminan Mutu Pedoman"}>
+      <LayoutTamplate titleHeader={"Dokument Inti Penjaminan Mutu Manual"}>
         <div className="overflow-x-auto w-full md:w-[calc(100% - 300px)]">
           <table className="w-full table-auto">
             <thead>
@@ -26,7 +26,7 @@ const Pedoman = () => {
               </tr>
             </thead>
             <tbody>
-              {datas.pedoman.map((b, i) => {
+              {datas.rip.map((b, i) => {
                 return (
                   <tr
                     key={i}
@@ -55,4 +55,4 @@ const Pedoman = () => {
   );
 };
 
-export default Pedoman;
+export default Manual;

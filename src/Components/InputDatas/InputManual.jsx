@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const InputRip = () => {
+const InputManual = () => {
   const [deskripsi, setDeskrpsi] = useState("");
   const [link, setLink] = useState("");
   const [data, setData] = useState([]);
@@ -10,7 +10,7 @@ const InputRip = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://knowledgeable-painted-guarantee.glitch.me/rip"
+          "https://knowledgeable-painted-guarantee.glitch.me/manual"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -35,7 +35,7 @@ const InputRip = () => {
       };
 
       const postResponse = await fetch(
-        "https://knowledgeable-painted-guarantee.glitch.me/rip",
+        "https://knowledgeable-painted-guarantee.glitch.me/manual",
         {
           method: "POST",
           headers: {
@@ -61,7 +61,7 @@ const InputRip = () => {
   const handleDeleteData = async (id) => {
     try {
       const deleteResponse = await fetch(
-        `https://knowledgeable-painted-guarantee.glitch.me/rip/${id}`,
+        `https://knowledgeable-painted-guarantee.glitch.me/manual/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -164,4 +164,4 @@ const InputRip = () => {
   );
 };
 
-export default InputRip;
+export default InputManual;

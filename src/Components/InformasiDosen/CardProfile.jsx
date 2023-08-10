@@ -10,13 +10,13 @@ const CardProfile = ({ dataImage, setImgSpesifik }) => {
 
   return (
     <>
-      <div className="card card-compact w-fit bg-base-100 shadow-xl">
+      <div className="card card-compact w-fit bg-base-100 shadow-xl fle flex-col justify-between">
         <figure>
-          <img src={universal} alt="Gambar Profile Harjono" />
+          <img src={universal} alt="Gambar" />
         </figure>
 
-        <div className="card-body">
-          <div className="card-actions flex justify-end">
+        <div className="card-bod">
+          <div className="card-actions flex justify-end m-4">
             <button
               className="btn btn-primary"
               onClick={handleCardProfile}
@@ -26,8 +26,6 @@ const CardProfile = ({ dataImage, setImgSpesifik }) => {
           </div>
         </div>
       </div>
-
-      {/* You can open the modal using ID.showModal() method */}
     </>
   );
 };
