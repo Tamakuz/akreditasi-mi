@@ -11,7 +11,7 @@ const DocAkreditasi = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://knowledgeable-painted-guarantee.glitch.me/karya_mahasiswa"
+          "https://knowledgeable-painted-guarantee.glitch.me/dataAkreditasi"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok");

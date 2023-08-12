@@ -6,6 +6,7 @@ import InformasiMahasiswa from "./Pages/InformasiMahasiswa";
 import { useContext, useEffect, useState } from "react";
 import { GlobalState } from "./Context/Context";
 import Kai from "./Pages/DockMahasiswa/Kai";
+import Hmj from "./Pages/DockMahasiswa/Hmj";
 import KompetisiGame from "./Pages/DockMahasiswa/KompetisiGame";
 import Magang from "./Pages/DockMahasiswa/Magang";
 import Makrab from "./Pages/DockMahasiswa/Makrab";
@@ -111,6 +112,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dokumentasi-mahasiswa/kai" element={<Kai />} />
+        <Route path="/dokumentasi-mahasiswa/hmj" element={<Hmj />} />
         <Route
           path="/dokumentasi-mahasiswa/kompetisi-game"
           element={<KompetisiGame />}
@@ -149,7 +151,10 @@ const App = () => {
           path="/dokumen-inti-penjaminan-mutu/formulir"
           element={<Formulir />}
         />
-        <Route path="/dokumen-inti-penjaminan-mutu/manual" element={<Manual />} />
+        <Route
+          path="/dokumen-inti-penjaminan-mutu/manual"
+          element={<Manual />}
+        />
         <Route
           path="/dokumen-inti-penjaminan-mutu/kebijakan"
           element={<Kebijakan />}

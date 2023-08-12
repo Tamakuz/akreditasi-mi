@@ -95,6 +95,10 @@ const menus = [
         subPage: "KAI",
         path: "/dokumentasi-mahasiswa/kai",
       },
+      {
+        subPage: "HMJ",
+        path: "/dokumentasi-mahasiswa/hmj",
+      },
     ],
   },
   {
