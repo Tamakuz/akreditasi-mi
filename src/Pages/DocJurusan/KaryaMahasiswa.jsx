@@ -8,6 +8,12 @@ import siakadLink from "../../Assets/siakad-link.png";
 import sisterLink from "../../Assets/sister-link.png";
 import { FiLink } from "react-icons/fi";
 import { BiLogoReact } from "react-icons/bi";
+import { Link } from "react-router-dom";
+
+//* Kompetisi Game
+import foto1 from "./../../Assets/dokumentasi-jurusan/karya-mahasiswa/foto-1.jpg";
+import foto2 from "./../../Assets/dokumentasi-jurusan/karya-mahasiswa/foto-2.jpg";
+import foto3 from "./../../Assets/dokumentasi-jurusan/karya-mahasiswa/foto-3.jpg";
 
 const refrention = [
   {
@@ -31,6 +37,7 @@ const refrention = [
     link: "http://sister.politama.ac.id/dashboard/",
   },
 ];
+
 
 const KaryaMahasiswa = () => {
   const { dispatch } = useContext(GlobalState);
@@ -76,8 +83,8 @@ const KaryaMahasiswa = () => {
             Karya Mahasiswa Manajemen Informatika
           </p>
         </div>
-        <div className="flex md:flex-row flex-col justify-center gap-10">
-          <div className="flex flex-col gap-10">
+        <div className="flex md:flex-row gap-10">
+          {/* <div className="flex flex-col gap-10">
             <h1 className="text-2xl font-bold text-gray-700">
               Daftar Karya Mahasiswa
             </h1>
@@ -189,6 +196,102 @@ const KaryaMahasiswa = () => {
                   </div>
                 );
               })}
+            </div>
+          </div> */}
+
+          <div className="w-full">
+            <div>
+              <h3 className="text-[23px] px-10 py-5 pb-5 font-bold">
+                Tugas Akhir
+              </h3>
+              <div className="flex justify-evenly flex-wrap gap-10">
+                <div className="card w-96 bg-base-100 shadow-xl">
+                  <figure>
+                    <iframe
+                      className="aspect-video w-full"
+                      src="https://www.youtube.com/embed/JTm6rybBReM"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                    ></iframe>
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">Lingga Graha</h2>
+                    <p>Sistem Pelaynan Masyarakat Pasar Kliwon</p>
+                    <div className="card-actions justify-end">
+                      <div className="badge badge-outline">2023</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                  <figure>
+                    <iframe
+                      className="aspect-video w-full"
+                      src="https://www.youtube.com/embed/HLBC-GJblUM"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                    ></iframe>
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">Setiya Yuli</h2>
+                    <p>Sistem Antrian di PKU Muhammadiya</p>
+                    <div className="card-actions justify-end">
+                      <div className="badge badge-outline">2023</div>
+                    </div>
+                  </div>
+                </div>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                  <figure>
+                    <iframe
+                      className="aspect-video w-full"
+                      src="https://www.youtube.com/embed/_nUeF_BGQLU"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowfullscreen
+                    ></iframe>
+                  </figure>
+                  <div className="card-body">
+                    <h2 className="card-title">Anonim</h2>
+                    <p>Website kelurahann</p>
+                    <div className="card-actions justify-end">
+                      <div className="badge badge-outline">2023</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-[23px] px-10 py-5 mt-10 pb-5 font-bold">
+                Kompetisi Game
+              </h3>
+              <Link
+                to="https://drive.google.com/file/d/1UHkS5bEFGt-FcR8XAUCpRzDyNUESVhvV/view?usp=drive_link"
+                target="_blank"
+                className="ml-20 mb-5 text-lg underline underline-offset-1 bg-green-600 text-white px-10 inline-block px-3 py-1 rounded-full"
+              >
+                Video Kompetisi Game
+              </Link>
+              <div className="flex justify-evenly flex-wrap gap-10">
+                <div className="card w-96 bg-base-100 shadow-xl">
+                  <figure className="rounded-md">
+                    <img src={foto1} alt="" />
+                  </figure>
+                </div>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                  <figure className="rounded-md">
+                    <img src={foto2} alt="" />
+                  </figure>
+                </div>
+                <div className="card w-96 bg-base-100 shadow-xl">
+                  <figure className="rounded-md">
+                    <img src={foto3} alt="" />
+                  </figure>
+                </div>
+              </div>
             </div>
           </div>
         </div>
