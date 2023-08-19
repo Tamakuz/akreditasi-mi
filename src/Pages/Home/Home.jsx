@@ -98,7 +98,10 @@ const Home = () => {
   const { dispatch } = useContext(GlobalState);
 
   useEffect(() => {
-    dispatch({ type: "UPDATE_PAGE", payload: "Home" });
+    dispatch({
+      type: "UPDATE_PAGE",
+      payload: { page: "Home" },
+    });
   }, []);
 
   return (

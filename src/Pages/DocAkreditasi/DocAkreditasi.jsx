@@ -25,10 +25,13 @@ const DocAkreditasi = () => {
     };
 
     fetchData();
-  }, [succes]);
+  }, []);
 
   useEffect(() => {
-    dispatch({ type: "UPDATE_PAGE", payload: "Pendukung akreditasi" });
+    dispatch({
+      type: "UPDATE_PAGE",
+      payload: { page: "Pendukung akreditasi" },
+    });
   }, []);
 
   return (

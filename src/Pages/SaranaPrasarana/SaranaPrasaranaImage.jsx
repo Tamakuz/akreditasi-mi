@@ -186,15 +186,18 @@ const SaranaPrasaranaImage = () => {
   const { dispatch } = useContext(GlobalState);
 
   useEffect(() => {
-    dispatch({ type: "UPDATE_PAGE", payload: "Sarana prasarana" });
+    dispatch({
+      type: "UPDATE_PAGE",
+      payload: { page: "Sarana prasarana" },
+    });
   }, []);
   return (
     <Layout>
       <LayoutTamplate titleHeader={"Sarana Prasarana"}>
         <div className="w-full flex justify-center flex-col gap-10">
-          {saranaPrasarana.map((image) => {
+          {saranaPrasarana.map((image, index) => {
             return (
-              <>
+              <div key={index}>
                 <h3 className="text-[23px] px-10 py-5 pb-1 font-bold md:text-start text-center">
                   {image.nama}
                 </h3>
@@ -209,7 +212,7 @@ const SaranaPrasaranaImage = () => {
                     </figure>
                   );
                 })}
-              </>
+              </div>
             );
           })}
         </div>

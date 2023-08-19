@@ -53,7 +53,7 @@ const menus = [
     page: "Dokumen inti Penjaminan Mutu",
     subMenus: [
       { subPage: "Formulir", path: "/dokumen-inti-penjaminan-mutu/formulir" },
-      { subPage: "Standart", path: "/dokumen-inti-penjaminan-mutu/standart" },
+      { subPage: "Standar", path: "/dokumen-inti-penjaminan-mutu/standart" },
       { subPage: "Kebijakan", path: "/dokumen-inti-penjaminan-mutu/kebijakan" },
       { subPage: "Manual", path: "/dokumen-inti-penjaminan-mutu/manual" },
     ],
@@ -270,7 +270,15 @@ const Nav = () => {
                       items={[
                         {
                           key: i,
-                          label: menu.page,
+                          label: (
+                            <p
+                              className={`${
+                                page === menu.page ? "text-blue-300" : "text-white"
+                              } hover:text-blue-300`}
+                            >
+                              {menu.page}
+                            </p>
+                          ),
                           children: (
                             <div className="flex flex-col gap-3 px-10">
                               {menu.subMenus.map((sub, j) => (
@@ -278,8 +286,8 @@ const Nav = () => {
                                   key={j}
                                   to={sub.path}
                                   className={`text-white ${
-                                    subPage === sub.subPage && "text-white"
-                                  } duration-150 cursor-pointer`}
+                                    subPage === sub.subPage ?"text-blue-300" : "text-white"
+                                  } duration-150 cursor-pointer hover:text-blue-300`}
                                 >
                                   {sub.subPage}
                                 </Link>
@@ -295,7 +303,7 @@ const Nav = () => {
                     <Link
                       to={menu.path}
                       className={`text-white ${
-                        pageName === menu.page ? "text-gray-100" : "text-black"
+                        page === menu.page ? "text-blue-300" : "text-black"
                       } cursor-pointer text-[14px] hover:text-blue-300`}
                     >
                       {menu.page}
