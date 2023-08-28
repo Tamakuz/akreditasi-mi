@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer md:p-20 p-10 bg-gray-300 text-base-content">
+    <footer className="footer md:p-20 p-10 bg-gray-300 text-base-conten">
       <div>
         <img src={logoPolitama} className="w-[70px] h-[70px]" alt="" />
         <p className="md:text-[14px] text-[12px]">

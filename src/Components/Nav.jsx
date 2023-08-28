@@ -8,6 +8,7 @@ import {
   AiFillInstagram,
   AiFillTwitterCircle,
 } from "react-icons/ai";
+import { IoIosArrowForward } from "react-icons/io";
 import { BsList } from "react-icons/bs";
 import { GrClose } from "react-icons/gr";
 import { Collapse } from "antd";
@@ -53,7 +54,7 @@ const menus = [
     page: "Dokumen inti Penjaminan Mutu",
     subMenus: [
       { subPage: "Formulir", path: "/dokumen-inti-penjaminan-mutu/formulir" },
-      { subPage: "Standar", path: "/dokumen-inti-penjaminan-mutu/standart" },
+      { subPage: "Standart", path: "/dokumen-inti-penjaminan-mutu/standart" },
       { subPage: "Kebijakan", path: "/dokumen-inti-penjaminan-mutu/kebijakan" },
       { subPage: "Manual", path: "/dokumen-inti-penjaminan-mutu/manual" },
     ],
@@ -141,32 +142,39 @@ const Nav = () => {
 
   return (
     <nav>
-      <div className="shadow-md md:static fixed z-[99] w-full">
-        <div className="md:px-8 md:static absolute z-[9999] w-full px-5 py-3 bg-[#EEEDED] flex justify-between items-center shadown">
-          <div className="flex gap-3 text-start justify-start">
+      <div className="shadow-md z-[99] w-full">
+        <div className="md:px-8  md:static absolute z-[9999] w-full px-5 py-3 bg-[#EEEDED] flex justify-between items-center shadown">
+          <button onClick={() => setIsOpen(!isOpen)} className="">
+            {isOpen ? (
+              <GrClose className="w-[20px] h-[20px] cursor-pointer" />
+            ) : (
+              <BsList className="w-[20px] h-[20px] cursor-pointer" />
+            )}
+          </button>
+          <div className="flex gap-3 text-start justify-start pl-10 p-3">
             <img
               className="aspect-square md:w-[50px] w-[40px] rounded-full"
               src={logoMI}
               alt="logomi"
             />
-            <div className="w-full md:block hidden">
+            <div className="w-full lg:block hidden">
               <h1 className="text-xl font-bold">Manajemen Informatika</h1>
               <p className="text-[12px] text-gray-500">
                 Pusat Pengembangan Pembelajaran dan Penjaminan Mutu Pendidikan
               </p>
             </div>
           </div>
-          <div className="md:flex items-center hidden gap-5">
+          <div className="flex items-center gap-5">
             <div className="flex items-center flex-col pb-3">
               <Timer />
               <p className="text-[12px] flex items-center gap-2">
                 <span className="text-[16px]">
                   <AiFillEye />
                 </span>
-                Visitor : {existingVisitorId}
+                Dilihat : {existingVisitorId}
               </p>
             </div>
-            <div className="flex items-center">
+            <div className="lg:flex items-center hidden">
               {Medsos.map((media, i) => {
                 return (
                   <div
@@ -186,133 +194,192 @@ const Nav = () => {
               })}
             </div>
           </div>
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden">
-            {isOpen ? (
-              <GrClose className="w-[20px] h-[20px] cursor-pointer" />
-            ) : (
-              <BsList className="w-[20px] h-[20px] cursor-pointer" />
-            )}
-          </button>
         </div>
-
-        {/* Desktop And Tablet View */}
-        <div className="bg-[#1D5D9B] xl:px-20 md:block hidden md:px-5 py-3 shadow">
-          <div className="flex justify-end items-center">
-            <ul className=" xl:gap-3 md:gap-1 flex">
-              {menus.map((menu, i) => {
-                return (
-                  <div key={i} className="relative group">
-                    {menu?.subMenus ? (
-                      <label
-                        tabIndex={0}
-                        className={`${
-                          page === menu.page ? "text-red-500" : "text-gray-100"
-                        } m-1 cursor-pointer xl:text-[16px] md:text-[12px]`}
-                      >
-                        {menu.page}
-                      </label>
-                    ) : (
+        {/* Mobile view */}
+        <div className="w-full flex xl:hidden justify-center">
+          <div
+            className={`${
+              isOpen ? "top-0" : "-top-[1000px]"
+            } absolute flex flex-col w-full lg:w-[95%] h-fit z-[999] duration-100 shadow-md lg:mt-[97px] mt-[93px] bg-[#d8d8d8]  overflow-auto p-5`}
+          >
+            {menus.map((menu, i) => {
+              return (
+                <div key={i}>
+                  {menu?.subMenus ? (
+                    <div>
+                      <Collapse
+                        className={`!important border-b text-[24px]`}
+                        bordered={true}
+                        ghost={true}
+                        items={[
+                          {
+                            key: i,
+                            label: menu.page,
+                            children: (
+                              <div className="flex flex-col gap-3 px-10">
+                                {menu.subMenus.map((sub, j) => (
+                                  <Link
+                                    key={j}
+                                    to={sub.path}
+                                    className={` ${
+                                      subPage === sub.subPage
+                                        ? "text-blue-700"
+                                        : "text-black"
+                                    } duration-150 cursor-pointer text-[24px] hover:text-gray-600`}
+                                  >
+                                    {sub.subPage}
+                                  </Link>
+                                ))}
+                              </div>
+                            ),
+                          },
+                        ]}
+                      />
+                    </div>
+                  ) : (
+                    <div className="px-5 py-[12px]">
                       <Link
                         to={menu.path}
-                        className={`${
+                        className={` ${
                           pageName === menu.page
-                            ? "text-red-500"
-                            : "text-gray-100"
-                        } m-1 cursor-pointer xl:text-[16px] md:text-[12px]`}
+                            ? "text-blue-700"
+                            : "text-black"
+                        } cursor-pointer text-[24px] hover:text-gray-600`}
                       >
                         {menu.page}
                       </Link>
-                    )}
-                    {menu.subMenus && menu.subMenus.length > 0 && (
-                      <ul
-                        className={`${
-                          pageName === menu.page ? "block" : "hidden"
-                        } z-50 menu bg-[#1D5D9B] p-2 rounded-box w-fit right-[5px] absolute group-hover:block`}
-                      >
-                        {menu.subMenus.map((sub, j) => (
-                          <li key={j}>
-                            <Link
-                              to={sub.path}
-                              className={`${
-                                subPage === sub.subPage
-                                  ? "text-red-500"
-                                  : "text-gray-100"
-                              } duration-150 cursor-pointer`}
-                            >
-                              {sub.subPage}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            <div className="flex items-center px-4 pt-3 lg:hidden ">
+              {Medsos.map((media, i) => {
+                return (
+                  <div
+                    key={i}
+                    className="tooltip tooltip-bottom"
+                    data-tip={media.name}
+                  >
+                    <a
+                      href={media.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {media.icon}
+                    </a>
                   </div>
                 );
               })}
-            </ul>
+            </div>
           </div>
         </div>
-
-        {/* Mobile view */}
-        <div
-          className={`${
-            isOpen ? "top-0" : "-top-[1000px]"
-          } absolute flex flex-col bg-[#1d5d9b] w-full h-fit z-[999] duration-100 shadow-md pt-[64px] overflow-y-auto`}
-        >
-          {menus.map((menu, i) => {
-            return (
-              <div key={i}>
-                {menu?.subMenus ? (
-                  <div className="border-b border-gray-500">
-                    <Collapse
-                      className={`text-white !important border-b text-[14px]`}
-                      bordered={true}
-                      ghost={true}
-                      items={[
-                        {
-                          key: i,
-                          label: (
-                            <p
-                              className={`${
-                                page === menu.page ? "text-blue-300" : "text-white"
-                              } hover:text-blue-300`}
-                            >
-                              {menu.page}
-                            </p>
-                          ),
-                          children: (
-                            <div className="flex flex-col gap-3 px-10">
-                              {menu.subMenus.map((sub, j) => (
-                                <Link
-                                  key={j}
-                                  to={sub.path}
-                                  className={`text-white ${
-                                    subPage === sub.subPage ?"text-blue-300" : "text-white"
-                                  } duration-150 cursor-pointer hover:text-blue-300`}
-                                >
-                                  {sub.subPage}
-                                </Link>
-                              ))}
-                            </div>
-                          ),
-                        },
-                      ]}
-                    />
-                  </div>
-                ) : (
-                  <div className="px-5 py-[12px] border-b border-gray-500">
-                    <Link
-                      to={menu.path}
-                      className={`text-white ${
-                        page === menu.page ? "text-blue-300" : "text-black"
-                      } cursor-pointer text-[14px] hover:text-blue-300`}
+        {/* Desktop view */}
+        <div className="w-full hidden xl:flex justify-center">
+          <div
+            className={`${
+              isOpen ? "top-0" : "-top-[1000px]"
+            } absolute flex flex-col w-full lg:w-[95%] h-fit z-[999] duration-100 shadow-md lg:mt-[97px] mt-[93px] bg-[#d8d8d8]  overflow-y-auto p-5`}
+          >
+            {menus.map((menu, i) => {
+              return (
+                <div
+                  key={i}
+                  className="group border-r border-gray-700 w-[500px]"
+                >
+                  {menu?.subMenus ? (
+                    <div>
+                      <button
+                        className={` ${
+                          pageName === menu.page
+                            ? "text-blue-700"
+                            : "text-black"
+                        } cursor-pointer text-[24px] w-full hover:text-gray-600 px-5 py-[12px] flex justify-between items-center`}
+                      >
+                        {menu.page}
+                        <IoIosArrowForward className="group-hover:rotate-90" />
+                      </button>
+                      <div className="absolute top-0 justify-evenly h-full left-[520px] flex-col gap-3 px-10 text-[24px] hidden group-hover:flex">
+                        {menu.subMenus.map((sub, j) => (
+                          <Link
+                            key={j}
+                            to={sub.path}
+                            className={` ${
+                              subPage === sub.subPage
+                                ? "text-blue-700"
+                                : "text-black"
+                            } duration-150 cursor-pointer text-[24px] hover:text-gray-600`}
+                          >
+                            {sub.subPage}
+                          </Link>
+                        ))}
+                      </div>
+                      {/* <Collapse
+                        className={`!important border-b text-[24px] hidden group-hover:block`}
+                        bordered={true}
+                        ghost={true}
+                        items={[
+                          {
+                            key: i,
+                            label: menu.page,
+                            children: (
+                              <div className="flex flex-col gap-3 px-10">
+                                {menu.subMenus.map((sub, j) => (
+                                  <Link
+                                    key={j}
+                                    to={sub.path}
+                                    className={` ${
+                                      subPage === sub.subPage
+                                        ? "text-blue-700"
+                                        : "text-black"
+                                    } duration-150 cursor-pointer text-[24px] hover:text-gray-600`}
+                                  >
+                                    {sub.subPage}
+                                  </Link>
+                                ))}
+                              </div>
+                            ),
+                          },
+                        ]}
+                      /> */}
+                    </div>
+                  ) : (
+                    <div className="px-5 py-[12px]">
+                      <Link
+                        to={menu.path}
+                        className={` ${
+                          pageName === menu.page
+                            ? "text-blue-700"
+                            : "text-black"
+                        } cursor-pointer text-[24px] hover:text-gray-600`}
+                      >
+                        {menu.page}
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+            <div className="flex items-center px-4 pt-3 lg:hidden ">
+              {Medsos.map((media, i) => {
+                return (
+                  <div
+                    key={i}
+                    className="tooltip tooltip-bottom"
+                    data-tip={media.name}
+                  >
+                    <a
+                      href={media.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      {menu.page}
-                    </Link>
+                      {media.icon}
+                    </a>
                   </div>
-                )}
-              </div>
-            );
-          })}
+                );
+              })}
+            </div>
+          </div>
         </div>
       </div>
     </nav>

@@ -107,7 +107,7 @@ const Home = () => {
   return (
     <Layout>
       <>
-        <section className="relative w-full h-[400px] md:pt-0">
+        <section className="relative w-full lg:h-[400px] md:pt-0">
           <Swiper
             centeredSlides={true}
             autoplay={{
@@ -143,13 +143,16 @@ const Home = () => {
               />
             </SwiperSlide>
           </Swiper>
-          <div className="absolute top-0 z-10 w-full h-full flex justify-center items-center backdrop-brightness-50">
-            <h1
-              className="text-blue-500 md:text-4xl text-xl font-bold"
-              style={{ textShadow: "5px 5px 10px rgba(0, 0, 0, 1)" }}
-            >
-              Manajemen Informatika
+          <div className="absolute top-0 z-10 w-full h-full flex flex-col justify-center items-center backdrop-brightness-50">
+            <p className="text-center text-gray-200 md:text-[20px] lg:text-[29px] font-bold">
+              Selamat Datang di Laman
+            </p>
+            <h1 className="text-center text-blue-500 text-[20px] sm:text-[38px] md:text-[48px] lg:text-[59px] text-xl font-bold sm:py-5">
+              MANAJMEN INFORMATIKA
             </h1>
+            <p className="text-center text-gray-200 md:text-[20px] lg:text-[29px] font-bold">
+              Politeknik Pratama Mulia Surakarta
+            </p>
           </div>
         </section>
         <section className="w-full h-fit md:px-20 px-10 py-10 flex md:flex-row flex-col-reverse gap-10 justify-between item-center">
