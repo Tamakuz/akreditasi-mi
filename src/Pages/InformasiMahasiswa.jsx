@@ -92,7 +92,7 @@ const InformasiMahasiswa = () => {
           <h3 className="text-[23px] px-10 py-10 pb-5 font-bold">Alumni</h3>
           <div className="mb-10">
             <h5 className="text-[19px] px-10 py-4 pb-5">2017</h5>
-            <div className="flex gap-5 flex-wrap w-full justify-evenly">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-20">
               {imageAlumni2017.map((image, index) => {
                 return (
                   <CardProfileAlumni
@@ -110,7 +110,7 @@ const InformasiMahasiswa = () => {
           </div>
           <div>
             <h5 className="text-[19px] px-10 py-4 pb-5">2021</h5>
-            <div className="flex gap-5 flex-wrap w-full justify-evenly">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-20">
               {imageAlumni2021.map((image, index) => {
                 return (
                   <CardProfileAlumni

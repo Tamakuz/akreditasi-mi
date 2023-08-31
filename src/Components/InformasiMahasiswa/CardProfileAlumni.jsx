@@ -1,4 +1,6 @@
+// eslint-disable-next-line react/prop-types
 const CardProfileAlumni = ({ dataImage, setImgSpesifik }) => {
+  // eslint-disable-next-line react/prop-types
   const { universal, spesifik } = dataImage;
 
   const handleCardProfile = () => {

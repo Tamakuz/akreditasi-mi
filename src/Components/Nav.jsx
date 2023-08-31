@@ -146,9 +146,9 @@ const Nav = () => {
         <div className="md:px-8  md:static absolute z-[9999] w-full px-5 py-3 bg-[#EEEDED] flex justify-between items-center shadown">
           <button onClick={() => setIsOpen(!isOpen)} className="">
             {isOpen ? (
-              <GrClose className="w-[20px] h-[20px] cursor-pointer" />
+              <button className="btn btn-active btn-primary">Close</button>
             ) : (
-              <BsList className="w-[20px] h-[20px] cursor-pointer" />
+              <button className="btn btn-active btn-primary">Menu</button>
             )}
           </button>
           <div className="flex gap-3 text-start justify-start pl-10 p-3">

@@ -85,8 +85,8 @@ const InformasiDosen = () => {
         </h1>
 
         <div className="container my-12 mx-auto px-4 md:px-12">
-          <div className="flex flex-wrap -mx-1 lg:-mx-4">
-            <div className="flex flex-wrap gap-10">
+          <div className="flex justify-center -mx-1 lg:-mx-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-20">
               {images.map((image, index) => {
                 return (
                   <CardProfile
@@ -100,17 +100,6 @@ const InformasiDosen = () => {
           </div>
         </div>
 
-        {/* <div className="flex gap-5 flex-wrap w-full justify-evenly">
-          {images.map((image, index) => {
-            return (
-              <CardProfile
-                key={index}
-                dataImage={{ ...image }}
-                setImgSpesifik={setImgSpesifik}
-              />
-            );
-          })}
-        </div> */}
         <p className="pt-10 text-center">
           Jumlah Dosen : <span className="font-bold">{images.length}</span>
         </p>
