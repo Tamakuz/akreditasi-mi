@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { GlobalState } from "../../Context/Context";
 import Layout from "../../Components/Layout";
 import LayoutTamplate from "../../Components/LayoutTamplate";
@@ -6,7 +6,6 @@ import LayoutTamplate from "../../Components/LayoutTamplate";
 const KontrakKuliah = () => {
   const { dispatch } = useContext(GlobalState);
   const [data, setData] = useState(null);
-  const [succes, setSucces] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,14 +18,13 @@ const KontrakKuliah = () => {
         }
         const data = await response.json();
         setData(data);
-        setSucces(!succes);
       } catch (error) {
         console.error("Fetch error:", error);
       }
     };
 
     fetchData();
-  }, [succes]);
+  }, []);
   useEffect(() => {
     dispatch({
       type: "UPDATE_PAGE",

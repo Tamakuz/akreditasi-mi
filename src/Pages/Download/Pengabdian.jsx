@@ -6,7 +6,6 @@ import LayoutTamplate from "../../Components/LayoutTamplate";
 const Pengabdian = () => {
   const { dispatch } = useContext(GlobalState);
   const [data, setData] = useState(null);
-  const [succes, setSucces] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,14 +18,13 @@ const Pengabdian = () => {
         }
         const data = await response.json();
         setData(data);
-        setSucces(!succes);
       } catch (error) {
         console.error("Fetch error:", error);
       }
     };
 
     fetchData();
-  }, [succes]);
+  }, []);
   useEffect(() => {
     dispatch({
       type: "UPDATE_PAGE",

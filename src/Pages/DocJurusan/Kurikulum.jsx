@@ -1,13 +1,35 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Layout from "../../Components/Layout";
 import { GlobalState } from "../../Context/Context";
-import datas from "../../../datas.json";
 
 import "react-calendar/dist/Calendar.css";
 import LayoutTamplate from "../../Components/LayoutTamplate";
 
 const Kurikulum = () => {
   const { dispatch } = useContext(GlobalState);
+
+   const [data, setData] = useState(null);
+
+   useEffect(() => {
+     const fetchData = async () => {
+       try {
+         const response = await fetch(
+           "https://knowledgeable-painted-guarantee.glitch.me/kurikulums"
+         );
+         if (!response.ok) {
+           throw new Error("Network response was not ok");
+         }
+
+         const data = await response.json();
+
+         setData(data);
+       } catch (error) {
+         console.error("Fetch error:", error);
+       }
+     };
+
+     fetchData();
+   }, []);
 
   useEffect(() => {
     dispatch({
@@ -32,31 +54,40 @@ const Kurikulum = () => {
               </tr>
             </thead>
             <tbody>
-              {datas.kurikulums.map((kurikulum, i) => {
-                return (
-                  <tr
-                    key={i}
-                    className={`${
-                      i % 2 === 0 ? "bg-white" : "bg-gray-100"
-                    } text-[]`}
-                  >
-                    <td className="text-center border px-4 py-2">{i + 1}</td>
-                    <td className="text-center border px-4 py-2">
-                      {kurikulum.id}
-                    </td>
-                    <td className="border px-4 py-2">{kurikulum.matkul}</td>
-                    <td className="text-center border px-4 py-2">
-                      {kurikulum.sks}
-                    </td>
-                    <td className="text-center border px-4 py-2">
-                      {kurikulum.tp ? "T" : "P"}
-                    </td>
-                    <td className="text-center border px-4 py-2">
-                      {kurikulum.semester}
-                    </td>
-                  </tr>
-                );
-              })}
+              {!data ? (
+                <tr>
+                  <td>
+                    <p>Loading....</p>
+                  </td>
+                </tr>
+              ) : (
+                data?.map((kurikulum, i) => {
+                  console.log(kurikulum);
+                  return (
+                    <tr
+                      key={i}
+                      className={`${
+                        i % 2 === 0 ? "bg-white" : "bg-gray-100"
+                      } text-[]`}
+                    >
+                      <td className="text-center border px-4 py-2">{i + 1}</td>
+                      <td className="text-center border px-4 py-2">
+                        {kurikulum.id}
+                      </td>
+                      <td className="border px-4 py-2">{kurikulum.matkul}</td>
+                      <td className="text-center border px-4 py-2">
+                        {kurikulum.sks}
+                      </td>
+                      <td className="text-center border px-4 py-2">
+                        {kurikulum.tp ? "T" : "P"}
+                      </td>
+                      <td className="text-center border px-4 py-2">
+                        {kurikulum.semester}
+                      </td>
+                    </tr>
+                  );
+                })
+              )}
             </tbody>
           </table>
           <div className="w-full text-center py-5 text-sm text-gray-400">

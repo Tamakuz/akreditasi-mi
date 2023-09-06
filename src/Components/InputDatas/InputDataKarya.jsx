@@ -6,7 +6,6 @@ const InputDataKarya = () => {
   const [tahun, setTahun] = useState(Number);
   const [doc, setDoc] = useState("");
   const [video, setVideo] = useState("");
-  const [succes, setSucces] = useState(false);
 
   const [data, setData] = useState(null);
 
@@ -27,7 +26,7 @@ const InputDataKarya = () => {
     };
 
     fetchData();
-  }, [succes]);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -65,7 +64,6 @@ const InputDataKarya = () => {
       setTahun(0);
       setDoc("");
       setVideo("");
-      setSucces(!succes)
     } catch (error) {
       console.error("Error adding data:", error);
     }
@@ -85,7 +83,6 @@ const InputDataKarya = () => {
 
       if (deleteResponse.ok) {
         alert("Data berhasil dihapus!");
-        setSucces(!succes);
       } else {
         alert("Gagal menghapus data!");
       }

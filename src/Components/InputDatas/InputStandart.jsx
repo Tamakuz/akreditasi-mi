@@ -4,7 +4,6 @@ const InputStandart = () => {
   const [deskripsi, setDeskrpsi] = useState("");
   const [link, setLink] = useState("");
   const [data, setData] = useState([]);
-  const [succes, setSucces] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,14 +16,13 @@ const InputStandart = () => {
         }
         const data = await response.json();
         setData(data);
-        setSucces(!succes);
       } catch (error) {
         console.error("Fetch error:", error);
       }
     };
 
     fetchData();
-  }, [succes]);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -49,7 +47,6 @@ const InputStandart = () => {
         alert("Data berhasil ditambahkan!");
         setDeskrpsi("");
         setLink("");
-        setSucces(!succes);
       } else {
         return alert("Maaf Data Sudah Ada Silahkan Periksa");
       }
@@ -71,7 +68,6 @@ const InputStandart = () => {
       );
 
       if (deleteResponse.ok) {
-        setSucces(!succes);
         alert("Data berhasil dihapus!");
       } else {
         alert("Gagal menghapus data!");

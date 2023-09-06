@@ -12,6 +12,8 @@ import foto3 from "./../../Assets/dokumentasi-jurusan/karya-mahasiswa/foto-3.jpg
 const KaryaMahasiswa = () => {
   const { dispatch } = useContext(GlobalState);
 
+  const [succes, setSucces] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,6 +23,9 @@ const KaryaMahasiswa = () => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
+        
+        setSucces(!succes);
+        console.info(succes)
       } catch (error) {
         console.error("Fetch error:", error);
       }
@@ -54,65 +59,39 @@ const KaryaMahasiswa = () => {
                 Tugas Akhir
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-20">
-                <div className="card bg-base-100 shadow-xl">
-                  <figure className="aspect-w-16 aspect-h-9">
-                    <iframe
-                      className="w-full h-full"
-                      src="https://www.youtube.com/embed/JTm6rybBReM"
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    ></iframe>
-                  </figure>
-                  <div className="card-body">
-                    <h2 className="card-title">Lingga Graha</h2>
-                    <p>Sistem Pelayanan Masyarakat Pasar Kliwon</p>
-                    <div className="card-actions justify-end">
-                      <div className="badge badge-outline">2023</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="card bg-base-100 shadow-xl">
-                  <figure className="aspect-w-16 aspect-h-9">
-                    <iframe
-                      className="w-full h-full"
-                      src="https://www.youtube.com/embed/HLBC-GJblUM"
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    ></iframe>
-                  </figure>
-                  <div className="card-body">
-                    <h2 className="card-title">Setiya Yuli</h2>
-                    <p>Sistem Antrian di PKU Muhammadiyah</p>
-                    <div className="card-actions justify-end">
-                      <div className="badge badge-outline">2023</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="card bg-base-100 shadow-xl">
-                  <figure className="aspect-w-16 aspect-h-9">
-                    <iframe
-                      className="w-full h-full"
-                      src="https://www.youtube.com/embed/_nUeF_BGQLU"
-                      title="YouTube video player"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    ></iframe>
-                  </figure>
-                  <div className="card-body">
-                    <h2 className="card-title">Anonim</h2>
-                    <p>Website Kelurahan</p>
-                    <div className="card-actions justify-end">
-                      <div className="badge badge-outline">2023</div>
-                    </div>
-                  </div>
-                </div>
+                {!data ? (
+                  <tr>
+                    <td>
+                      <p>Loading....</p>
+                    </td>
+                  </tr>
+                ) : (
+                  data.map((element, index) => {
+                    return (
+                      <div key={index} className="card bg-base-100 shadow-xl">
+                        <figure className="aspect-w-16 aspect-h-9">
+                          <iframe
+                            className="w-full h-full"
+                            src={element.video}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                          ></iframe>
+                        </figure>
+                        <div className="card-body">
+                          <h2 className="card-title">{element.nama}</h2>
+                          <p>{element.judul}</p>
+                          <div className="card-actions justify-end">
+                            <div className="badge badge-outline">
+                              {element.tahun}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })
+                )}
               </div>
             </div>
             <div>
