@@ -2,6 +2,7 @@ import Footer from "./Footer"
 import Nav from "./Nav"
 import Qa from "./QA/Qa"
 import ScrollToTop from "./ScrollToTop"
+import CookieAcc from './CookieAcc'
 
 function Layout({children}) {
   return (
@@ -14,13 +15,14 @@ function Layout({children}) {
         {children}
         <ScrollToTop />
         <Qa />
+        <CookieAcc />
       </main>
 
       <footer>
         <Footer />
       </footer>
     </div>
-  )
+  );
 }
 
 export default Layout
