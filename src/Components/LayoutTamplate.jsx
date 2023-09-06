@@ -36,7 +36,7 @@ const LayoutTamplate = ({ titleHeader, children }) => {
     <section className="px-5 py-10 flex flex-col gap-10 justify-center">
       <div className="w-full flex flex-col justify-center items-center mb-10">
         <span>
-          <BiLogoReact className="text-[100px] text-center text-blue-500 animate-pulse" />
+          <BiLogoReact className="text-[100px] text-center text-blue-500" />
         </span>
         <p className="text-4xl font-bold text-center">{titleHeader}</p>
       </div>

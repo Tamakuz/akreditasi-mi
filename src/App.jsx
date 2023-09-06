@@ -36,6 +36,7 @@ import Haki from "./Pages/lppm/Haki";
 import RoadMap from "./Pages/lppm/RoadMap";
 import PedomanLppm from "./Pages/lppm/PedomanLppm";
 import RenstraLppm from "./Pages/lppm/RenstraLppm";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const App = () => {
   const { globalState } = useContext(GlobalState);
@@ -108,70 +109,75 @@ const App = () => {
   }, [globalState]);
 
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dokumentasi-mahasiswa/kai" element={<Kai />} />
-        <Route path="/dokumentasi-mahasiswa/hmj" element={<Hmj />} />
-        <Route
-          path="/dokumentasi-mahasiswa/kompetisi-game"
-          element={<KompetisiGame />}
-        />
-        <Route path="/dokumentasi-mahasiswa/magang" element={<Magang />} />
-        <Route path="/dokumentasi-mahasiswa/makrab" element={<Makrab />} />
-        <Route path="/dokumentasi-mahasiswa/seminar" element={<Seminar />} />
-        <Route path="/dokumentasi-mahasiswa/webinar" element={<Webinar />} />
-        <Route
-          path="/dokumentasi-mahasiswa/sosialisasi"
-          element={<Sosialisasi />}
-        />
-        <Route path="/dokumentasi-mahasiiswa/makrab" element={<Makrab />} />
-        <Route
-          path="/dokumentasi-jurusan/profil-jurusan"
-          element={<ProfilJurusan />}
-        />
-        <Route path="/dokumentasi-jurusan/kurikulum" element={<Kurikulum />} />
-        <Route path="/dokumentasi-jurusan/jadwal" element={<Jadwal />} />
-        <Route
-          path="/dokumentasi-jurusan/karya-mahasiswa"
-          element={<KaryaMahasiswa />}
-        />
-        <Route path="/pendukung-akreditasi" element={<DocAkreditasi />} />
-        <Route path="/sarana-prasarana" element={<SaranaPrasaranaImage />} />
-        <Route path="/informasi-dosen" element={<InformasiDosen />} />
-        <Route path="/informasi-mahasiswa" element={<InformasiMahasiswa />} />
-        <Route path="/download/bpk" element={<Bpk />} />
-        <Route path="/download/rps" element={<Rps />} />
-        <Route path="/download/kontrak-kuliah" element={<KontrakKuliah />} />
-        <Route path="/download/penelitian" element={<Penelitian />} />
-        <Route path="/download/pengabdian" element={<Pengabdian />} />
-        <Route path="/download/sertifikat" element={<Sertifikat />} />
-        <Route path="/input-data" element={<InputDataAll />} />
-        <Route
-          path="/dokumen-inti-penjaminan-mutu/formulir"
-          element={<Formulir />}
-        />
-        <Route
-          path="/dokumen-inti-penjaminan-mutu/manual"
-          element={<Manual />}
-        />
-        <Route
-          path="/dokumen-inti-penjaminan-mutu/kebijakan"
-          element={<Kebijakan />}
-        />
-        <Route
-          path="/dokumen-inti-penjaminan-mutu/standart"
-          element={<Standart />}
-        />
-        <Route path="/lppm/penelitian" element={<PenelitianLppm />} />
-        <Route path="/lppm/pengabdian" element={<PengabdianLppm />} />
-        <Route path="/lppm/jurnal" element={<Jurnal />} />
-        <Route path="/lppm/haki" element={<Haki />} />
-        <Route path="/lppm/road-map" element={<RoadMap />} />
-        <Route path="/lppm/pedoman" element={<PedomanLppm />} />
-        <Route path="/lppm/renstra" element={<RenstraLppm />} />
-      </Routes>
-    </HashRouter>
+    <ChakraProvider>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dokumentasi-mahasiswa/kai" element={<Kai />} />
+          <Route path="/dokumentasi-mahasiswa/hmj" element={<Hmj />} />
+          <Route
+            path="/dokumentasi-mahasiswa/kompetisi-game"
+            element={<KompetisiGame />}
+          />
+          <Route path="/dokumentasi-mahasiswa/magang" element={<Magang />} />
+          <Route path="/dokumentasi-mahasiswa/makrab" element={<Makrab />} />
+          <Route path="/dokumentasi-mahasiswa/seminar" element={<Seminar />} />
+          <Route path="/dokumentasi-mahasiswa/webinar" element={<Webinar />} />
+          <Route
+            path="/dokumentasi-mahasiswa/sosialisasi"
+            element={<Sosialisasi />}
+          />
+          <Route path="/dokumentasi-mahasiiswa/makrab" element={<Makrab />} />
+          <Route
+            path="/dokumentasi-jurusan/profil-jurusan"
+            element={<ProfilJurusan />}
+          />
+          <Route
+            path="/dokumentasi-jurusan/kurikulum"
+            element={<Kurikulum />}
+          />
+          <Route path="/dokumentasi-jurusan/jadwal" element={<Jadwal />} />
+          <Route
+            path="/dokumentasi-jurusan/karya-mahasiswa"
+            element={<KaryaMahasiswa />}
+          />
+          <Route path="/pendukung-akreditasi" element={<DocAkreditasi />} />
+          <Route path="/sarana-prasarana" element={<SaranaPrasaranaImage />} />
+          <Route path="/informasi-dosen" element={<InformasiDosen />} />
+          <Route path="/informasi-mahasiswa" element={<InformasiMahasiswa />} />
+          <Route path="/download/bpk" element={<Bpk />} />
+          <Route path="/download/rps" element={<Rps />} />
+          <Route path="/download/kontrak-kuliah" element={<KontrakKuliah />} />
+          <Route path="/download/penelitian" element={<Penelitian />} />
+          <Route path="/download/pengabdian" element={<Pengabdian />} />
+          <Route path="/download/sertifikat" element={<Sertifikat />} />
+          <Route path="/input-data" element={<InputDataAll />} />
+          <Route
+            path="/dokumen-inti-penjaminan-mutu/formulir"
+            element={<Formulir />}
+          />
+          <Route
+            path="/dokumen-inti-penjaminan-mutu/manual"
+            element={<Manual />}
+          />
+          <Route
+            path="/dokumen-inti-penjaminan-mutu/kebijakan"
+            element={<Kebijakan />}
+          />
+          <Route
+            path="/dokumen-inti-penjaminan-mutu/standart"
+            element={<Standart />}
+          />
+          <Route path="/lppm/penelitian" element={<PenelitianLppm />} />
+          <Route path="/lppm/pengabdian" element={<PengabdianLppm />} />
+          <Route path="/lppm/jurnal" element={<Jurnal />} />
+          <Route path="/lppm/haki" element={<Haki />} />
+          <Route path="/lppm/road-map" element={<RoadMap />} />
+          <Route path="/lppm/pedoman" element={<PedomanLppm />} />
+          <Route path="/lppm/renstra" element={<RenstraLppm />} />
+        </Routes>
+      </HashRouter>
+    </ChakraProvider>
   );
 };
 

@@ -1,5 +1,67 @@
 import { useEffect, useState } from "react";
 
+const data = [
+  {
+    id: 1,
+    bab: "ELEMEN AKREDITASI",
+    body: [
+      {
+        id: 11,
+        bodyName: "Kondisi Eksternal",
+        link: "adassd",
+      },
+      {
+        id: 12,
+        bodyName: "Profit Unit Pengelola Program Studi",
+        link: "adassd",
+      },
+      {
+        id: 13,
+        bodyName: "Kriteria",
+        subBody: [
+          {
+            id: 131,
+            subBodyName: "Visi, Misi, Tujuan, dan Strategi",
+            link: "sadjabdyiag",
+          },
+          {
+            id: 132,
+            subBodyName: "Tata Pamong, Tata Kelola dlll",
+            link: "sadjabdyiag",
+          },
+        ],
+      },
+      {
+        id: 14,
+        bodyName: "Supleman",
+        subBody: [
+          {
+            id: 141,
+            subBodyName: "Visi, Misi, Tujuan, dan Strategi",
+            link: "sadjabdyiag",
+          },
+          {
+            id: 142,
+            subBodyName: "Tata Pamong, Tata Kelola dlll",
+            link: "sadjabdyiag",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 2,
+    bab: "Penilaian Akreditasi",
+    link: "assdfsdf",
+  },
+  {
+    id: 3,
+    bab: "Format Penilaian",
+    link: "sdcsdcsdc",
+  },
+];
+
+
 const InputDataAkreditasi = () => {
   const [judul, setJudul] = useState("");
   const [deskripsi, setDeskripsi] = useState("");
@@ -215,64 +277,7 @@ const InputDataAkreditasi = () => {
           Tambahkan Data
         </button>
       </form>
-      {data ? (
-        data.map((da, i) => (
-          <div key={i} className="w-full bg-gray-50 p-5 rounded shadow-md">
-            <div className="flex justify-between items-center pr-10">
-              <h1 className="text-[20px] font-bold text-gray-700">
-                {da.judul}
-              </h1>
-              <p
-                onClick={() => handleDeleteDataByJudul(da.judul)}
-                className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
-              >
-                Hapus
-              </p>
-            </div>
-            <table className="w-full table table-fixed">
-              <thead className="border-b-4 border-gray-300">
-                <tr>
-                  <th className="w-12">No</th>
-                  <th className="">Deskripsi</th>
-                  <th className="w-[100px]">Dokumen</th>
-                  <th className="w-[100px]">Aksi</th>
-                </tr>
-              </thead>
-              <tbody>
-                {da?.dataBody?.map((data, j) => (
-                  <tr key={j}>
-                    <th>{j + 1}</th>
-                    <td>{data.deskripsi}</td>
-                    <td>
-                      <a
-                        href={data.link}
-                        className="text-blue-400 hover:text-blue-500 font-semibold hover:underline"
-                      >
-                        Buka
-                      </a>
-                    </td>
-                    <td>
-                      {/* Tambahkan teks "Hapus" di samping teks "Buka" */}
-                      <p
-                        onClick={() => handleDeleteData(da.id, j)} // Panggil fungsi handleDeleteData dengan dataId dan rowIndex
-                        className="text-red-400 hover:text-red-500 font-semibold hover:underline cursor-pointer"
-                      >
-                        Hapus
-                      </p>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        ))
-      ) : (
-        <tr>
-          <td>
-            <p>Loading....</p>
-          </td>
-        </tr>
-      )}
+      
     </section>
   );
 };

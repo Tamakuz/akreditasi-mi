@@ -12,8 +12,6 @@ import foto3 from "./../../Assets/dokumentasi-jurusan/karya-mahasiswa/foto-3.jpg
 const KaryaMahasiswa = () => {
   const { dispatch } = useContext(GlobalState);
 
-  const [succes, setSucces] = useState(false);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,16 +21,13 @@ const KaryaMahasiswa = () => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        
-        setSucces(!succes);
-        console.info(succes)
       } catch (error) {
         console.error("Fetch error:", error);
       }
     };
 
     fetchData();
-  }, [succes]);
+  }, []);
 
   useEffect(() => {
     dispatch({

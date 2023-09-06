@@ -47,7 +47,7 @@ const PenelitianLppm = () => {
             </thead>
             <tbody>
               {!data
-                ? "Data Kosong"
+                ? "Loading.."
                 : data.map((b, i) => {
                     return (
                       <tr
