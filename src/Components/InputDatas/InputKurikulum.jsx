@@ -7,7 +7,6 @@ const InputKurikulum = () => {
   const [tp, setTp] = useState(true);
   const [semester, setSemester] = useState(0);
   const [data, setData] = useState([]);
-  const [succes, setSucces] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +25,7 @@ const InputKurikulum = () => {
     };
 
     fetchData();
-  }, [succes]);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,7 +56,6 @@ const InputKurikulum = () => {
         setSks(0);
         setTp(true);
         setSemester(0);
-        setSucces(!succes);
       } else {
         return alert("Maaf Data Sudah Ada Silahkan Periksa");
       }
@@ -88,7 +86,6 @@ const InputKurikulum = () => {
 
       if (deleteResponse.ok) {
         alert("Data berhasil dihapus!");
-        setSucces(!succes);
       } else {
         alert("Gagal menghapus data!");
       }

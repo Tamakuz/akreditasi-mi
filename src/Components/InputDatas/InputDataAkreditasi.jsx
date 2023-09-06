@@ -67,7 +67,6 @@ const InputDataAkreditasi = () => {
   const [deskripsi, setDeskripsi] = useState("");
   const [link, setLink] = useState("");
   const [data, setData] = useState(null);
-  const [succes, setSucces] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -80,14 +79,13 @@ const InputDataAkreditasi = () => {
         }
         const data = await response.json();
         setData(data);
-        setSucces(!succes);
       } catch (error) {
         console.error("Fetch error:", error);
       }
     };
 
     fetchData();
-  }, [succes]);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -194,7 +192,6 @@ const InputDataAkreditasi = () => {
 
         if (patchResponse.ok) {
           alert("Data berhasil dihapus!");
-          setSucces(!succes)
         } else {
           alert("Gagal menghapus data!");
         }
@@ -218,7 +215,6 @@ const InputDataAkreditasi = () => {
 
         if (deleteResponse.ok) {
           alert("Data berhasil dihapus!");
-          setSucces(!succes)
         } else {
           alert("Gagal menghapus data!");
         }
