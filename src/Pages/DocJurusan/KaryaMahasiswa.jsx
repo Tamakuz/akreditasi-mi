@@ -24,6 +24,9 @@ const KaryaMahasiswa = () => {
           throw new Error("Network response was not ok");
         }
 
+        const data = await response.json();
+
+        setData(data);
       } catch (error) {
         console.error("Fetch error:", error);
       }
