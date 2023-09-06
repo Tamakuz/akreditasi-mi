@@ -274,7 +274,6 @@ const Medsos = [
 ];
 
 const Nav = () => {
-  const existingVisitorId = localStorage.getItem("totalVisitors");
   const { globalState } = useContext(GlobalState);
   const pageName = globalState.page;
   const { page, subPage } = globalState.page;
