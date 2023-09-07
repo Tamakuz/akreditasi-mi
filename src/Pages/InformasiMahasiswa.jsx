@@ -3,6 +3,7 @@ import Layout from "../Components/Layout";
 import { GlobalState } from "../Context/Context";
 import { Link } from "react-router-dom";
 import CardProfileAlumni from "../Components/InformasiMahasiswa/CardProfileAlumni";
+import LayoutTamplate from "../Components/LayoutTamplate";
 
 //* 2017
 //* Allvan
@@ -30,39 +31,75 @@ import informasiSpesifikNaufa from "./../Assets/informasi/mahasiswa/2021/naufa/n
 import informasiUniversalTetik from "./../Assets/informasi/mahasiswa/2021/tetik/tetik-universal-information.png";
 import informasiSpesifikTetik from "./../Assets/informasi/mahasiswa/2021/tetik/tetik-spesifik-information.png";
 
-const imageAlumni2017 = [
-  {
-    universal: informasiUniversalAllvan,
-    spesifik: informasiSpesifikAllvan,
-  },
-  {
-    universal: informasiUniversalKurnia,
-    spesifik: informasiSpesifikKurnia,
-  },
-  {
-    universal: informasiUniversalLusi,
-    spesifik: informasiSpesifikLusi,
-  },
-];
+import { BsFillCalendarDateFill } from "react-icons/bs";
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  useColorMode,
+} from "@chakra-ui/react";
 
-const imageAlumni2021 = [
-  {
-    universal: informasiUniversalLuvita,
-    spesifik: informasiSpesifikLuvita,
+const imageYearData = {
+  2017: {
+    src: [
+      {
+        universal: informasiUniversalAllvan,
+        spesifik: informasiSpesifikAllvan,
+        alt: "Gambar",
+      },
+      {
+        universal: informasiUniversalKurnia,
+        spesifik: informasiSpesifikKurnia,
+        alt: "Gambar",
+      },
+      {
+        universal: informasiUniversalLusi,
+        spesifik: informasiSpesifikLusi,
+        alt: "Gambar",
+      },
+    ],
   },
-  {
-    universal: informasiUniversalNaufa,
-    spesifik: informasiSpesifikNaufa,
+  2021: {
+    src: [
+      {
+        universal: informasiUniversalLuvita,
+        spesifik: informasiSpesifikLuvita,
+        alt: "Gambar",
+      },
+      {
+        universal: informasiUniversalNaufa,
+        spesifik: informasiSpesifikNaufa,
+        alt: "Gambar",
+      },
+      {
+        universal: informasiUniversalTetik,
+        spesifik: informasiSpesifikTetik,
+        alt: "Gambar",
+      },
+    ],
   },
-  {
-    universal: informasiUniversalTetik,
-    spesifik: informasiSpesifikTetik,
-  },
-];
+};
 
 const InformasiMahasiswa = () => {
   const { dispatch } = useContext(GlobalState);
   const [imgSpesifik, setImgSpesifik] = useState();
+  const [year, setYear] = useState(2017);
+  const { colorMode } = useColorMode();
+
+  let getDataMahasiswa = (year) => {
+    const { src } = imageYearData[year];
+
+    return src.map((images, index) => {
+      return (
+        <CardProfileAlumni
+          key={index}
+          dataImage={{ ...images }}
+          setImgSpesifik={setImgSpesifik}
+        />
+      );
+    });
+  };
 
   useEffect(() => {
     dispatch({
@@ -72,82 +109,101 @@ const InformasiMahasiswa = () => {
   }, []);
   return (
     <Layout>
-      <section className="px-20 pb-10 flex flex-col gap-5">
-        <h1 className="text-[30px] px-10 py-10 pb-5 font-bold">
-          Informasi Mahasiswa
-        </h1>
-        <div>
-          <h3 className="text-[23px] px-10 py-5 pb-5 font-bold">
-            Mahasiswa Aktif
-          </h3>
-          <Link
-            to="https://siakad.politama.ac.id/index.php/"
-            target="_blank"
-            className="underline underline-offset-1 bg-green-600 text-white px-10 inline-block ml-10 px-3 py-1 rounded-full"
-          >
-            Mahasiswa Aktif
-          </Link>
-        </div>
-        <div>
-          <h3 className="text-[23px] px-10 py-10 pb-5 font-bold">Alumni</h3>
-          <div className="mb-10">
-            <h5 className="text-[19px] px-10 py-4 pb-5">2017</h5>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-20">
-              {imageAlumni2017.map((image, index) => {
-                return (
-                  <CardProfileAlumni
-                    key={index}
-                    dataImage={{ ...image }}
-                    setImgSpesifik={setImgSpesifik}
-                  />
-                );
-              })}
-            </div>
-            <p className="pl-24 pt-10">
-              Jumlah Alumni :{" "}
-              <span className="font-bold">{imageAlumni2017.length}</span>
-            </p>
-          </div>
-          <div>
-            <h5 className="text-[19px] px-10 py-4 pb-5">2021</h5>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 px-20">
-              {imageAlumni2021.map((image, index) => {
-                return (
-                  <CardProfileAlumni
-                    key={index}
-                    dataImage={{ ...image }}
-                    setImgSpesifik={setImgSpesifik}
-                  />
-                );
-              })}
-            </div>
-            <p className="pt-10 text-center">
-              Jumlah Alumni :{" "}
-              <span className="font-bold">{imageAlumni2021.length}</span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <dialog id="my_modal_3" className="modal">
-        <form method="dialog" className="modal-box w-fit">
-          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-            ✕
-          </button>
-          <figure>
-            <img src={imgSpesifik} alt="Gambar Profile Harjono" />
-          </figure>
-          <div className="pt-4">
-            <Link
-              to=""
-              target="_blank"
-              className="underline underline-offset-1 bg-green-600 text-white px-10 inline-block px-3 py-1 rounded-full"
-            >
-              Prestasi MISB
+      <LayoutTamplate titleHeader={"Dokumentasi Infomasi Mahasiswa"}>
+        <section className="w-[100%]">
+          <Flex className="h-fit flex-col gap-3 inline-block">
+            <h3 className="text-[30px] px-10 font-bold">
+              Informasi Mahasiswa Aktif
+            </h3>
+            <Link to="#" target="_blank" className="">
+              <span className="underline bg-green-600 text-white px-10 inline-block px-3 py-1 rounded-full ml-10 mt-2 mb-8">
+                Siakad
+              </span>
             </Link>
-          </div>
-        </form>
-      </dialog>
+            <h3 className="text-[30px] px-10 font-bold">Informasi Alumni</h3>
+            <Box
+              className={`${
+                colorMode === "dark"
+                  ? "bg-secondaryGray-900"
+                  : "bg-secondaryGray-300"
+              } rounded-xl py-5 px-10`}
+            >
+              <h2 className="flex items-center gap-2 font-semibold text-[27px]">
+                <BsFillCalendarDateFill className="text-brandTabs-300 text-[27px]" />{" "}
+                Tahun :{" "}
+              </h2>
+              <Box className="mt-2 flex gap-3">
+                <Button
+                  onClick={() => setYear(2017)}
+                  className="bg-brandTabs-300 hover:bg-brandTabs-300  text-brandTabs-100"
+                  size="md"
+                >
+                  2017
+                </Button>
+                <Button
+                  onClick={() => setYear(2021)}
+                  className="bg-brandTabs-300 hover:bg-brandTabs-300  text-brandTabs-100"
+                  size="md"
+                >
+                  2021
+                </Button>
+              </Box>
+            </Box>
+            <Box
+              className={`${
+                colorMode === "dark"
+                  ? "bg-secondaryGray-900"
+                  : "bg-secondaryGray-300"
+              } rounded-xl`}
+            >
+              <Box className="px-10 py-3">
+                <h1 className="text-[27px] font-semibold">Alumni {year}</h1>
+              </Box>
+              <Divider />
+              <Box className="px-10 py-5 grid xl:grid-cols-3 gap-5 md:justify-start justify-center">
+                {!imageYearData ? (
+                  <tr>
+                    <td>
+                      <p>Loading....</p>
+                    </td>
+                  </tr>
+                ) : (
+                  getDataMahasiswa(year)
+                )}
+              </Box>
+            </Box>
+
+            <p className="py-3 text-center">
+              Jumlah Alumni : <span className="font-bold">{imageYearData[year].src.length}</span>
+            </p>
+
+            <Link to="#" target="_blank" className="flex justify-center">
+              <span className="bg-green-600 text-white px-10 inline-block px-3 py-1 rounded-full ml-10">
+                Belum memiliki data...
+              </span>
+            </Link>
+          </Flex>
+        </section>
+        <dialog id="my_modal_3" className="modal">
+          <form method="dialog" className="modal-box w-fit">
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+            <figure>
+              <img src={imgSpesifik} alt="Gambar Profile Harjono" />
+            </figure>
+            <div className="pt-4">
+              <Link
+                to=""
+                target="_blank"
+                className="underline underline-offset-1 bg-green-600 text-white px-10 inline-block px-3 py-1 rounded-full"
+              >
+                Prestasi MISB
+              </Link>
+            </div>
+          </form>
+        </dialog>
+      </LayoutTamplate>
     </Layout>
   );
 };

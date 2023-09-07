@@ -259,17 +259,17 @@ const Medsos = [
   {
     name: "Facebook",
     icon: <AiFillFacebook className="w-[30px] h-[30px] text-blue-500" />,
-    link: "https://youtube.com",
+    link: "https://www.facebook.com/politamasolo/?locale=id_ID",
   },
   {
     name: "Instagram",
     icon: <AiFillInstagram className="w-[30px] h-[30px] text-red-500" />,
-    link: "https://youtube.com",
+    link: "https://www.instagram.com/politamasolo/?hl=id",
   },
   {
     name: "Twitter",
     icon: <AiFillTwitterCircle className="w-[30px] h-[30px] text-blue-500" />,
-    link: "https://youtube.com",
+    link: "https://twitter.com/politamasolo",
   },
 ];
 
@@ -435,7 +435,7 @@ const Nav = () => {
           </div>
         </div>
         {/* Desktop view */}
-        <div className="w-full py-3 px-3 hidden lg:flex xl:gap-5 gap-2 justify-end bg-blue-600 text-white">
+        <div className="w-full py-3 px-3 hidden lg:flex xl:gap-5 gap-2 justify-center bg-blue-600 text-white">
           {menus.map((menu, index) =>
             menu.subMenus ? (
               <Popover key={index}>

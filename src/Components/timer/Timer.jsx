@@ -25,7 +25,7 @@ const Timer = () => {
 
   return (
     <div className="text-right">
-      <p className="text-1xl mt-4">{formatWaktu(waktu)} WIB</p>
+      <p className="text-1xl mt-4 text-[14px] md:text-[16px]">{formatWaktu(waktu)} WIB</p>
     </div>
   );
 };

@@ -1,13 +1,6 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import Layout from "../../Components/Layout";
 import { GlobalState } from "../../Context/Context";
-import Calendar from "react-calendar";
-import elitaLink from "../../Assets/elita-link.png";
-import edlinkLink from "../../Assets/edlink-link.png";
-import siakadLink from "../../Assets/siakad-link.png";
-import sisterLink from "../../Assets/sister-link.png";
-import { FiLink } from "react-icons/fi";
-import { BiLogoReact } from "react-icons/bi";
 
 //* Image Sarana Prasarana
 //* Toilet
@@ -76,28 +69,14 @@ import imageTeater from "./../../Assets/sarana-prasarana/teater.jpeg";
 import "react-calendar/dist/Calendar.css";
 import LayoutTamplate from "../../Components/LayoutTamplate";
 
-const refrention = [
-  {
-    img: elitaLink,
-    desc: "Elita",
-    link: "http://kuliah.politama.ac.id/",
-  },
-  {
-    img: edlinkLink,
-    desc: "EdLink",
-    link: "https://edlink.id/",
-  },
-  {
-    img: siakadLink,
-    desc: "Siakad",
-    link: "https://siakad.politama.ac.id/index.php/login",
-  },
-  {
-    img: sisterLink,
-    desc: "Sister",
-    link: "http://sister.politama.ac.id/dashboard/",
-  },
-];
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Image,
+  useColorMode,
+} from "@chakra-ui/react";
 
 const saranaPrasarana = [
   {
@@ -184,6 +163,8 @@ const saranaPrasarana = [
 
 const SaranaPrasaranaImage = () => {
   const { dispatch } = useContext(GlobalState);
+  const [saranaPrasaranaName, setSaranaPrasaranaName] = useState("Toilet");
+  const { colorMode } = useColorMode();
 
   useEffect(() => {
     dispatch({
@@ -194,28 +175,61 @@ const SaranaPrasaranaImage = () => {
   return (
     <Layout>
       <LayoutTamplate titleHeader={"Sarana Prasarana"}>
-        <div className="w-full flex justify-center flex-col gap-10">
-          {saranaPrasarana.map((image, index) => {
-            return (
-              <div key={index}>
-                <h3 className="text-[23px] px-10 py-5 pb-1 font-bold md:text-start text-center">
-                  {image.nama}
-                </h3>
-                {image.path.map((pathImage, index) => {
+        <section className="w-[100%]">
+          <Flex className="h-fit flex-col gap-3 inline-block">
+            <h3 className="text-[30px] px-10 font-bold">
+              Daftar Sarana Prasarana
+            </h3>
+            <Box
+              className={`${
+                colorMode === "dark"
+                  ? "bg-secondaryGray-900"
+                  : "bg-secondaryGray-300"
+              } rounded-xl py-5 px-10`}
+            >
+              <Box className="mt-2 flex flex-wrap gap-3">
+                {saranaPrasarana.map((element, index) => {
                   return (
-                    <figure key={index} className="flex justify-center">
-                      <img
-                        className="rounded-md w-[80%]"
-                        src={pathImage}
-                        alt={image.nama}
-                      />
-                    </figure>
+                    <Button
+                      key={index}
+                      onClick={() => setSaranaPrasaranaName(element.nama)}
+                      className="bg-brandTabs-300 hover:bg-brandTabs-300  text-brandTabs-100"
+                      size="md"
+                    >
+                      {element.nama}
+                    </Button>
                   );
                 })}
-              </div>
-            );
-          })}
-        </div>
+              </Box>
+            </Box>
+            <Box
+              className={`${
+                colorMode === "dark"
+                  ? "bg-secondaryGray-900"
+                  : "bg-secondaryGray-300"
+              } rounded-xl`}
+            >
+              <Box className="px-10 py-3">
+                <h1 className="text-[27px] font-semibold">
+                  {saranaPrasaranaName}
+                </h1>
+              </Box>
+              <Divider />
+              <Box className="px-10 py-5 justify-center">
+                {saranaPrasarana.map((element, index) => {
+                  return (element.nama === saranaPrasaranaName) && (
+                    <Image
+                      key={index}
+                      className="aspect-video w-full object-cover rounded-xl border border-brandTabs-300 shadow-md lg:w-[70%] w-full"
+                      src={element.path[0]}
+                      alt={element.nama}
+                    />
+                  ) 
+                })}
+              </Box>
+            </Box>
+          </Flex>
+        </section>
       </LayoutTamplate>
     </Layout>
   );
