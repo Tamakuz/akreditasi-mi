@@ -59,7 +59,7 @@ const KaryaMahasiswa = () => {
               <h3 className="text-[23px] px-10 py-5 pb-5 font-bold">
                 Tugas Akhir
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-20">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 px-20">
                 {!data ? (
                   <tr>
                     <td>
@@ -71,14 +71,7 @@ const KaryaMahasiswa = () => {
                     return (
                       <div key={index} className="card bg-base-100 shadow-xl">
                         <figure className="aspect-w-16 aspect-h-9">
-                          <iframe
-                            className="w-full h-full"
-                            src={element.video}
-                            title="YouTube video player"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowFullScreen
-                          ></iframe>
+                          <video src={element.video}></video>
                         </figure>
                         <div className="card-body">
                           <h2 className="card-title">{element.nama}</h2>
@@ -106,7 +99,7 @@ const KaryaMahasiswa = () => {
               >
                 Video Kompetisi Game
               </Link>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-20">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 px-20">
                 <div className="card bg-base-100 shadow-xl">
                   <figure className="rounded-md">
                     <img src={foto1} alt="" />
