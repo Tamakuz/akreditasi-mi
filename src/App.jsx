@@ -29,14 +29,8 @@ import Formulir from "./Pages/DokumenIntiPenjaminanMutu/Formulir";
 import Manual from "./Pages/DokumenIntiPenjaminanMutu/Manual";
 import Standart from "./Pages/DokumenIntiPenjaminanMutu/Standart";
 import Kebijakan from "./Pages/DokumenIntiPenjaminanMutu/Kebijakan";
-import PenelitianLppm from "./Pages/lppm/PenelitianLppm";
-import PengabdianLppm from "./Pages/lppm/PengabdianLppm";
-import Jurnal from "./Pages/lppm/Jurnal";
-import Haki from "./Pages/lppm/Haki";
-import RoadMap from "./Pages/lppm/RoadMap";
-import PedomanLppm from "./Pages/lppm/PedomanLppm";
-import RenstraLppm from "./Pages/lppm/RenstraLppm";
 import { ChakraProvider } from "@chakra-ui/react";
+import DocumentLppm from "./Pages/lppm/documentLppm";
 
 const App = () => {
   const { globalState } = useContext(GlobalState);
@@ -168,13 +162,7 @@ const App = () => {
             path="/dokumen-inti-penjaminan-mutu/standart"
             element={<Standart />}
           />
-          <Route path="/lppm/penelitian" element={<PenelitianLppm />} />
-          <Route path="/lppm/pengabdian" element={<PengabdianLppm />} />
-          <Route path="/lppm/jurnal" element={<Jurnal />} />
-          <Route path="/lppm/haki" element={<Haki />} />
-          <Route path="/lppm/road-map" element={<RoadMap />} />
-          <Route path="/lppm/pedoman" element={<PedomanLppm />} />
-          <Route path="/lppm/renstra" element={<RenstraLppm />} />
+          <Route path="/lppm/dokumen" element={<DocumentLppm />} />
         </Routes>
       </HashRouter>
     </ChakraProvider>

@@ -137,39 +137,14 @@ const menus = [
     page: "LPPM",
     subMenus: [
       {
-        subPage: "Penelitian",
-        path: "/lppm/penelitian",
+        subPage: "Dokumen Lppm",
+        path: "/lppm/dokumen",
         icon: <FaFlask />,
       },
       {
-        subPage: "Pengabdian",
-        path: "/lppm/pengabdian",
+        subPage: "Pengajuan Pudir",
+        path: "/lppm/pengajuan",
         icon: <FaHandshake />,
-      },
-      {
-        subPage: "Jurnal",
-        path: "/lppm/jurnal",
-        icon: <FaBookOpen />,
-      },
-      {
-        subPage: "HAKI",
-        path: "/lppm/haki",
-        icon: <FaShieldAlt />,
-      },
-      {
-        subPage: "Road Map",
-        path: "/lppm/road-map",
-        icon: <FaMapSigns />,
-      },
-      {
-        subPage: "Pedoman",
-        path: "/lppm/pedoman",
-        icon: <FaFileAlt />,
-      },
-      {
-        subPage: "Renstra",
-        path: "/lppm/renstra",
-        icon: <FaClipboardList />,
       },
     ],
   },
@@ -278,26 +253,26 @@ const Nav = () => {
   const pageName = globalState.page;
   const { page, subPage } = globalState.page;
   const [isOpen, setIsOpen] = useState(false);
-   const [data, setData] = useState(null);
+  const [data, setData] = useState(null);
 
-   useEffect(() => {
-     const fetchData = async () => {
-       try {
-         const response = await fetch(
-           "https://knowledgeable-painted-guarantee.glitch.me/visitors"
-         );
-         if (!response.ok) {
-           throw new Error("Network response was not ok");
-         }
-         const data = await response.json();
-         setData(data.length);
-       } catch (error) {
-         console.error("Fetch error:", error);
-       }
-     };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://knowledgeable-painted-guarantee.glitch.me/visitors"
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        setData(data.length);
+      } catch (error) {
+        console.error("Fetch error:", error);
+      }
+    };
 
-     fetchData();
-   }, []);
+    fetchData();
+  }, []);
 
   return (
     <nav>
