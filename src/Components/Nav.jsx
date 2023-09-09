@@ -8,25 +8,40 @@ import {
   AiFillInstagram,
   AiFillTwitterCircle,
 } from "react-icons/ai";
-import { IoIosArrowForward } from "react-icons/io";
 import { BsList } from "react-icons/bs";
 import { GrClose } from "react-icons/gr";
 import { Collapse } from "antd";
 import Timer from "./timer/Timer";
 import {
+  IconButton,
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  AccordionPanel,
+  Avatar,
   Box,
+  Image,
+  Heading,
   Button,
+  Breadcrumb,
+  BreadcrumbItem,
+  Center,
+  Divider,
   Flex,
+  List,
+  ListIcon,
+  ListItem,
   Menu,
   MenuButton,
-  MenuItem,
   MenuList,
+  Switch,
+  Text,
   Popover,
-  PopoverArrow,
-  PopoverContent,
+  useColorMode,
   PopoverTrigger,
   Portal,
-  Text,
+  PopoverContent,
+  PopoverArrow,
 } from "@chakra-ui/react";
 import {
   FaUser,
@@ -54,6 +69,7 @@ import {
   FaFileSignature,
   FaCertificate,
 } from "react-icons/fa";
+import { MdOutlineLightMode, MdDarkMode } from "react-icons/md";
 
 const menus = [
   {
@@ -137,14 +153,39 @@ const menus = [
     page: "LPPM",
     subMenus: [
       {
-        subPage: "Dokumen Lppm",
-        path: "/lppm/dokumen",
+        subPage: "Penelitian",
+        path: "/lppm/penelitian",
         icon: <FaFlask />,
       },
       {
-        subPage: "Pengajuan Pudir",
-        path: "/lppm/pengajuan",
+        subPage: "Pengabdian",
+        path: "/lppm/pengabdian",
         icon: <FaHandshake />,
+      },
+      {
+        subPage: "Jurnal",
+        path: "/lppm/jurnal",
+        icon: <FaBookOpen />,
+      },
+      {
+        subPage: "HAKI",
+        path: "/lppm/haki",
+        icon: <FaShieldAlt />,
+      },
+      {
+        subPage: "Road Map",
+        path: "/lppm/road-map",
+        icon: <FaMapSigns />,
+      },
+      {
+        subPage: "Pedoman",
+        path: "/lppm/pedoman",
+        icon: <FaFileAlt />,
+      },
+      {
+        subPage: "Renstra",
+        path: "/lppm/renstra",
+        icon: <FaClipboardList />,
       },
     ],
   },
@@ -255,6 +296,8 @@ const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState(null);
 
+  const { colorMode, toggleColorMode } = useColorMode();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -275,10 +318,14 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav>
-      <div className="shadow-md z-[99] w-full">
-        <div className="md:px-8  md:static absolute z-[9999] w-full px-5 flex justify-between items-center shadown">
-          <button
+    <Box>
+      <Box className="shadow-md z-[99] w-full">
+        <Flex
+          className={`md:px-8  md:static absolute z-[9999] w-full px-5 flex justify-between items-center shadow ${
+            colorMode === "dark" ? "bg-brandTabs-900" : "bg-blue-100"
+          }`}
+        >
+          <Button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden block"
           >
@@ -287,63 +334,71 @@ const Nav = () => {
             ) : (
               <BsList className="text-2xl" />
             )}
-          </button>
-          <div className="flex gap-3 text-start justify-start">
-            <img
-              className="aspect-square md:w-[50px] w-[40px] rounded-full"
+          </Button>
+          <Flex className="flex gap-3 text-start justify-start">
+            <Image
+              className="hidden md:block aspect-square md:w-[50px] w-[40px] rounded-full"
               src={logoMI}
               alt="logomi"
             />
-            <div className="w-full lg:block hidden">
-              <h1 className="text-xl font-bold">Manajemen Informatika</h1>
-              <p className="text-[12px] text-gray-500">
+            <Box className="w-full lg:block hidden">
+              <Heading as="h1" className="text-xl font-bold">
+                Manajemen Informatika
+              </Heading>
+              <Text className="text-[12px] text-gray-00">
                 Pusat Pengembangan Pembelajaran dan Penjaminan Mutu Pendidikan
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center gap-5">
-            <div className="flex items-center flex-col pb-3">
+              </Text>
+            </Box>
+          </Flex>
+          <Flex className="flex items-center gap-5">
+            <Flex className="flex items-center flex-col pb-3">
               <Timer />
-              <p className="text-[12px] flex items-center gap-2">
-                <span className="text-[16px]">
+              <Text className="text-[12px] flex items-center gap-2">
+                <Text className="text-[16px]">
                   <AiFillEye />
-                </span>
+                </Text>
                 Dilihat : {data}
-              </p>
-            </div>
-            <div className="lg:flex items-center hidden">
+              </Text>
+            </Flex>
+            <Flex className="lg:flex items-center hidden">
               {Medsos.map((media, i) => {
                 return (
-                  <div
+                  <Box
                     key={i}
                     className="tooltip tooltip-bottom"
                     data-tip={media.name}
                   >
-                    <a
+                    <Link
                       href={media.link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       {media.icon}
-                    </a>
-                  </div>
+                    </Link>
+                  </Box>
                 );
               })}
-            </div>
-          </div>
-        </div>
+            </Flex>
+            <Flex>
+              <Switch
+                isChecked={colorMode === "dark"}
+                onChange={toggleColorMode}
+              />
+            </Flex>
+          </Flex>
+        </Flex>
         {/* Mobile view */}
-        <div className="w-full flex xl:hidden justify-center h-fit">
-          <div
+        <Flex className="w-full flex xl:hidden justify-center h-fit">
+          <Flex
             className={`${
-              isOpen ? "top-0" : "-top-[1000px]"
-            } absolute flex flex-col w-full lg:w-[95%] h-[530px] z-[999] duration-100 shadow-md lg:mt-[97px] mt-[70px] bg-[#d8d8d8] p-2 overflow-y-auto`}
+              isOpen ? "-top-2" : "-top-[1000px]"
+            } absolute flex flex-col w-full lg:w-[95%] z-[999] duration-100 shadow-md lg:mt-[97px] mt-[70px] bg-gray-200 p-2`}
           >
             {menus.map((menu, i) => {
               return (
-                <div key={i} className="h-fit">
+                <Box key={i} className="h-fit">
                   {menu?.subMenus ? (
-                    <div>
+                    <Box>
                       <Collapse
                         className={`!important border-b text-[16px]`}
                         bordered={true}
@@ -353,7 +408,7 @@ const Nav = () => {
                             key: i,
                             label: menu.page,
                             children: (
-                              <div className="flex flex-col gap-3 px-10">
+                              <Box className="flex flex-col gap-3 px-10">
                                 {menu.subMenus.map((sub, j) => (
                                   <Link
                                     key={j}
@@ -367,14 +422,14 @@ const Nav = () => {
                                     {sub.subPage}
                                   </Link>
                                 ))}
-                              </div>
+                              </Box>
                             ),
                           },
                         ]}
                       />
-                    </div>
+                    </Box>
                   ) : (
-                    <div className="px-5 py-[12px]">
+                    <Box className="px-5 py-[12px]">
                       <Link
                         to={menu.path}
                         className={` ${
@@ -383,34 +438,40 @@ const Nav = () => {
                       >
                         {menu.page}
                       </Link>
-                    </div>
+                    </Box>
                   )}
-                </div>
+                </Box>
               );
             })}
-            <div className="flex items-center px-4 pt-3 lg:hidden ">
+            <Flex className="flex items-center px-4 pt-3 lg:hidden ">
               {Medsos.map((media, i) => {
                 return (
-                  <div
+                  <Box
                     key={i}
                     className="tooltip tooltip-bottom"
                     data-tip={media.name}
                   >
-                    <a
+                    <Link
                       href={media.link}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       {media.icon}
-                    </a>
-                  </div>
+                    </Link>
+                  </Box>
                 );
               })}
-            </div>
-          </div>
-        </div>
+            </Flex>
+          </Flex>
+        </Flex>
         {/* Desktop view */}
-        <div className="w-full py-3 px-3 hidden lg:flex xl:gap-5 gap-2 justify-center bg-blue-600 text-white">
+        <Flex
+          className={`w-full py-3 px-3 hidden lg:flex xl:gap-5 gap-2 justify-center ${
+            colorMode === "dark"
+              ? "bg-secondaryGray-900"
+              : "bg-secondaryGray-300"
+          }`}
+        >
           {menus.map((menu, index) =>
             menu.subMenus ? (
               <Popover key={index}>
@@ -460,9 +521,9 @@ const Nav = () => {
               </Link>
             )
           )}
-        </div>
-      </div>
-    </nav>
+        </Flex>
+      </Box>
+    </Box>
   );
 };
 
