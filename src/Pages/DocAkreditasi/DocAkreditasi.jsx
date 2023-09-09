@@ -13,7 +13,7 @@ const DocAkreditasi = () => {
           Data Pendukung Akreditasi Manajemen Informatika
         </Text>
       </Box>
-      <Flex className="flex-col gap-2 px-10 pb-10">
+      <Flex className="flex-col gap-2 md:px-10 px-2 pb-10">
         <Bab1 />
         <Bab2 />
         <Bab3 />
