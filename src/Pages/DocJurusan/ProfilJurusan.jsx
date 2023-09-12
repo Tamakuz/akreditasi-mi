@@ -20,15 +20,15 @@ const ProfilJurusan = () => {
         <div className="w-full md:p-10">
           <div>
             <h1 className="text-3xl font-bold px-3 py-10">Profile Jurusan</h1>
-            <table className="table text-base ">
+            <table className="table text-base">
               <tbody>
-                <tr>
+                <tr className="border-none">
                   <td className="py-1 md:w-[230px] w-[100px] font-semibold">
                     Kode Profil <span>:</span>
                   </td>
                   <td className="py-1">PL-1</td>
                 </tr>
-                <tr>
+                <tr className="border-none">
                   <td className="py-1 md:w-[230px] w-[100px] font-semibold">
                     Profil Lulusan <span>:</span>
                   </td>

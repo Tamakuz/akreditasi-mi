@@ -1,10 +1,16 @@
 import React from "react";
-import logoPolitama from "../Assets/logoPolitama.png"
+import logoPolitama from "../Assets/logoPolitama.png";
 import { Link } from "react-router-dom";
+import { useColorMode } from "@chakra-ui/react";
 
 const Footer = () => {
+  const { colorMode } = useColorMode();
   return (
-    <footer className="footer md:p-20 p-10 bg-gray-300 text-base-conten">
+    <footer
+      className={`footer md:p-20 p-10 text-base-conten ${
+        colorMode === "dark" ? "bg-gray-700" : "bg-gray-300"
+      }`}
+    >
       <div>
         <img src={logoPolitama} className="w-[70px] h-[70px]" alt="" />
         <p className="md:text-[14px] text-[12px]">
@@ -22,9 +28,18 @@ const Footer = () => {
         >
           Profil Jurusan
         </Link>
-        <Link to={"/dokumentasi-jurusan/kurikulum"} className="link link-hover">Kurikulum</Link>
-        <Link to={"/dokumentasi-jurusan/jadwal"} className="link link-hover">Jadwal</Link>
-        <Link to={"/dokumentasi-jurusan/karya-mahasiswa"} className="link link-hover">Karya Mahasiswa</Link>
+        <Link to={"/dokumentasi-jurusan/kurikulum"} className="link link-hover">
+          Kurikulum
+        </Link>
+        <Link to={"/dokumentasi-jurusan/jadwal"} className="link link-hover">
+          Jadwal
+        </Link>
+        <Link
+          to={"/dokumentasi-jurusan/karya-mahasiswa"}
+          className="link link-hover"
+        >
+          Karya Mahasiswa
+        </Link>
       </div>
       <div>
         <span className="footer-title">Company</span>

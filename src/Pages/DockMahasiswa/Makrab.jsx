@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Layout from "../../Components/Layout";
 import LayoutTamplate from "../../Components/LayoutTamplate";
 import { Link } from "react-router-dom";
@@ -15,6 +15,7 @@ import {
 
 import foto1 from "./../../Assets/dokumentasi-jurusan/makrab/foto-1.jpg";
 import foto2 from "./../../Assets/dokumentasi-jurusan/makrab/foto-2.jpg";
+import { GlobalState } from "../../Context/Context";
 
 const imageYearData = {
   2022: [
@@ -32,6 +33,14 @@ const imageYearData = {
 const Makrab = () => {
   const [year, setYear] = useState(2022);
   const { colorMode } = useColorMode();
+  const { dispatch } = useContext(GlobalState);
+
+  useEffect(() => {
+    dispatch({
+      type: "UPDATE_PAGE",
+      payload: { page: "Dokumentasi Mahasiswa", subPage: "Makrab" },
+    });
+  }, []);
 
   return (
     <Layout>

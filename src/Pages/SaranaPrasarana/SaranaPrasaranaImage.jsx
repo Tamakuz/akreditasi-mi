@@ -175,61 +175,58 @@ const SaranaPrasaranaImage = () => {
   return (
     <Layout>
       <LayoutTamplate titleHeader={"Sarana Prasarana"}>
-        <section className="w-[100%]">
-          <Flex className="h-fit flex-col gap-3 inline-block">
-            <h3 className="text-[30px] px-10 font-bold">
-              Daftar Sarana Prasarana
-            </h3>
-            <Box
-              className={`${
-                colorMode === "dark"
-                  ? "bg-secondaryGray-900"
-                  : "bg-secondaryGray-300"
-              } rounded-xl py-5 px-10`}
-            >
-              <Box className="mt-2 flex flex-wrap gap-3">
-                {saranaPrasarana.map((element, index) => {
-                  return (
-                    <Button
-                      key={index}
-                      onClick={() => setSaranaPrasaranaName(element.nama)}
-                      className="bg-brandTabs-300 hover:bg-brandTabs-300  text-brandTabs-100"
-                      size="md"
-                    >
-                      {element.nama}
-                    </Button>
-                  );
-                })}
-              </Box>
+        <Flex className="h-fit flex-col gap-3">
+          <Box
+            className={`${
+              colorMode === "dark"
+                ? "bg-secondaryGray-900"
+                : "bg-secondaryGray-300"
+            } rounded-xl py-5 px-10 shadow`}
+          >
+            <Box className="mt-2 flex flex-wrap gap-3">
+              {saranaPrasarana.map((element, index) => {
+                return (
+                  <Button
+                    colorScheme="blue"
+                    key={index}
+                    onClick={() => setSaranaPrasaranaName(element.nama)}
+                    size="md"
+                  >
+                    {element.nama}
+                  </Button>
+                );
+              })}
             </Box>
-            <Box
-              className={`${
-                colorMode === "dark"
-                  ? "bg-secondaryGray-900"
-                  : "bg-secondaryGray-300"
-              } rounded-xl`}
-            >
-              <Box className="px-10 py-3">
-                <h1 className="text-[27px] font-semibold">
-                  {saranaPrasaranaName}
-                </h1>
-              </Box>
-              <Divider />
-              <Box className="px-10 py-5 justify-center">
-                {saranaPrasarana.map((element, index) => {
-                  return (element.nama === saranaPrasaranaName) && (
+          </Box>
+          <Box
+            className={`${
+              colorMode === "dark"
+                ? "bg-secondaryGray-900"
+                : "bg-secondaryGray-300"
+            } rounded-xl shadow`}
+          >
+            <Box className="px-10 py-3">
+              <h1 className="text-[27px] font-semibold">
+                {saranaPrasaranaName}
+              </h1>
+            </Box>
+            <Divider />
+            <Box className="px-10 py-5 justify-center">
+              {saranaPrasarana.map((element, index) => {
+                return (
+                  element.nama === saranaPrasaranaName && (
                     <Image
                       key={index}
-                      className="aspect-video w-full object-cover rounded-xl border border-brandTabs-300 shadow-md lg:w-[70%] w-full"
+                      className="aspect-video object-cover rounded-xl border border-brandTabs-300 shadow-md w-full"
                       src={element.path[0]}
                       alt={element.nama}
                     />
-                  ) 
-                })}
-              </Box>
+                  )
+                );
+              })}
             </Box>
-          </Flex>
-        </section>
+          </Box>
+        </Flex>
       </LayoutTamplate>
     </Layout>
   );

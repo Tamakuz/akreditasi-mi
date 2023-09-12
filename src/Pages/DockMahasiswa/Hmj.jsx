@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Layout from "../../Components/Layout";
 import LayoutTamplate from "../../Components/LayoutTamplate";
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ import {
   Image,
   useColorMode,
 } from "@chakra-ui/react";
+import { GlobalState } from "../../Context/Context";
 
 const imageYearData = {
   2021: [
@@ -31,6 +32,14 @@ const imageYearData = {
 const Hmj = () => {
   const [year, setYear] = useState(2021);
   const { colorMode } = useColorMode();
+  const { dispatch } = useContext(GlobalState);
+
+  useEffect(() => {
+    dispatch({
+      type: "UPDATE_PAGE",
+      payload: { page: "Dokumentasi Mahasiswa", subPage: "HMJ" },
+    });
+  }, []);
 
   return (
     <Layout>
@@ -96,7 +105,7 @@ const Hmj = () => {
               target="_blank"
               className="flex justify-center"
             >
-              <span className="bg-green-600 text-white px-10 inline-block px-3 py-1 rounded-full ml-10">
+              <span className="bg-green-600 text-white px-10 inline-block py-1 rounded-full ml-10">
                 Lihat lebih banyak
               </span>
             </Link>

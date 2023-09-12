@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Layout from "../../Components/Layout";
 import LayoutTamplate from "../../Components/LayoutTamplate";
 import { Link } from "react-router-dom";
@@ -12,6 +12,7 @@ import {
   Image,
   useColorMode,
 } from "@chakra-ui/react";
+import { GlobalState } from "../../Context/Context";
 
 const imageYearData = {
   2023: [
@@ -29,6 +30,14 @@ const imageYearData = {
 const Sosialisasi = () => {
   const [year, setYear] = useState(2023);
   const { colorMode } = useColorMode();
+  const { dispatch } = useContext(GlobalState);
+
+  useEffect(() => {
+    dispatch({
+      type: "UPDATE_PAGE",
+      payload: { page: "Dokumentasi Mahasiswa", subPage: "Sosialisasi" },
+    });
+  }, []);
 
   return (
     <Layout>

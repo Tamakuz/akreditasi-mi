@@ -69,7 +69,7 @@ import {
   FaFileSignature,
   FaCertificate,
 } from "react-icons/fa";
-import { MdOutlineLightMode, MdDarkMode } from "react-icons/md";
+import { MdOutlineLightMode, MdDarkMode, MdAssignmentTurnedIn } from "react-icons/md";
 
 const menus = [
   {
@@ -153,39 +153,14 @@ const menus = [
     page: "LPPM",
     subMenus: [
       {
-        subPage: "Penelitian",
-        path: "/lppm/penelitian",
+        subPage: "Dokumen Lppm",
+        path: "/lppm/dokumen",
         icon: <FaFlask />,
       },
       {
-        subPage: "Pengabdian",
-        path: "/lppm/pengabdian",
-        icon: <FaHandshake />,
-      },
-      {
-        subPage: "Jurnal",
-        path: "/lppm/jurnal",
-        icon: <FaBookOpen />,
-      },
-      {
-        subPage: "HAKI",
-        path: "/lppm/haki",
-        icon: <FaShieldAlt />,
-      },
-      {
-        subPage: "Road Map",
-        path: "/lppm/road-map",
-        icon: <FaMapSigns />,
-      },
-      {
-        subPage: "Pedoman",
-        path: "/lppm/pedoman",
-        icon: <FaFileAlt />,
-      },
-      {
-        subPage: "Renstra",
-        path: "/lppm/renstra",
-        icon: <FaClipboardList />,
+        subPage: "Pengajuan Prposal",
+        path: "/lppm/pengajuan-proposal",
+        icon: <MdAssignmentTurnedIn />,
       },
     ],
   },
@@ -319,7 +294,7 @@ const Nav = () => {
 
   return (
     <Box>
-      <Box className="shadow-md z-[99] w-full">
+      <Box className="z-[99] w-full">
         <Flex
           className={`md:px-8  md:static absolute z-[9999] w-full px-5 flex justify-between items-center shadow ${
             colorMode === "dark" ? "bg-brandTabs-900" : "bg-blue-100"
@@ -353,12 +328,12 @@ const Nav = () => {
           <Flex className="flex items-center gap-5">
             <Flex className="flex items-center flex-col pb-3">
               <Timer />
-              <Text className="text-[12px] flex items-center gap-2">
-                <Text className="text-[16px]">
+              <Flex className="text-[12px] flex items-center gap-2">
+                <Flex className="text-[16px]">
                   <AiFillEye />
-                </Text>
+                </Flex>
                 Dilihat : {data}
-              </Text>
+              </Flex>
             </Flex>
             <Flex className="lg:flex items-center hidden">
               {Medsos.map((media, i) => {
@@ -469,7 +444,7 @@ const Nav = () => {
           className={`w-full py-3 px-3 hidden lg:flex xl:gap-5 gap-2 justify-center ${
             colorMode === "dark"
               ? "bg-secondaryGray-900"
-              : "bg-secondaryGray-300"
+              : "bg-blue-400"
           }`}
         >
           {menus.map((menu, index) =>

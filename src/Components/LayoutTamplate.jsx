@@ -1,4 +1,3 @@
-import Calendar from "react-calendar";
 import elitaLink from "../Assets/elita-link.png";
 import edlinkLink from "../Assets/edlink-link.png";
 import siakadLink from "../Assets/siakad-link.png";
@@ -7,6 +6,8 @@ import { FiLink } from "react-icons/fi";
 import { BiLogoReact } from "react-icons/bi";
 
 import "react-calendar/dist/Calendar.css";
+import { useColorMode } from "@chakra-ui/react";
+import { Calendar } from "antd";
 
 const refrention = [
   {
@@ -32,8 +33,13 @@ const refrention = [
 ];
 
 const LayoutTamplate = ({ titleHeader, children }) => {
+  const {colorMode} = useColorMode()
   return (
-    <section className="px-5 py-10 flex flex-col gap-10 justify-center">
+    <section
+      className={`px-5 py-10 flex flex-col gap-10 justify-center ${
+        colorMode === "dark" ? "bg-brandTabs-900" : "bg-blue-50"
+      }`}
+    >
       <div className="w-full flex flex-col justify-center items-center mb-10">
         <span>
           <BiLogoReact className="text-[100px] text-center text-blue-500" />
@@ -47,7 +53,8 @@ const LayoutTamplate = ({ titleHeader, children }) => {
           <div className="w-full border-b border-blue-500">
             <p className="text-2xl font-bold text-gray-700">Calendar</p>
           </div>
-          <Calendar value={new Date()} />
+
+          <Calendar fullscreen={false} className="" />
           <div className="w-full border-b border-blue-500">
             <p className="text-2xl font-bold text-gray-700">Tautan</p>
           </div>

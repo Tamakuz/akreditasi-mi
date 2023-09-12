@@ -31,6 +31,7 @@ import Standart from "./Pages/DokumenIntiPenjaminanMutu/Standart";
 import Kebijakan from "./Pages/DokumenIntiPenjaminanMutu/Kebijakan";
 import { ChakraProvider } from "@chakra-ui/react";
 import DocumentLppm from "./Pages/lppm/documentLppm";
+import PengajuanProposal from "./Pages/lppm/pengajuanProposal";
 
 const App = () => {
   const { globalState } = useContext(GlobalState);
@@ -163,6 +164,7 @@ const App = () => {
             element={<Standart />}
           />
           <Route path="/lppm/dokumen" element={<DocumentLppm />} />
+          <Route path="/lppm/pengajuan-proposal" element={<PengajuanProposal />} />
         </Routes>
       </HashRouter>
     </ChakraProvider>

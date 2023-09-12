@@ -2,29 +2,24 @@ import { useContext, useEffect, useState } from "react";
 import { GlobalState } from "../../Context/Context";
 import Layout from "../../Components/Layout";
 import LayoutTamplate from "../../Components/LayoutTamplate";
+import { useGetData } from "../../hooks/apiMethod";
+import {
+  Link,
+  Table,
+  TableContainer,
+  Tbody,
+  Td,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
+import { BiSolidFileDoc } from "react-icons/bi";
 
 const KontrakKuliah = () => {
+  const apiUrl = "https://knowledgeable-painted-guarantee.glitch.me/kontrak_kuliah";
   const { dispatch } = useContext(GlobalState);
-  const [data, setData] = useState(null);
+  const { datas, isLoading } = useGetData(apiUrl);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://knowledgeable-painted-guarantee.glitch.me/kontrak_kuliah"
-        );
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
-        setData(data);
-      } catch (error) {
-        console.error("Fetch error:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
   useEffect(() => {
     dispatch({
       type: "UPDATE_PAGE",
@@ -34,47 +29,40 @@ const KontrakKuliah = () => {
   return (
     <Layout>
       <LayoutTamplate titleHeader={"Download Kontrak Kuliah"}>
-        <div className="overflow-x-auto w-full md:w-[calc(100% - 300px)]">
-          <table className="w-full table-auto">
-            <thead>
-              <tr className="bg-gray-200">
-                <th className="px-4 py-2 w-[50px]">No</th>
-                <th className="px-4 py-2 w-[400px]">Deskripsi</th>
-                <th className="px-4 py-2 w-[100px]">Link</th>
-              </tr>
-            </thead>
-            <tbody>
-              {!data ? (
-                <tr>
-                  <td>
-                    <p>Loading....</p>
-                  </td>
-                </tr>
+        <TableContainer className="w-full">
+          <Table variant="striped" colorScheme="blue">
+            <Thead>
+              <Tr>
+                <Th className="text-base w-[50px]">No</Th>
+                <Th className="text-base">Deskripsi</Th>
+                <Th className="text-base text-center">Link</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {isLoading ? (
+                <Tr>
+                  <Td colSpan={6}>Loading...</Td>
+                </Tr>
               ) : (
-                data.map((b, i) => {
-                  return (
-                    <tr
-                      key={i}
-                      className={i % 2 === 0 ? "bg-white" : "bg-gray-100"}
-                    >
-                      <th className="border px-4 py-2">{i + 1}</th>
-                      <td className="border px-4 py-2">{b.deskripsi}</td>
-                      <td className="border px-4 py-2 text-center">
-                        <a
-                          href={b.link}
-                          target="_blank"
-                          className="text-red-500"
-                        >
-                          Download
-                        </a>
-                      </td>
-                    </tr>
-                  );
-                })
+                datas.map((data, index) => (
+                  <Tr key={index}>
+                    <Td className="text-center">{index + 1}</Td>
+                    <Td>{data.deskripsi}</Td>
+                    <Td>
+                      <Link
+                        href={data.link}
+                        isExternal
+                        className="flex justify-center"
+                      >
+                        <BiSolidFileDoc />
+                      </Link>
+                    </Td>
+                  </Tr>
+                ))
               )}
-            </tbody>
-          </table>
-        </div>
+            </Tbody>
+          </Table>
+        </TableContainer>
       </LayoutTamplate>
     </Layout>
   );
