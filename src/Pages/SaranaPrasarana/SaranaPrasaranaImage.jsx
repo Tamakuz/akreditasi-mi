@@ -262,14 +262,22 @@ const SaranaPrasaranaImage = () => {
                   ))}
                   {selectedSarana.tugasAkhir && (
                     <Stack className="gap-3">
-                      <Text className="text-2xl font-semibold">Link Akses Softfile Tugas Akhir</Text>
+                      <Text className="text-2xl font-semibold">
+                        Link Akses Softfile Tugas Akhir
+                      </Text>
                       {selectedSarana.tugasAkhir.map((ta, index) => (
                         <Flex className="gap-2" key={index}>
                           <Text>{ta.tahun} : </Text>
                           <List>
                             {ta.link.map((link, index) => (
                               <ListItem key={index}>
-                                <Link href={link} isExternal className="flex items-center hover:text-blue-500">{link} <FiExternalLink /></Link>
+                                <Link
+                                  href={link}
+                                  isExternal
+                                  className="flex items-center hover:text-blue-500"
+                                >
+                                  {link} <FiExternalLink />
+                                </Link>
                               </ListItem>
                             ))}
                           </List>
