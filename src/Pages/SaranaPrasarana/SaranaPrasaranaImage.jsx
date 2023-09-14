@@ -251,7 +251,7 @@ const SaranaPrasaranaImage = () => {
               {selectedSarana && (
                 <Stack>
                   {selectedSarana.path.map((path, index) => (
-                    <Stack>
+                    <Stack key={index}>
                       <Image
                         key={index}
                         className="aspect-video object-cover rounded-xl border border-brandTabs-300 shadow-md w-full"
@@ -264,11 +264,11 @@ const SaranaPrasaranaImage = () => {
                     <Stack className="gap-3">
                       <Text className="text-2xl font-semibold">Link Akses Softfile Tugas Akhir</Text>
                       {selectedSarana.tugasAkhir.map((ta, index) => (
-                        <Flex className="gap-2">
+                        <Flex className="gap-2" key={index}>
                           <Text>{ta.tahun} : </Text>
                           <List>
                             {ta.link.map((link, index) => (
-                              <ListItem>
+                              <ListItem key={index}>
                                 <Link href={link} isExternal className="flex items-center hover:text-blue-500">{link} <FiExternalLink /></Link>
                               </ListItem>
                             ))}
