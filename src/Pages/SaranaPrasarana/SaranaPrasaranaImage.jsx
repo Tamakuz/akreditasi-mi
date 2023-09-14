@@ -75,8 +75,14 @@ import {
   Divider,
   Flex,
   Image,
+  Link,
+  List,
+  ListItem,
+  Stack,
+  Text,
   useColorMode,
 } from "@chakra-ui/react";
+import { FiExternalLink } from "react-icons/fi";
 
 const saranaPrasarana = [
   {
@@ -90,6 +96,32 @@ const saranaPrasarana = [
   {
     nama: "Perpustakaan",
     path: [imagePerpustakaan],
+    tugasAkhir: [
+      {
+        tahun: 2019,
+        link: [
+          "https://bit.ly/TUGASAKHIRMI19",
+        ],
+      },
+      {
+        tahun: 2020,
+        link: [
+          "https://bit.ly/TUGASAKHIRMI20",
+        ],
+      },
+      {
+        tahun: 2021,
+        link: [
+          "https://bit.ly/TUGASAKHIRMI21",
+        ],
+      },
+      {
+        tahun: 2022,
+        link: [
+          "https://bit.ly/TUGASAKHIRMI22",
+        ],
+      },
+    ],
   },
   {
     nama: "Parkiran Tamu",
@@ -166,6 +198,10 @@ const SaranaPrasaranaImage = () => {
   const [saranaPrasaranaName, setSaranaPrasaranaName] = useState("Toilet");
   const { colorMode } = useColorMode();
 
+  const selectedSarana = saranaPrasarana.find(
+    (element) => element.nama === saranaPrasaranaName
+  );
+
   useEffect(() => {
     dispatch({
       type: "UPDATE_PAGE",
@@ -211,20 +247,39 @@ const SaranaPrasaranaImage = () => {
               </h1>
             </Box>
             <Divider />
-            <Box className="px-10 py-5 justify-center">
-              {saranaPrasarana.map((element, index) => {
-                return (
-                  element.nama === saranaPrasaranaName && (
-                    <Image
-                      key={index}
-                      className="aspect-video object-cover rounded-xl border border-brandTabs-300 shadow-md w-full"
-                      src={element.path[0]}
-                      alt={element.nama}
-                    />
-                  )
-                );
-              })}
-            </Box>
+            <Stack className="px-10 py-5 gap-5">
+              {selectedSarana && (
+                <Stack>
+                  {selectedSarana.path.map((path, index) => (
+                    <Stack>
+                      <Image
+                        key={index}
+                        className="aspect-video object-cover rounded-xl border border-brandTabs-300 shadow-md w-full"
+                        src={path}
+                        alt={selectedSarana.nama}
+                      />
+                    </Stack>
+                  ))}
+                  {selectedSarana.tugasAkhir && (
+                    <Stack className="gap-3">
+                      <Text className="text-2xl font-semibold">Link Akses Softfile Tugas Akhir</Text>
+                      {selectedSarana.tugasAkhir.map((ta, index) => (
+                        <Flex className="gap-2">
+                          <Text>{ta.tahun} : </Text>
+                          <List>
+                            {ta.link.map((link, index) => (
+                              <ListItem>
+                                <Link href={link} isExternal className="flex items-center hover:text-blue-500">{link} <FiExternalLink /></Link>
+                              </ListItem>
+                            ))}
+                          </List>
+                        </Flex>
+                      ))}
+                    </Stack>
+                  )}
+                </Stack>
+              )}
+            </Stack>
           </Box>
         </Flex>
       </LayoutTamplate>
