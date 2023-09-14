@@ -68,6 +68,7 @@ import {
   FaFileDownload,
   FaFileSignature,
   FaCertificate,
+  FaTrophy,
 } from "react-icons/fa";
 import { MdOutlineLightMode, MdDarkMode, MdAssignmentTurnedIn } from "react-icons/md";
 
@@ -98,6 +99,11 @@ const menus = [
         subPage: "Karya Mahasiswa",
         path: "/dokumentasi-jurusan/karya-mahasiswa",
         icon: <FaPencilAlt />,
+      },
+      {
+        subPage: "Prestasi",
+        path: "/dokumentasi-jurusan/prestasi",
+        icon: <FaTrophy />,
       },
     ],
   },
@@ -191,11 +197,6 @@ const menus = [
         subPage: "Webinar",
         path: "/dokumentasi-mahasiswa/webinar",
         icon: <FaLaptop />,
-      },
-      {
-        subPage: "Kompetisi Game",
-        path: "/dokumentasi-mahasiswa/kompetisi-game",
-        icon: <FaGamepad />,
       },
       {
         subPage: "KAI",

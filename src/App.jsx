@@ -7,7 +7,6 @@ import { useContext, useEffect, useState } from "react";
 import { GlobalState } from "./Context/Context";
 import Kai from "./Pages/DockMahasiswa/Kai";
 import Hmj from "./Pages/DockMahasiswa/Hmj";
-import KompetisiGame from "./Pages/DockMahasiswa/KompetisiGame";
 import Magang from "./Pages/DockMahasiswa/Magang";
 import Makrab from "./Pages/DockMahasiswa/Makrab";
 import Seminar from "./Pages/DockMahasiswa/Seminar";
@@ -32,6 +31,7 @@ import Kebijakan from "./Pages/DokumenIntiPenjaminanMutu/Kebijakan";
 import { ChakraProvider } from "@chakra-ui/react";
 import DocumentLppm from "./Pages/lppm/documentLppm";
 import PengajuanProposal from "./Pages/lppm/pengajuanProposal";
+import Prestasi from "./Pages/DocJurusan/Prestasi";
 
 const App = () => {
   const { globalState } = useContext(GlobalState);
@@ -110,10 +110,6 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/dokumentasi-mahasiswa/kai" element={<Kai />} />
           <Route path="/dokumentasi-mahasiswa/hmj" element={<Hmj />} />
-          <Route
-            path="/dokumentasi-mahasiswa/kompetisi-game"
-            element={<KompetisiGame />}
-          />
           <Route path="/dokumentasi-mahasiswa/magang" element={<Magang />} />
           <Route path="/dokumentasi-mahasiswa/makrab" element={<Makrab />} />
           <Route path="/dokumentasi-mahasiswa/seminar" element={<Seminar />} />
@@ -135,6 +131,10 @@ const App = () => {
           <Route
             path="/dokumentasi-jurusan/karya-mahasiswa"
             element={<KaryaMahasiswa />}
+          />
+          <Route
+            path="/dokumentasi-jurusan/prestasi"
+            element={<Prestasi />}
           />
           <Route path="/pendukung-akreditasi" element={<DocAkreditasi />} />
           <Route path="/sarana-prasarana" element={<SaranaPrasaranaImage />} />
