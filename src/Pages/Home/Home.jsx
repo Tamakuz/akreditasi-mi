@@ -130,7 +130,7 @@ const Home = () => {
   return (
     <Layout>
       <>
-        <Flex className="relative w-full lg:h-[400px] md:pt-0">
+        <Flex className="overflow-hidden relative w-full lg:h-[400px] md:pt-0">
           <Swiper
             centeredSlides={true}
             autoplay={{

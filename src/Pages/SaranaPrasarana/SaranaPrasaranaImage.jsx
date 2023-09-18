@@ -99,28 +99,23 @@ const saranaPrasarana = [
     tugasAkhir: [
       {
         tahun: 2019,
-        link: [
-          "https://bit.ly/TUGASAKHIRMI19",
-        ],
+        link: ["https://bit.ly/TUGASAKHIRMI19"],
       },
       {
         tahun: 2020,
-        link: [
-          "https://bit.ly/TUGASAKHIRMI20",
-        ],
+        link: ["https://bit.ly/TUGASAKHIRMI20"],
       },
       {
         tahun: 2021,
-        link: [
-          "https://bit.ly/TUGASAKHIRMI21",
-        ],
+        link: ["https://bit.ly/TUGASAKHIRMI21"],
       },
       {
         tahun: 2022,
-        link: [
-          "https://bit.ly/TUGASAKHIRMI22",
-        ],
+        link: ["https://bit.ly/TUGASAKHIRMI22"],
       },
+    ],
+    linkKoleksiBuku: [
+      "https://docs.google.com/spreadsheets/d/1zGSNEty6hOV18NiZMQkNFODVwlyxnfnEFSBNinmaTVY/edit?usp=sharing",
     ],
   },
   {
@@ -260,6 +255,23 @@ const SaranaPrasaranaImage = () => {
                       />
                     </Stack>
                   ))}
+                  {selectedSarana.linkKoleksiBuku && (
+                    <Stack className="gap-3">
+                      <Text className="text-2xl font-semibold">
+                        Link Koleksi Buku
+                      </Text>
+                      {selectedSarana.linkKoleksiBuku.map((ta, index) => (
+                        <Link
+                          key={index}
+                          href={ta}
+                          isExternal
+                          className="flex items-center hover:text-blue-500"
+                        >
+                          {ta} <FiExternalLink />
+                        </Link>
+                      ))}
+                    </Stack>
+                  )}
                   {selectedSarana.tugasAkhir && (
                     <Stack className="gap-3">
                       <Text className="text-2xl font-semibold">
