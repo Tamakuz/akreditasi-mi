@@ -267,7 +267,6 @@ const Medsos = [
 
 const Nav = () => {
   const { globalState } = useContext(GlobalState);
-  const pageName = globalState.page;
   const { page, subPage } = globalState.page;
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState(null);
@@ -356,9 +355,13 @@ const Nav = () => {
               })}
             </Flex>
             <Flex>
-              <Switch
-                isChecked={colorMode === "dark"}
-                onChange={toggleColorMode}
+              <IconButton
+              variant={"ghost"}
+                aria-label="Toggle dark mode"
+                icon={
+                  colorMode === "dark" ? <MdOutlineLightMode /> : <MdDarkMode />
+                }
+                onClick={toggleColorMode}
               />
             </Flex>
           </Flex>
@@ -443,9 +446,7 @@ const Nav = () => {
         {/* Desktop view */}
         <Flex
           className={`w-full py-3 px-3 hidden lg:flex xl:gap-5 gap-2 justify-center ${
-            colorMode === "dark"
-              ? "bg-secondaryGray-900"
-              : "bg-blue-400"
+            colorMode === "dark" ? "bg-secondaryGray-900" : "bg-blue-400"
           }`}
         >
           {menus.map((menu, index) =>

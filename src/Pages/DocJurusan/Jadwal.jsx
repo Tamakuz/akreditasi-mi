@@ -1,41 +1,15 @@
 import { useContext, useEffect } from "react";
 import Layout from "../../Components/Layout";
 import { GlobalState } from "../../Context/Context";
-import Calendar from "react-calendar";
-import elitaLink from "../../Assets/elita-link.png";
-import edlinkLink from "../../Assets/edlink-link.png";
-import siakadLink from "../../Assets/siakad-link.png";
-import sisterLink from "../../Assets/sister-link.png";
-import { FiLink } from "react-icons/fi";
-import { BiLogoReact } from "react-icons/bi";
-import miPagi from "../../Assets/jadwal/mi-pagi.jpg";
-import miSore from "../../Assets/jadwal/mi-sore.jpg";
+import mipagi1 from "../../Assets/jadwal/mipagi-1.jpg"
+import mipagi2 from "../../Assets/jadwal/mipagi-2.jpg"
+import mipagi3 from "../../Assets/jadwal/mipagi-3.jpg"
+import misore1 from "../../Assets/jadwal/misore-1.jpg"
+import misore2 from "../../Assets/jadwal/misore-2.jpg"
 
 import "react-calendar/dist/Calendar.css";
 import LayoutTamplate from "../../Components/LayoutTamplate";
-
-const refrention = [
-  {
-    img: elitaLink,
-    desc: "Elita",
-    link: "http://kuliah.politama.ac.id/",
-  },
-  {
-    img: edlinkLink,
-    desc: "EdLink",
-    link: "https://edlink.id/",
-  },
-  {
-    img: siakadLink,
-    desc: "Siakad",
-    link: "https://siakad.politama.ac.id/index.php/login",
-  },
-  {
-    img: sisterLink,
-    desc: "Sister",
-    link: "http://sister.politama.ac.id/dashboard/",
-  },
-];
+import { Img, Stack } from "@chakra-ui/react";
 
 const Jadwal = () => {
   const { dispatch } = useContext(GlobalState);
@@ -50,10 +24,13 @@ const Jadwal = () => {
   return (
     <Layout>
       <LayoutTamplate titleHeader={"Jadwa D3 Manajemen Informatika"}>
-        <div className="flex flex-col gap-10">
-          <img src={miPagi} alt="miPagi" />
-          <img src={miSore} alt="miSore" />
-        </div>
+        <Stack className="gap-10 w-full px-10">
+          <Img src={mipagi1} />
+          <Img src={mipagi2} />
+          <Img src={mipagi3} />
+          <Img src={misore1} />
+          <Img src={misore2} />
+        </Stack>
       </LayoutTamplate>
     </Layout>
   );

@@ -32,8 +32,8 @@ const DocAkreditasi = () => {
         }`}
       >
         <Bab1 />
-        <Bab2 />
-        <Bab3 />
+        {/* <Bab2 />
+        <Bab3 /> */}
       </Flex>
     </Layout>
   );
