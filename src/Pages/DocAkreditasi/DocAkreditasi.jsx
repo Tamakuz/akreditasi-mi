@@ -1,8 +1,6 @@
 import { Box, Flex, Text, useColorMode } from "@chakra-ui/react";
 import Layout from "../../Components/Layout";
 import Bab1 from "../../Components/akreditasi/bab1";
-import Bab2 from "../../Components/akreditasi/bab2";
-import Bab3 from "../../Components/akreditasi/bab3";
 import { GlobalState } from "../../Context/Context";
 import { useContext, useEffect } from "react";
 
