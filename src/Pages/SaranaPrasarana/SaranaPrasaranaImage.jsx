@@ -86,10 +86,6 @@ import { FiExternalLink } from "react-icons/fi";
 
 const saranaPrasarana = [
   {
-    nama: "Toilet",
-    path: [imageToilet],
-  },
-  {
     nama: "Ruang Teori",
     path: [imageRuangTeori1, imageRuangTeori2],
   },
@@ -123,10 +119,6 @@ const saranaPrasarana = [
     path: [imageParkiranTamu1, imageParkiranTamu2],
   },
   {
-    nama: "Parkiran Motor Dosen",
-    path: [imageParkiranMotorDosen],
-  },
-  {
     nama: "Parkiran Mobil Dosen",
     path: [imageParkiranMobilDosen],
   },
@@ -143,24 +135,8 @@ const saranaPrasarana = [
     path: [imageKoperasi],
   },
   {
-    nama: "BEM",
-    path: [imageBem],
-  },
-  {
-    nama: "BLM",
-    path: [imageBlm],
-  },
-  {
-    nama: "FKUI",
-    path: [imageFkui],
-  },
-  {
     nama: "Kantin",
     path: [imageKantin],
-  },
-  {
-    nama: "KSR",
-    path: [imageKsr],
   },
   {
     nama: "Maliapala",
@@ -169,18 +145,6 @@ const saranaPrasarana = [
   {
     nama: "Masjid",
     path: [imageMasjid],
-  },
-  {
-    nama: "Ordani",
-    path: [imageOrdani],
-  },
-  {
-    nama: "PMK",
-    path: [imagePmk],
-  },
-  {
-    nama: "Radio",
-    path: [imageRadio],
   },
   {
     nama: "Teater",

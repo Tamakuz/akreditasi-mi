@@ -4,9 +4,10 @@ import Qa from "./QA/Qa"
 import ScrollToTop from "./ScrollToTop"
 import CookieAcc from './CookieAcc'
 
+// eslint-disable-next-line react/prop-types
 function Layout({children}) {
   return (
-    <div>
+    <div className="overflow-hidden">
       <header>
         <Nav />
       </header>

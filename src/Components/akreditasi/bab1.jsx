@@ -8,7 +8,6 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react";
-import React from "react";
 import C from "./bab1/c";
 import TamplateAkreditasi from "./bab1/tamplate";
 import D from "./bab1/d";
@@ -16,7 +15,7 @@ import D from "./bab1/d";
 const Bab1 = () => {
   const { colorMode } = useColorMode();
   return (
-    <Accordion allowMultiple>
+    <Accordion allowMultiple className="mb-[100vh]">
       <AccordionItem
         className={`${
           colorMode === "dark" ? "bg-secondaryGray-900" : "bg-secondaryGray-300"
