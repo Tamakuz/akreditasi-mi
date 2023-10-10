@@ -32,6 +32,7 @@ const refrention = [
   },
 ];
 
+// eslint-disable-next-line react/prop-types
 const LayoutTamplate = ({ titleHeader, children }) => {
   const {colorMode} = useColorMode()
   return (
@@ -74,7 +75,7 @@ const LayoutTamplate = ({ titleHeader, children }) => {
                     <a
                       href={ref.link}
                       target="_blank"
-                      className="bg-green-300 px-2 py-2 rounded w-[80px] h-[80px] flex flex-col justify-center items-center"
+                      className="bg-green-300 px-2 py-2 rounded w-[80px] h-[80px] flex flex-col justify-center items-center" rel="noreferrer"
                     >
                       <FiLink className="text-3xl text-gray-700" />
                       <p className="text-xs">{ref.desc}</p>

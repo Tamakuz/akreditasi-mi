@@ -154,7 +154,7 @@ const InformasiMahasiswa = () => {
                 colorMode === "dark"
                   ? "bg-secondaryGray-900"
                   : "bg-secondaryGray-300"
-              } rounded-xl`}
+              } rounded-xl mt-5`}
             >
               <Box className="px-10 py-3">
                 <h1 className="text-[27px] font-semibold">Alumni {year}</h1>
