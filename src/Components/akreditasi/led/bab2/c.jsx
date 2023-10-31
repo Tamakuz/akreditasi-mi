@@ -148,14 +148,12 @@ const C = () => {
                   <AccordionIcon />
                 </AccordionButton>
                 <AccordionPanel pb={4}>
-                  <Accordion >
+                  <Accordion>
                     {SubDataC.map((sub, index) => (
                       <AccordionItem
-                      key={index}
+                        key={index}
                         className={`${
-                          colorMode === "dark"
-                            ? "bg-brandTabs-900"
-                            : "bg-white"
+                          colorMode === "dark" ? "bg-brandTabs-900" : "bg-white"
                         } border-none rounded-xl mb-2 shadow`}
                       >
                         <AccordionButton>

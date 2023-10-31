@@ -14,27 +14,11 @@ import { Collapse } from "antd";
 import Timer from "./timer/Timer";
 import {
   IconButton,
-  Accordion,
-  AccordionButton,
-  AccordionItem,
-  AccordionPanel,
-  Avatar,
   Box,
   Image,
   Heading,
   Button,
-  Breadcrumb,
-  BreadcrumbItem,
-  Center,
-  Divider,
   Flex,
-  List,
-  ListIcon,
-  ListItem,
-  Menu,
-  MenuButton,
-  MenuList,
-  Switch,
   Text,
   Popover,
   useColorMode,
@@ -54,15 +38,10 @@ import {
   FaGavel,
   FaFlask,
   FaHandshake,
-  FaBookOpen,
-  FaShieldAlt,
-  FaMapSigns,
-  FaClipboardList,
   FaBriefcase,
   FaUsers,
   FaChalkboardTeacher,
   FaLaptop,
-  FaGamepad,
   FaTrain,
   FaUsersCog,
   FaFileDownload,
@@ -109,7 +88,18 @@ const menus = [
   },
   {
     page: "Pendukung akreditasi",
-    path: "/pendukung-akreditasi",
+    subMenus: [
+      {
+        subPage: "LKPS",
+        path: "/pendukung-akreditasi/lkps",
+        //! NEED ICON
+      },
+      {
+        subPage: "LED",
+        path: "/pendukung-akreditasi/led",
+        //! NEED ICON
+      },
+    ],
   },
   {
     page: "Sarana prasarana",

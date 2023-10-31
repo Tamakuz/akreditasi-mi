@@ -15,7 +15,7 @@ import {
 import { useGetData } from "../../../../hooks/apiMethod";
 import { BsFiletypeDoc, BsFillFolderFill } from "react-icons/bs";
 
-const CTamplate = ({ endpoint, title }) => {
+const TamplateAkreditasi = ({ endpoint, title }) => {
   const { colorMode } = useColorMode();
   const apiUrl = `https://knowledgeable-painted-guarantee.glitch.me/${endpoint}`;
   const { datas, isLoading, refetchData } = useGetData(apiUrl);
@@ -25,7 +25,7 @@ const CTamplate = ({ endpoint, title }) => {
       <Box
         className={`${
           colorMode === "dark" ? "bg-brandTabs-900" : "bg-white"
-        } rounded-xl`}
+        } p-5 rounded-xl shadow`}
       >
         <Flex className="items-center justify-between">
           <Text className="text-xl font-semibold">{title}</Text>
@@ -69,4 +69,4 @@ const CTamplate = ({ endpoint, title }) => {
   );
 };
 
-export default CTamplate;
+export default TamplateAkreditasi;

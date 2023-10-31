@@ -15,7 +15,7 @@ const DataD = [
   {
     title: "Suplemen Akreditasi Program Studi Diploma Sistem Indormasi",
     endpoint: "d1",
-  }
+  },
 ];
 
 const D = () => {

@@ -8,14 +8,11 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react";
-import C from "./bab1/c";
-import TamplateAkreditasi from "./bab1/tamplate";
-import D from "./bab1/d";
 
-const Bab1 = () => {
+const IdentitasTimPenyusunLkps = () => {
   const { colorMode } = useColorMode();
   return (
-    <Accordion allowMultiple className="mb-[100vh]">
+    <Accordion allowMultiple>
       <AccordionItem
         className={`${
           colorMode === "dark" ? "bg-secondaryGray-900" : "bg-secondaryGray-300"
@@ -24,29 +21,17 @@ const Bab1 = () => {
         <Text>
           <AccordionButton className="text-xl py-3">
             <Box as="span" flex="1" textAlign="left">
-              Bab 1 Elemen Akreditasi
+              Identitas Tim Penyusun LKPS
             </Box>
             <AccordionIcon />
           </AccordionButton>
         </Text>
         <AccordionPanel pb={3} className="flex flex-col gap-2">
-          <TamplateAkreditasi endpoint={"a"} title={"A. Kondisi Ekternal"} />
-          <TamplateAkreditasi
-            endpoint={"b"}
-            title={"B. Profit Unit Pengelola Program Studi"}
-          />
-          <C />
-          <D />
-          <TamplateAkreditasi
-            endpoint={"e"}
-            title={
-              "E. Analisis dan Penetapan Program Pengembangan Unit Pengelola"
-            }
-          />
+          {/* NEED DATA */}
         </AccordionPanel>
       </AccordionItem>
     </Accordion>
   );
 };
 
-export default Bab1;
+export default IdentitasTimPenyusunLkps;

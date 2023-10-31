@@ -1,6 +1,7 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home/Home";
-import DocAkreditasi from "./Pages/DocAkreditasi/DocAkreditasi";
+import Led from "./Pages/DocAkreditasi/Led";
+import Lkps from "./Pages/DocAkreditasi/Lkps";
 import InformasiDosen from "./Pages/InformasiDosen";
 import InformasiMahasiswa from "./Pages/InformasiMahasiswa";
 import { useContext, useEffect, useState } from "react";
@@ -35,22 +36,9 @@ import Prestasi from "./Pages/DocJurusan/Prestasi";
 
 const App = () => {
   const { globalState } = useContext(GlobalState);
-  const [visitorId, setVisitorId] = useState(null);
   const [totalVisitors, setTotalVisitors] = useState(0);
-  const [uniqueVisitors, setUniqueVisitors] = useState(0);
 
   useEffect(() => {
-    const getVisitorId = () => {
-      const existingVisitorId = localStorage.getItem("visitorId");
-      if (existingVisitorId) {
-        return existingVisitorId;
-      } else {
-        const newVisitorId = Math.random().toString(36).substr(2, 9);
-        localStorage.setItem("visitorId", newVisitorId);
-        return newVisitorId;
-      }
-    };
-
     const resetVisitorId = () => {
       const newVisitorId = Math.random().toString(36).substr(2, 9);
       const previousVisitorIds = localStorage.getItem("previousVisitorIds");
@@ -84,8 +72,6 @@ const App = () => {
     setTotalVisitors(
       parseInt(localStorage.getItem("totalVisitors")) || allVisitorIds.length
     );
-    setUniqueVisitors(new Set(allVisitorIds).size);
-    setVisitorId(getVisitorId());
 
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
@@ -132,11 +118,9 @@ const App = () => {
             path="/dokumentasi-jurusan/karya-mahasiswa"
             element={<KaryaMahasiswa />}
           />
-          <Route
-            path="/dokumentasi-jurusan/prestasi"
-            element={<Prestasi />}
-          />
-          <Route path="/pendukung-akreditasi" element={<DocAkreditasi />} />
+          <Route path="/dokumentasi-jurusan/prestasi" element={<Prestasi />} />
+          <Route path="/pendukung-akreditasi/led" element={<Led />} />
+          <Route path="/pendukung-akreditasi/lkps" element={<Lkps />} />
           <Route path="/sarana-prasarana" element={<SaranaPrasaranaImage />} />
           <Route path="/informasi-dosen" element={<InformasiDosen />} />
           <Route path="/informasi-mahasiswa" element={<InformasiMahasiswa />} />
@@ -164,7 +148,10 @@ const App = () => {
             element={<Standart />}
           />
           <Route path="/lppm/dokumen" element={<DocumentLppm />} />
-          <Route path="/lppm/pengajuan-proposal" element={<PengajuanProposal />} />
+          <Route
+            path="/lppm/pengajuan-proposal"
+            element={<PengajuanProposal />}
+          />
         </Routes>
       </HashRouter>
     </ChakraProvider>
