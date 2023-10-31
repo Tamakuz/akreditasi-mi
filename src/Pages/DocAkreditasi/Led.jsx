@@ -1,18 +1,21 @@
 import { Box, Flex, Text, useColorMode } from "@chakra-ui/react";
 import Layout from "../../Components/Layout";
-import Bab1 from "../../Components/akreditasi/bab1";
 import { GlobalState } from "../../Context/Context";
 import { useContext, useEffect } from "react";
+import Bab1 from "../../Components/akreditasi/led/bab1";
+import Bab2 from "../../Components/akreditasi/led/bab2";
 
-const DocAkreditasi = () => {
+const Led = () => {
   const { dispatch } = useContext(GlobalState);
   const { colorMode } = useColorMode();
+
   useEffect(() => {
     dispatch({
       type: "UPDATE_PAGE",
-      payload: { page: "Pendukung akreditasi" },
+      payload: { page: "Pendukung Akreditasi", subPage: "LED" },
     });
   }, []);
+
   return (
     <Layout>
       <Box
@@ -21,7 +24,7 @@ const DocAkreditasi = () => {
         }`}
       >
         <Text className="text-2xl font-semibold">
-          Data Pendukung Akreditasi Manajemen Informatika
+          Data Pendukung Akreditasi LED
         </Text>
       </Box>
       <Flex
@@ -30,11 +33,10 @@ const DocAkreditasi = () => {
         }`}
       >
         <Bab1 />
-        {/* <Bab2 />
-        <Bab3 /> */}
+        <Bab2 />
       </Flex>
     </Layout>
   );
 };
 
-export default DocAkreditasi;
+export default Led;

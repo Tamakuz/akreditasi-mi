@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Layout from "../../Components/Layout";
 import LayoutTamplate from "../../Components/LayoutTamplate";
 import { GlobalState } from "../../Context/Context";
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Text } from "@chakra-ui/react";
 import PengabdianLppm from "../../Components/lppm/PengabdianLppm";
 import PenelitianLppm from "../../Components/lppm/PenelitianLppm";
 import JurnalLppm from "../../Components/lppm/Jurnal";
@@ -60,7 +60,7 @@ const dataButton = [
 
 const DocumentLppm = () => {
   const { dispatch } = useContext(GlobalState);
-  const [titleCompoonent, setTitleComponent] = useState("Dokumen Penelitian")
+  const [titleCompoonent, setTitleComponent] = useState("Dokumen Penelitian");
   const [component, setComponent] = useState(<PenelitianLppm />);
 
   useEffect(() => {
@@ -81,7 +81,7 @@ const DocumentLppm = () => {
                 colorScheme="blue"
                 key={index}
                 onClick={() => {
-                  setTitleComponent(btn.title)
+                  setTitleComponent(btn.title);
                   setComponent(btn.component);
                 }}
               >
@@ -90,7 +90,9 @@ const DocumentLppm = () => {
             ))}
           </Flex>
           <Flex className="flex-col gap-5">
-            <Text className="text-center text-3xl font-bold">{titleCompoonent}</Text>
+            <Text className="text-center text-3xl font-bold">
+              {titleCompoonent}
+            </Text>
             {component}
           </Flex>
         </Flex>
