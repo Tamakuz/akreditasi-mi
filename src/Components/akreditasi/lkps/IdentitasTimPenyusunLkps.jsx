@@ -8,6 +8,7 @@ import {
   Text,
   useColorMode,
 } from "@chakra-ui/react";
+import TamplateAkreditasi from "./pointLkps/template";
 
 const IdentitasTimPenyusunLkps = () => {
   const { colorMode } = useColorMode();
@@ -15,19 +16,19 @@ const IdentitasTimPenyusunLkps = () => {
     <Accordion allowMultiple>
       <AccordionItem
         className={`${
-          colorMode === "dark" ? "bg-secondaryGray-900" : "bg-secondaryGray-300"
-        } border-none rounded-xl`}
+          colorMode === "dark" ? "bg-secondaryGray-900" : "bg-white"
+        } border-none rounded-xl shadow p-3`}
       >
         <Text>
           <AccordionButton className="text-xl py-3">
-            <Box as="span" flex="1" textAlign="left">
+            <Box as="span" flex="1" textAlign="left" className="font-semibold">
               Identitas Tim Penyusun LKPS
             </Box>
             <AccordionIcon />
           </AccordionButton>
         </Text>
         <AccordionPanel pb={3} className="flex flex-col gap-2">
-          {/* NEED DATA */}
+          <TamplateAkreditasi endpoint={"identitas-tim-penyusun"} />
         </AccordionPanel>
       </AccordionItem>
     </Accordion>

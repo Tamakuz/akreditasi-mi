@@ -33,9 +33,9 @@ const Lkps = () => {
           colorMode === "dark" ? "bg-brandTabs-900" : "bg-blue-50"
         }`}
       >
-        <PointLkps />
-        <IdentitasTimPenyusunLkps />
         <IdentitasPengusul />
+        <IdentitasTimPenyusunLkps />
+        <PointLkps />
       </Flex>
     </Layout>
   );
