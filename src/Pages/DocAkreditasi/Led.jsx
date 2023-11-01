@@ -4,6 +4,8 @@ import { GlobalState } from "../../Context/Context";
 import { useContext, useEffect } from "react";
 import Bab1 from "../../Components/akreditasi/led/bab1";
 import Bab2 from "../../Components/akreditasi/led/bab2";
+import TamplateAkreditasi from "../../Components/akreditasi/led/bab2/tamplate";
+import TamplatePengusulLed from "../../Components/akreditasi/led/bab2/Component/tamplatePengusulLed";
 
 const Led = () => {
   const { dispatch } = useContext(GlobalState);
@@ -32,6 +34,7 @@ const Led = () => {
           colorMode === "dark" ? "bg-brandTabs-900" : "bg-blue-50"
         }`}
       >
+        <TamplatePengusulLed endpoint={"identitas-pengusul-led"} title={"Identitas Pengusul"} />
         <Bab1 />
         <Bab2 />
       </Flex>
