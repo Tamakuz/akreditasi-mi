@@ -1,8 +1,16 @@
-# React + Vite
+## Akreditasi Manajemen Informatika
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Web Akreditasi adalah website yang digunakan untuk proses akreditasi program studi manajemen informatika. Website ini menyediakan berbagai fitur yang dapat digunakan oleh program studi, asesor, dan pihak-pihak terkait untuk mendukung proses akreditasi.
 
-Currently, two official plugins are available:
+## Tujuan dari Web Akreditasi adalah untuk:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Meningkatkan efisiensi dan efektivitas proses akreditasi
+- Menyediakan data dan informasi yang akurat dan terintegrasi
+- Meningkatkan transparansi dan akuntabilitas proses akreditasi
+
+## Fitur
+
+- Pengumpulan dokumen akreditasi
+- Penilaian dokumen akreditasi
+- Penetapan status akreditasi
+- dll
