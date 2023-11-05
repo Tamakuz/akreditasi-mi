@@ -1,6 +1,6 @@
 ## Akreditasi Manajemen Informatika
 
-Web Akreditasi adalah website yang digunakan untuk proses akreditasi program studi manajemen informatika. Website ini menyediakan berbagai fitur yang dapat digunakan oleh program studi, asesor, dan pihak-pihak terkait untuk mendukung proses akreditasi.
+Web Akreditasi adalah website sistem informasi yang digunakan untuk proses akreditasi program studi manajemen informatika. Website ini menyediakan berbagai fitur yang dapat digunakan oleh program studi, asesor, dan pihak-pihak terkait untuk mendukung proses akreditasi.
 
 ## Tujuan dari Web Akreditasi adalah untuk:
 
